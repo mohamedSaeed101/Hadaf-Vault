@@ -1,0 +1,10 @@
+tbl|rows_|chk|minId|maxId|unpaid|identCurrent
+---|-----|---|-----|-----|------|------------
+Pr_PayingSalaries|1|-1623255815|2|2|0|2
+Pr_PayingSalariesDetail|75|1092483034|15|89|0|89
+PR_Employee|88|27904|0|0|NULL|NULL
+PR_Salaries|163|-1926267357|0|NULL|NULL|NULL
+PR_SalaryDetail|3055|1309897707|0|NULL|NULL|NULL
+trancount
+---------
+0

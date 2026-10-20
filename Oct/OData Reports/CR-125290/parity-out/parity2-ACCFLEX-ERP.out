@@ -1,0 +1,320 @@
+tag|Name|column_ordinal|name|system_type_name
+---|----|--------------|----|----------------
+META|R1_DIM|1|CostCenterNo|nvarchar(20)
+META|R1_DIM|2|CostCenterName|nvarchar(300)
+META|R1_DIM|3|AccountTypeName|nvarchar(50)
+META|R1_DIM|4|AccountTypeNameArabic|nvarchar(50)
+META|R1_DIM|5|PeriodBalance|money
+META|R1_DIM|6|PeriodBudget|money
+META|R1_DIM|7|BudgetDiff|money
+META|R1_DIM|8|LastBalance|money
+META|R1_DIM|9|LastBalanceDiff|money
+META|R1_DIM|10|YearToPeriodBalance|money
+META|R1_DIM|11|YearToPeriodBudget|money
+META|R1_DIM|12|YearToPeriodBudgetDiff|money
+META|R1_DIM|13|LastYearToPeriodBalance|money
+META|R1_DIM|14|LastYearToPeriodBalanceDiff|money
+META|R1_DIM|15|CostCenterId|int
+META|R1_DIM|16|AccountTypeId|int
+META|R1_DIM|17|CalculatedPeriodBalance|money
+META|R1_DIM|18|CalculatedPeriodBudget|money
+META|R1_DIM|19|CalBudgetDiff|money
+META|R1_DIM|20|CalLastBalance|money
+META|R1_DIM|21|CalLastBalanceDiff|money
+META|R1_DIM|22|CalYearToPeriodBalance|money
+META|R1_DIM|23|CalYearToPeriodBudget|money
+META|R1_DIM|24|CalYearToPeriodBudgetDiff|money
+META|R1_DIM|25|CalLastYearToPeriodBalance|money
+META|R1_DIM|26|CasLastYearToPeriodBalanceDiff|money
+META|R1_N|1|RowNo|bigint
+META|R1_N|2|SortOrder|int
+META|R1_N|3|RowType|nvarchar(30)
+META|R1_N|4|DimensionId|int
+META|R1_N|5|DimensionNo|nvarchar(50)
+META|R1_N|6|DimensionName|nvarchar(300)
+META|R1_N|7|AccountTypeId|int
+META|R1_N|8|AccountTypeName|nvarchar(50)
+META|R1_N|9|AccountTypeNameArabic|nvarchar(50)
+META|R1_N|10|PeriodBalance|decimal(19,4)
+META|R1_N|11|PeriodBudget|decimal(19,4)
+META|R1_N|12|BudgetDiff|decimal(19,4)
+META|R1_N|13|LastBalance|decimal(19,4)
+META|R1_N|14|LastBalanceDiff|decimal(19,4)
+META|R1_N|15|YearToPeriodBalance|decimal(19,4)
+META|R1_N|16|YearToPeriodBudget|decimal(19,4)
+META|R1_N|17|YearToPeriodBudgetDiff|decimal(19,4)
+META|R1_N|18|LastYearToPeriodBalance|decimal(19,4)
+META|R1_N|19|LastYearToPeriodBalanceDiff|decimal(19,4)
+META|R12_IS|1|AccountTypeId|int
+META|R12_IS|2|AccountTypeName|nvarchar(50)
+META|R12_IS|3|AccountTypeNameArabic|nvarchar(50)
+META|R12_IS|4|PeriodBalance|money
+META|R12_IS|5|CalPeriodBalance|money
+META|R12_IS|6|PeriodBudget|money
+META|R12_IS|7|CalPeriodBudget|money
+META|R12_IS|8|BudgetDiff|money
+META|R12_IS|9|CalBudgetDiff|money
+META|R12_IS|10|LastBalance|money
+META|R12_IS|11|CalLastBalance|money
+META|R12_IS|12|LastBalanceDiff|money
+META|R12_IS|13|CalLastBalanceDiff|money
+META|R12_IS|14|YearToPeriodBalance|money
+META|R12_IS|15|CalYearToPeriodBalance|money
+META|R12_IS|16|YearToPeriodBudget|money
+META|R12_IS|17|CalYearToPeriodBudget|money
+META|R12_IS|18|YearToPeriodBudgetDiff|money
+META|R12_IS|19|CalYearToPeriodBudgetDiff|money
+META|R12_IS|20|LastYearToPeriodBalance|money
+META|R12_IS|21|CalLastYearToPeriodBalance|money
+META|R12_IS|22|LastYearToPeriodBalanceDiff|money
+META|R12_IS|23|CalLastYearToPeriodBalanceDiff|money
+META|R2_DIM|1|BranchCode|nvarchar(50)
+META|R2_DIM|2|BranchName|nvarchar(500)
+META|R2_DIM|3|AccountTypeName|nvarchar(50)
+META|R2_DIM|4|AccountTypeNameArabic|nvarchar(50)
+META|R2_DIM|5|PeriodBalance|money
+META|R2_DIM|6|PeriodBudget|money
+META|R2_DIM|7|BudgetDiff|money
+META|R2_DIM|8|LastBalance|money
+META|R2_DIM|9|LastBalanceDiff|money
+META|R2_DIM|10|YearToPeriodBalance|money
+META|R2_DIM|11|YearToPeriodBudget|money
+META|R2_DIM|12|YearToPeriodBudgetDiff|money
+META|R2_DIM|13|LastYearToPeriodBalance|money
+META|R2_DIM|14|LastYearToPeriodBalanceDiff|money
+META|R2_DIM|15|BranchId|int
+META|R2_DIM|16|AccountTypeId|int
+META|R2_DIM|17|CalculatedPeriodBalance|money
+META|R2_DIM|18|CalculatedPeriodBudget|money
+META|R2_DIM|19|CalBudgetDiff|money
+META|R2_DIM|20|CalLastBalance|money
+META|R2_DIM|21|CalLastBalanceDiff|money
+META|R2_DIM|22|CalYearToPeriodBalance|money
+META|R2_DIM|23|CalYearToPeriodBudget|money
+META|R2_DIM|24|CalYearToPeriodBudgetDiff|money
+META|R2_DIM|25|CalLastYearToPeriodBalance|money
+META|R2_DIM|26|CasLastYearToPeriodBalanceDiff|money
+META|R2_N|1|RowNo|bigint
+META|R2_N|2|SortOrder|int
+META|R2_N|3|RowType|nvarchar(30)
+META|R2_N|4|DimensionId|int
+META|R2_N|5|DimensionNo|nvarchar(50)
+META|R2_N|6|DimensionName|nvarchar(500)
+META|R2_N|7|AccountTypeId|int
+META|R2_N|8|AccountTypeName|nvarchar(50)
+META|R2_N|9|AccountTypeNameArabic|nvarchar(50)
+META|R2_N|10|PeriodBalance|decimal(19,4)
+META|R2_N|11|PeriodBudget|decimal(19,4)
+META|R2_N|12|BudgetDiff|decimal(19,4)
+META|R2_N|13|LastBalance|decimal(19,4)
+META|R2_N|14|LastBalanceDiff|decimal(19,4)
+META|R2_N|15|YearToPeriodBalance|decimal(19,4)
+META|R2_N|16|YearToPeriodBudget|decimal(19,4)
+META|R2_N|17|YearToPeriodBudgetDiff|decimal(19,4)
+META|R2_N|18|LastYearToPeriodBalance|decimal(19,4)
+META|R2_N|19|LastYearToPeriodBalanceDiff|decimal(19,4)
+META|R3_DIM|1|CostCenterNo|nvarchar(20)
+META|R3_DIM|2|CostCenterName|nvarchar(300)
+META|R3_DIM|3|CostCenterId|int
+META|R3_DIM|4|PeriodCredit|money
+META|R3_DIM|5|PeriodDebit|money
+META|R3_DIM|6|AccountTypeName|nvarchar(50)
+META|R3_DIM|7|AccountTypeNameArabic|nvarchar(50)
+META|R3_DIM|8|AccountTypeId|int
+META|R3_DIM|9|SubItemActualBalance|money
+META|R3_DIM|10|SubItemBudgetValueBalance|money
+META|R3_DIM|11|number|int
+META|R3_DIM|12|monthname|nvarchar(30)
+META|R3_N|1|RowNo|bigint
+META|R3_N|2|Section|nvarchar(20)
+META|R3_N|3|DimensionId|int
+META|R3_N|4|DimensionName|nvarchar(300)
+META|R3_N|5|AccountTypeId|int
+META|R3_N|6|AccountTypeName|nvarchar(50)
+META|R3_N|7|AccountTypeNameArabic|nvarchar(50)
+META|R3_N|8|MonthNo|int
+META|R3_N|9|MonthName|nvarchar(9)
+META|R3_N|10|MonthNameArabic|nvarchar(6)
+META|R3_N|11|Budget|decimal(19,4)
+META|R3_N|12|Actual|decimal(19,4)
+META|R3_SUM|1|AccountTypeId|int
+META|R3_SUM|2|AccountTypeName|nvarchar(50)
+META|R3_SUM|3|AccountTypeNameArabic|nvarchar(50)
+META|R3_SUM|4|PeriodCredit|money
+META|R3_SUM|5|PeriodDebit|money
+META|R3_SUM|6|BudgetValue|money
+META|R3_SUM|7|number|int
+META|R3_SUM|8|monthname|nvarchar(30)
+META|R3_SUM|9|AcutalValue|money
+META|R4_DIM|1|BranchCode|nvarchar(50)
+META|R4_DIM|2|BranchName|nvarchar(500)
+META|R4_DIM|3|BranchId|int
+META|R4_DIM|4|PeriodCredit|money
+META|R4_DIM|5|PeriodDebit|money
+META|R4_DIM|6|AccountTypeName|nvarchar(50)
+META|R4_DIM|7|AccountTypeNameArabic|nvarchar(50)
+META|R4_DIM|8|AccountTypeId|int
+META|R4_DIM|9|SubItemActualBalance|money
+META|R4_DIM|10|SubItemBudgetValueBalance|money
+META|R4_DIM|11|number|int
+META|R4_DIM|12|monthname|nvarchar(30)
+META|R4_N|1|RowNo|bigint
+META|R4_N|2|Section|nvarchar(20)
+META|R4_N|3|DimensionId|int
+META|R4_N|4|DimensionName|nvarchar(500)
+META|R4_N|5|AccountTypeId|int
+META|R4_N|6|AccountTypeName|nvarchar(50)
+META|R4_N|7|AccountTypeNameArabic|nvarchar(50)
+META|R4_N|8|MonthNo|int
+META|R4_N|9|MonthName|nvarchar(9)
+META|R4_N|10|MonthNameArabic|nvarchar(6)
+META|R4_N|11|Budget|decimal(19,4)
+META|R4_N|12|Actual|decimal(19,4)
+META|R4_SUM|1|AccountTypeId|int
+META|R4_SUM|2|AccountTypeName|nvarchar(50)
+META|R4_SUM|3|AccountTypeNameArabic|nvarchar(50)
+META|R4_SUM|4|PeriodCredit|money
+META|R4_SUM|5|PeriodDebit|money
+META|R4_SUM|6|BudgetValue|money
+META|R4_SUM|7|number|int
+META|R4_SUM|8|monthname|nvarchar(30)
+META|R4_SUM|9|AcutalValue|money
+META|R5_1|1|PeriodCredit|money
+META|R5_1|2|PeriodDebit|money
+META|R5_1|3|SubItemName|nvarchar(500)
+META|R5_1|4|SubItemBalance|money
+META|R5_1|5|MainItemName|nvarchar(100)
+META|R5_1|6|number|int
+META|R5_1|7|monthname|nvarchar(30)
+META|R5_2|1|PeriodCredit|money
+META|R5_2|2|PeriodDebit|money
+META|R5_2|3|SubItemName|nvarchar(500)
+META|R5_2|4|SubItemBalance|money
+META|R5_2|5|MainItemName|nvarchar(100)
+META|R5_2|6|number|int
+META|R5_2|7|monthname|nvarchar(30)
+META|R5_3|1|PeriodCredit|money
+META|R5_3|2|PeriodDebit|money
+META|R5_3|3|SubItemName|nvarchar(500)
+META|R5_3|4|SubItemBalance|money
+META|R5_3|5|MainItemName|nvarchar(100)
+META|R5_3|6|monthname|nvarchar(30)
+META|R5_3|7|number|int
+META|R5_4|1|PeriodCredit|money
+META|R5_4|2|PeriodDebit|money
+META|R5_4|3|SubItemName|nvarchar(500)
+META|R5_4|4|SubItemBalance|money
+META|R5_4|5|MainItemName|nvarchar(100)
+META|R5_4|6|monthname|nvarchar(30)
+META|R5_4|7|number|int
+META|R5_5|1|PeriodCredit|money
+META|R5_5|2|PeriodDebit|money
+META|R5_5|3|SubItemName|nvarchar(500)
+META|R5_5|4|SubItemBalance|money
+META|R5_5|5|MainItemName|nvarchar(100)
+META|R5_5|6|number|int
+META|R5_5|7|monthname|nvarchar(30)
+META|R5_6|1|PeriodCredit|money
+META|R5_6|2|PeriodDebit|money
+META|R5_6|3|SubItemName|nvarchar(500)
+META|R5_6|4|SubItemBalance|money
+META|R5_6|5|MainItemName|nvarchar(100)
+META|R5_6|6|monthname|nvarchar(30)
+META|R5_6|7|number|int
+META|R5_N|1|RowNo|bigint
+META|R5_N|2|RowType|nvarchar(30)
+META|R5_N|3|MainItemId|int
+META|R5_N|4|MainItemName|nvarchar(100)
+META|R5_N|5|MainItemNameArabic|nvarchar(100)
+META|R5_N|6|IncomeStatmentSubItemId|int
+META|R5_N|7|SubItemName|nvarchar(500)
+META|R5_N|8|OrderInReport|int
+META|R5_N|9|MonthNo|int
+META|R5_N|10|MonthName|nvarchar(9)
+META|R5_N|11|MonthNameArabic|nvarchar(6)
+META|R5_N|12|Balance|decimal(19,4)
+tag|CaseId|Report|CaseName|SP|FM|TM|FromD|ToD|Rev|JT|CC|BR|IsNegative|Syn
+---|------|------|--------|--|--|--|-----|---|---|--|--|--|----------|---
+CASES|1|R1|SP 3 (2023-03), all|3|NULL|NULL|NULL|NULL|NUL|NULL|NULL|NULL|0|0
+CASES|2|R1|SP 3 (2023-03), cc 28 (budget cc 28)|3|NULL|NULL|NULL|NULL|NUL|NULL|28|NULL|0|0
+CASES|3|R1|SP 1020 (2025-08), all|1020|NULL|NULL|NULL|NULL|NUL|NULL|NULL|NULL|0|0
+CASES|4|R2|SP 3 (2023-03), br 1026|3|NULL|NULL|NULL|NULL|NUL|NULL|NULL|1026|0|0
+CASES|5|R2|SP 1020 (2025-08), all|1020|NULL|NULL|NULL|NULL|NUL|NULL|NULL|NULL|0|0
+CASES|6|R3|2025 month=null (1..12), all|NULL|1|12|2025-01-01 00:00:00.000|2025-12-31 23:59:59.997|NUL|NULL|NULL|NULL|0|0
+CASES|7|R3|2024 month=true (1..6), cc 28|NULL|1|6|2024-01-01 00:00:00.000|2024-06-30 23:59:59.997|NUL|NULL|28|NULL|0|0
+CASES|8|R4|2025 month=null (1..12), br 1026|NULL|1|12|2025-01-01 00:00:00.000|2025-12-31 23:59:59.997|NUL|NULL|NULL|1026|0|0
+CASES|9|R4|2024 month=false (6..12), all|NULL|6|12|2024-06-01 00:00:00.000|2024-12-31 23:59:59.997|NUL|NULL|NULL|NULL|0|0
+CASES|10|R5|2025 month=null (1..12), all|NULL|0|12|2025-01-01 00:00:00.000|2025-12-31 23:59:59.997|NUL|NULL|NULL|NULL|0|0
+CASES|11|R5|2024 month=false (6..12), revised=true|NULL|0|12|2024-06-01 00:00:00.000|2024-12-31 23:59:59.997|1|NULL|NULL|NULL|0|0
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+tag|db|CaseId|Part|CaseName|RowsL|RowsN|LExceptN|NExceptL|DupLN|DupNL|Sums|RowNoViol|Result|Ms|SumsL|SumsN
+---|--|------|----|--------|-----|-----|--------|--------|-----|-----|----|---------|------|--|-----|-----
+SUMMARY|ACCFLEX-ERP|1|R1.AccountType|SP 3 (2023-03), all|0|0|0|0|0|0|eq|0|PASS|1479|;;;;;;;;;|;;;;;;;;;
+SUMMARY|ACCFLEX-ERP|1|R1.GOP|SP 3 (2023-03), all|0|0|0|0|0|0|eq|0|PASS|1479|;;;;;;;;;|;;;;;;;;;
+SUMMARY|ACCFLEX-ERP|1|R1.OtherAccountType|SP 3 (2023-03), all|5|5|0|0|0|0|eq|0|PASS|1479|0.0000;9000.0000;9000.0000;0.0000;0.0000;0.0000;32000.0000;32000.0000;0.0000;0.0000|0.0000;9000.0000;9000.0000;0.0000;0.0000;0.0000;32000.0000;32000.0000;0.0000;0.0000
+SUMMARY|ACCFLEX-ERP|1|R1.Totals|SP 3 (2023-03), all|2|2|0|0|0|0|eq|0|PASS|1479|0.0000;-9000.0000;-9000.0000;0.0000;0.0000;0.0000;-32000.0000;-32000.0000;0.0000;0.0000|0.0000;-9000.0000;-9000.0000;0.0000;0.0000;0.0000;-32000.0000;-32000.0000;0.0000;0.0000
+SUMMARY|ACCFLEX-ERP|2|R1.AccountType|SP 3 (2023-03), cc 28 (budget cc 28)|0|0|0|0|0|0|eq|0|PASS|121|;;;;;;;;;|;;;;;;;;;
+SUMMARY|ACCFLEX-ERP|2|R1.GOP|SP 3 (2023-03), cc 28 (budget cc 28)|0|0|0|0|0|0|eq|0|PASS|121|;;;;;;;;;|;;;;;;;;;
+SUMMARY|ACCFLEX-ERP|2|R1.OtherAccountType|SP 3 (2023-03), cc 28 (budget cc 28)|5|5|0|0|0|0|eq|0|PASS|121|0.0000;5000.0000;5000.0000;0.0000;0.0000;0.0000;22000.0000;22000.0000;0.0000;0.0000|0.0000;5000.0000;5000.0000;0.0000;0.0000;0.0000;22000.0000;22000.0000;0.0000;0.0000
+SUMMARY|ACCFLEX-ERP|2|R1.Totals|SP 3 (2023-03), cc 28 (budget cc 28)|2|2|0|0|0|0|eq|0|PASS|121|0.0000;-5000.0000;-5000.0000;0.0000;0.0000;0.0000;-22000.0000;-22000.0000;0.0000;0.0000|0.0000;-5000.0000;-5000.0000;0.0000;0.0000;0.0000;-22000.0000;-22000.0000;0.0000;0.0000
+SUMMARY|ACCFLEX-ERP|3|R1.AccountType|SP 1020 (2025-08), all|6|6|0|0|0|0|eq|0|PASS|189|5000.0000;0.0000;5000.0000;0.0000;5000.0000;92500.0000;0.0000;92500.0000;180509.0000;243009.0000|5000.0000;0.0000;5000.0000;0.0000;5000.0000;92500.0000;0.0000;92500.0000;180509.0000;243009.0000
+SUMMARY|ACCFLEX-ERP|3|R1.GOP|SP 1020 (2025-08), all|10|10|0|0|0|0|eq|0|PASS|189|-5000.0000;0.0000;-5000.0000;0.0000;-5000.0000;-92500.0000;0.0000;-92500.0000;-142509.0000;-205009.0000|-5000.0000;0.0000;-5000.0000;0.0000;-5000.0000;-92500.0000;0.0000;-92500.0000;-142509.0000;-205009.0000
+SUMMARY|ACCFLEX-ERP|3|R1.OtherAccountType|SP 1020 (2025-08), all|5|5|0|0|0|0|eq|0|PASS|189|10000.0000;0.0000;10000.0000;46500.0000;36500.0000;340968.6737;0.0000;340968.6737;397660.0000;265491.3263|10000.0000;0.0000;10000.0000;46500.0000;36500.0000;340968.6737;0.0000;340968.6737;397660.0000;265491.3263
+SUMMARY|ACCFLEX-ERP|3|R1.Totals|SP 1020 (2025-08), all|2|2|0|0|0|0|eq|0|PASS|189|-15030.0006;0.0000;-15030.0006;-49495.0000;-44535.0006;-256082.3046;0.0000;-256082.3046;-653438.5205;-224496.2159|-15030.0006;0.0000;-15030.0006;-49495.0000;-44535.0006;-256082.3046;0.0000;-256082.3046;-653438.5205;-224496.2159
+SUMMARY|ACCFLEX-ERP|4|R2.AccountType|SP 3 (2023-03), br 1026|0|0|0|0|0|0|eq|0|PASS|1326|;;;;;;;;;|;;;;;;;;;
+SUMMARY|ACCFLEX-ERP|4|R2.GOP|SP 3 (2023-03), br 1026|0|0|0|0|0|0|eq|0|PASS|1326|;;;;;;;;;|;;;;;;;;;
+SUMMARY|ACCFLEX-ERP|4|R2.OtherAccountType|SP 3 (2023-03), br 1026|5|5|0|0|0|0|eq|0|PASS|1326|0.0000;9000.0000;9000.0000;0.0000;0.0000;0.0000;32000.0000;32000.0000;0.0000;0.0000|0.0000;9000.0000;9000.0000;0.0000;0.0000;0.0000;32000.0000;32000.0000;0.0000;0.0000
+SUMMARY|ACCFLEX-ERP|4|R2.Totals|SP 3 (2023-03), br 1026|2|2|0|0|0|0|eq|0|PASS|1326|0.0000;-9000.0000;-9000.0000;0.0000;0.0000;0.0000;-32000.0000;-32000.0000;0.0000;0.0000|0.0000;-9000.0000;-9000.0000;0.0000;0.0000;0.0000;-32000.0000;-32000.0000;0.0000;0.0000
+SUMMARY|ACCFLEX-ERP|5|R2.AccountType|SP 1020 (2025-08), all|10|10|0|0|0|0|eq|0|PASS|1358|10030.0006;0.0000;10030.0006;3005.0000;13035.0006;161673.6309;0.0000;161673.6309;199269.5205;327204.1104|10030.0006;0.0000;10030.0006;3005.0000;13035.0006;161673.6309;0.0000;161673.6309;199269.5205;327204.1104
+SUMMARY|ACCFLEX-ERP|5|R2.GOP|SP 1020 (2025-08), all|18|18|0|0|0|0|eq|0|PASS|1358|-30.0006;0.0000;-30.0006;-2995.0000;-3025.0006;-42613.6309;0.0000;-42613.6309;-161419.5205;-170394.1104|-30.0006;0.0000;-30.0006;-2995.0000;-3025.0006;-42613.6309;0.0000;-42613.6309;-161419.5205;-170394.1104
+SUMMARY|ACCFLEX-ERP|5|R2.OtherAccountType|SP 1020 (2025-08), all|5|5|0|0|0|0|eq|0|PASS|1358|10000.0000;0.0000;10000.0000;46500.0000;36500.0000;340968.6737;0.0000;340968.6737;397660.0000;265491.3263|10000.0000;0.0000;10000.0000;46500.0000;36500.0000;340968.6737;0.0000;340968.6737;397660.0000;265491.3263
+SUMMARY|ACCFLEX-ERP|5|R2.Totals|SP 1020 (2025-08), all|2|2|0|0|0|0|eq|0|PASS|1358|-10060.0012;0.0000;-10060.0012;-52490.0000;-42560.0012;-206195.9355;0.0000;-206195.9355;-672349.0410;-189881.3263|-10060.0012;0.0000;-10060.0012;-52490.0000;-42560.0012;-206195.9355;0.0000;-206195.9355;-672349.0410;-189881.3263
+SUMMARY|ACCFLEX-ERP|6|R3.Dimension|2025 month=null (1..12), all|0|0|0|0|0|0|eq|0|PASS|65|;;;;;;;;;|;;;;;;;;;
+SUMMARY|ACCFLEX-ERP|6|R3.Summary|2025 month=null (1..12), all|8|8|0|0|0|0|eq|0|PASS|65|-81500.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|-81500.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|ACCFLEX-ERP|7|R3.Dimension|2024 month=true (1..6), cc 28|0|0|0|0|0|0|eq|0|PASS|35|;;;;;;;;;|;;;;;;;;;
+SUMMARY|ACCFLEX-ERP|7|R3.Summary|2024 month=true (1..6), cc 28|6|6|0|0|0|0|eq|0|PASS|35|-42000.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|-42000.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|ACCFLEX-ERP|8|R4.Dimension|2025 month=null (1..12), br 1026|0|0|0|0|0|0|eq|0|PASS|55|;;;;;;;;;|;;;;;;;;;
+SUMMARY|ACCFLEX-ERP|8|R4.Summary|2025 month=null (1..12), br 1026|8|8|0|0|0|0|eq|0|PASS|55|-76500.0000;-21100.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|-76500.0000;-21100.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|ACCFLEX-ERP|9|R4.Dimension|2024 month=false (6..12), all|0|0|0|0|0|0|eq|0|PASS|36|;;;;;;;;;|;;;;;;;;;
+SUMMARY|ACCFLEX-ERP|9|R4.Summary|2024 month=false (6..12), all|3|3|0|0|0|0|eq|0|PASS|36|-15000.0000;-36300.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|-15000.0000;-36300.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|ACCFLEX-ERP|10|R5.SubItem|2025 month=null (1..12), all|24|24|0|0|0|0|eq|0|PASS|118|532531.9779;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|532531.9779;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|ACCFLEX-ERP|10|R5.Totals|2025 month=null (1..12), all|3|3|0|0|0|0|eq|0|PASS|118|-332271.8100;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|-332271.8100;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|ACCFLEX-ERP|11|R5.SubItem|2024 month=false (6..12), revised=true|1|1|0|0|0|0|eq|0|PASS|60|5000.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|5000.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|ACCFLEX-ERP|11|R5.Totals|2024 month=false (6..12), revised=true|3|3|0|0|0|0|eq|0|PASS|60|10000.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|10000.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+tag|CaseId|Txt
+---|------|---
+INFO|1|NetProfit PeriodBalance incl. types 1/2 = 0.0000000000; excl. types 1/2 = 0.0000000000; YTD incl = 0.0000000000; YTD excl = 0.0000000000
+INFO|2|NetProfit PeriodBalance incl. types 1/2 = 0.0000000000; excl. types 1/2 = 0.0000000000; YTD incl = 0.0000000000; YTD excl = 0.0000000000
+INFO|3|NetProfit PeriodBalance incl. types 1/2 = -10030.0006000000; excl. types 1/2 = -10000.0000000000; YTD incl = -163582.3046000000; YTD excl = -120968.6737000000
+INFO|4|NetProfit PeriodBalance incl. types 1/2 = 0.0000000000; excl. types 1/2 = 0.0000000000; YTD incl = 0.0000000000; YTD excl = 0.0000000000
+INFO|5|NetProfit PeriodBalance incl. types 1/2 = -10030.0006000000; excl. types 1/2 = -10000.0000000000; YTD incl = -163582.3046000000; YTD excl = -120968.6737000000
+tag|CaseId|Part|Side|RowTxt
+---|------|----|----|------

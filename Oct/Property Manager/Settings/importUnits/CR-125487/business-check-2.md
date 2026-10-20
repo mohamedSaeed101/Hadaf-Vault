@@ -1,0 +1,45 @@
+---
+type: business-check
+cr: 125487
+round: 2
+updated: 2026-10-18
+---
+
+# Business check round 2 — CR_125487   verdict: violations
+
+**KG coverage:** unchanged from round 1: `D:\Hadaf\Accflex_KG\` does not exist on this machine, so Property Manager (and the GL currency / cost-center rules it leans on) are checked against the code, the DB model and the screens. Reported to the PO team; not a blocker.
+
+CE = `D:\Hadaf\worktrees\cr125487\AccFlex_Cloud_ERP\AccFlex_Cloud_ERP\PropertyManager`, FE = `D:\Hadaf\worktrees\cr125487\AccFlex_Cloud_Front\accflex-erp\projects\property-manager\src\app`, DB = `D:\Hadaf\worktrees\cr125487\AccFlex_Cloud_Database\AccFlex_Cloud_Database_State\AccFlex_Cloud_Database_State\dbo\Tables`.
+
+## Round-1 rows against the revised spec and decisions
+
+| # | Round-1 finding | Status | Resolved by |
+|---|---|---|---|
+| 1 | Blank model throws in `Property.Create` / `Update` | resolved | Q12 ([[decisions]]) + spec.md:147 (guard at `Property.cs:119` and `:220`, AC-10) |
+| 2 | `ProjectNumber` not unique: ambiguous project → row error | resolved | spec.md:138 (ambiguous project number is a row error, never a guess) |
+| 3 | `PropertyNumber` not unique: ambiguous parent → row error | resolved | spec.md:138 (same rule for the parent number) |
+| 4 | Cost center copied verbatim vs the screen's parent-only list | resolved | spec.md:139 + CR-125486 [[decisions]] Q8 (auto cost centers are non-leaf, `IsLastNode = false`) |
+| 5 | Rent clause of BR-6 dropped | resolved (engineer decision) | Q1: deferred to the rent-prices CR; v2 row 18 and BR-6 say so |
+| 6 | AC-8 («متاح», history) untestable | resolved | v2 AC-8 / BR-8 rewritten: status = row's or project's; the import log is the audit |
+| 7 | «المبنى» dropped vs the KWF-K example | resolved | Q4 / v2 BR-9: a building is a parent property named in «رقم العقار الرئيسي» |
+| 8 | Meter numbers are `INT` | resolved (engineer decision) | Q5 / v2 rows 20–21 / AC-9. The customer confirmation ("their numbers fit") is still an open action, outside the spec |
+
+## New since round 1
+
+| # | spec line | rule | documented in | what would break | suggested change to the spec |
+|---|---|---|---|---|---|
+| 9 | spec.md:106 and :129 (a project with no currency → row error; the validator loads "projects with their investment types" once per file) | `Project.CurrencyId` is a non-nullable `int` mapped by convention, while the column is `NULL`-able. EF cannot materialise a `Project` entity whose `CurrencyId` is NULL: it throws, it does not return a project with no currency | CE `ProjectAggregate\Project.cs:38`; CE `PropertyManager.Data\EFConfigurations\ProjectConfigurations.cs` (no override); DB `Pm_Project.sql:30` (`[CurrencyId] INT NULL`). The screen's create path has the same throw (`CreatePropertyCommand.cs:107-110`) | On a tenant with one legacy null-currency project, loading the project list throws and the whole `Verify` / `Import` fails with an exception for every row in the file, not a row error on the rows that use that project: BR-1 (each row reviewed on its own, all errors shown) and BR-12 (counts) break, and the planned unit test "a project with no currency → row error" cannot pass through the `Projects` DbSet | Spec: the validator reads projects through a projection (`Select` into a lookup DTO with `int? CurrencyId`, has-children flag, investment-type ids), not `Project` entities; the row error «المشروع … مالوش عملة» is raised from that DTO. Alternative (confirm with PO): make `Project.CurrencyId` `int?` in the aggregate, which is a change to the Projects screen and belongs to CR-125486 |
+| 10 | spec.md:176 ("the contract change is additive") vs spec.md:109-119 (Q13) | Q13 removes `ProofOfIncomeAndExpensesId` from `CreatePropertyCommand`, `UpdatePropertyCommand` and `PropertyDto`: the property contract loses a field, a breaking change for any client built against the old `property-manager.api.client` | CE `CreatePropertyCommand.cs:69`, `UpdatePropertyCommand.cs:71`, `PropertyDto.cs:46`; the only consumer found is the Properties form (FE `properties.service.ts:154`, `property-main-form.component.ts:106`, `.html:395`); no other Cloud module, AnalyticsReader, desktop (`D:\Hadaf\AccFlex_ERP`) or mobile repo reads it | Nothing at runtime once phases 7–8 regenerate the client and strip the form; but the "additive" wording hides that the pin bump and the form change must ship together (an old front would bind a control to a missing DTO member) | Spec: replace "additive" with "breaking on the property contract (field removed); the Properties form and the client pin bump ship in this CR"; Merge Desk: contract change on, as planned |
+| 11 | spec.md:120 (coordination: "CR-125486's plan drops its property-side rows") | The sibling plans still carry the property side: CR-125486 `plan.md:61` drops `Pm_Properties.ProofOfIncomeAndExpensesId` + its FK and `plan.md:62` removes it from `Property` / `PropertyPoco` / `PropertyDto` / the Property commands; CR-125488 `spec.md:61` still inherits `ProofOfIncomeAndExpensesId` from the project | `D:\Hadaf\Hadaf Vault\Oct\Property Manager\Settings\importProjects\CR-125486\plan.md:61-62`; `...\bulkUnits\CR-125488\spec.md:61` | Two branches deleting the same lines in `Pm_Properties.sql`, `Property.cs`, `CreatePropertyCommand.cs` conflict on the second merge; CR-125488 would copy a column that no longer exists and fail to build after this CR lands | Spec coordination line: name both siblings and the exact edits: CR-125486 plan rows 1–2 become project-side only (drop the `Pm_Properties` / `Property*` / `PropertyDto` items), CR-125488 drops `ProofOfIncomeAndExpensesId` from its inherited list. Not a business-rule breach; a merge hazard to close now |
+
+## Checked and kept (pass)
+
+- **Q13 readers of the property column.** Grep of the DB project finds `ProofOfIncomeAndExpensesId` only in `Pm_Properties.sql:38,58`, `Pm_ProofOfIncomeAndExpenses.sql`, the `0328_` reference script, the sqlproj and `ApplyToProject.scmp`: no view, TVF or proc reads it. Grep of `AccFlex_Cloud_ERP` (`*.cs`) finds it only inside `PropertyManager` (the files the spec lists plus `PropertiesErrors.cs:18` and `ProjectInfoDto.cs:24` / `GetProjectInfoByIdQuery.cs:56`, the project side left to CR-125486); AnalyticsReader, RealEstate and the other modules do not read it. The desktop app (`D:\Hadaf\AccFlex_ERP`, `*.cs *.sql *.xsd *.vb *.repx`) and both mobile repos: no match. `PropertyConfiguration` has no explicit mapping for the column (convention), so the spec's "EF mapping" item is a no-op; the `ProofOfIncomeAndExpensesConfiguration` for the lookup stays, as decided.
+- **Q13 drop is safe for the data model.** The column is `NOT NULL` with no default and FK only (`Pm_Properties.sql:38,58`); dropping both in the table file follows `db-rules.md` (DDL in the model, no script). Data loss on every tenant is the accepted call (CR-125486 Q11); the `BlockOnPossibleDataLoss` note in spec.md:117 is the right gate.
+- **`ProofOfIncomeAndExpensesNotFound`** points at `Resource.PropertyOwnershipNotFound` (`PropertiesErrors.cs:18`), a pre-existing copy-paste; dropping the member with the check loses no message.
+- **Currency rule, id space.** `Pm_Project.CurrencyId` references `Acc_Currency` (`Pm_Project.sql:52`) while `Pm_Properties.CurrencyId` references `ACFX_Currency` (`Pm_Properties.sql:65`). Both screens fill the dropdown from the GL currency list (`properties.service.ts:256`, `project-data.service.ts:217` → `glSharedDataService.getCurrency()`; entity table `Acc_Currency`, `CurrencyConfigurations.cs:30`), and the create handler resolves the id in `_generalLedgerContext.Currencies` (`CreatePropertyCommand.cs:190-192`). The import copies the same id the screen would have stored; the FK mismatch is pre-existing and not widened by this CR. Projects created on the screen always carry a currency (`Project.cs:307`), so the null case is legacy data only (row 9 covers how it must be detected).
+- **AC-9 meter limit.** `ElectricityMeterNumber` / `WaterMeterNumber` are `int?` (`Property.cs:46-48`) over `INT NULL` (`Pm_Properties.sql:34,36`); "integer ≤ 2,147,483,647, else a row error naming the column" is exactly the type's range; blank → null is what the screen sends. Nothing relaxed.
+- **AC-10 blank model.** `PropertyModelId` is `INT NULL` (`Pm_Properties.sql:22`), `Pm_PropertyModel` is a flat tenant list with no project scope (`Pm_PropertyModel.sql`), and the screen already offers a clear button; the guard at `Property.cs:119` / `:220` makes the aggregate honour what the model and the screen already allow. No invariant relaxed; the unknown-name row error (Q6) stays stricter than the screen.
+- **Inheritance list after Q13** (spec.md:102-107) equals the screen's `onProjectChanged` set minus `ProofOfIncomeAndExpensesId` plus currency (the note's BR-5); `DeliveryPeriodInDays` 0 and `GuidNumber` as the screen (`properties.service.ts:155`).
+
+Round 3 is needed only if the planner changes row 9 (the projection) or chooses to alter `Project.CurrencyId` instead; rows 10–11 are wording and coordination.

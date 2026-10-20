@@ -1,0 +1,95 @@
+Mode: FIXED (D6, per-employee salary)
+| RiskDate | Ids | IsArabic | Legacy rows | TVF rows | Mismatches | Missing vacation rows | Over-90 rows | RowNo ok |
+|---|---|---|---|---|---|---|---|---|
+| 2026-10-15 14:37:21 | all active | 0 | 88 | 88 | 4 | 0 | 81 | yes |
+| 2026-10-15 14:37:21 | all active | 1 | 88 | 88 | 4 | 0 | 81 | yes |
+| 2026-10-15 14:37:21 | ids 31,30,17 | 0 | 3 | 3 | 0 | 0 | 3 | yes |
+| 2026-10-15 14:37:21 | ids 31,30,17 | 1 | 3 | 3 | 0 | 0 | 3 | yes |
+| 2026-10-15 | all active | 0 | 88 | 88 | 4 | 0 | 81 | yes |
+| 2026-10-15 | all active | 1 | 88 | 88 | 4 | 0 | 81 | yes |
+| 2026-10-15 | ids 31,30,17 | 0 | 3 | 3 | 0 | 0 | 3 | yes |
+| 2026-10-15 | ids 31,30,17 | 1 | 3 | 3 | 0 | 0 | 3 | yes |
+| 2026-09-30 | all active | 0 | 88 | 88 | 0 | 0 | 81 | yes |
+| 2026-09-30 | all active | 1 | 88 | 88 | 0 | 0 | 81 | yes |
+| 2026-09-30 | ids 31,30,17 | 0 | 3 | 3 | 0 | 0 | 3 | yes |
+| 2026-09-30 | ids 31,30,17 | 1 | 3 | 3 | 0 | 0 | 3 | yes |
+| 2025-12-31 | all active | 0 | 88 | 88 | 0 | 0 | 75 | yes |
+| 2025-12-31 | all active | 1 | 88 | 88 | 0 | 0 | 75 | yes |
+| 2025-12-31 | ids 31,30,17 | 0 | 3 | 3 | 0 | 0 | 3 | yes |
+| 2025-12-31 | ids 31,30,17 | 1 | 3 | 3 | 0 | 0 | 3 | yes |
+| 2026-12-31 | all active | 0 | 88 | 88 | 0 | 0 | 88 | yes |
+| 2026-12-31 | all active | 1 | 88 | 88 | 0 | 0 | 88 | yes |
+| 2026-12-31 | ids 31,30,17 | 0 | 3 | 3 | 0 | 0 | 3 | yes |
+| 2026-12-31 | ids 31,30,17 | 1 | 3 | 3 | 0 | 0 | 3 | yes |
+| 2026-03-01 | all active | 0 | 88 | 88 | 0 | 0 | 75 | yes |
+| 2026-03-01 | all active | 1 | 88 | 88 | 0 | 0 | 75 | yes |
+| 2026-03-01 | ids 31,30,17 | 0 | 3 | 3 | 0 | 0 | 3 | yes |
+| 2026-03-01 | ids 31,30,17 | 1 | 3 | 3 | 0 | 0 | 3 | yes |
+| 2024-03-01 | all active | 0 | 88 | 88 | 0 | 0 | 0 | yes |
+| 2024-03-01 | all active | 1 | 88 | 88 | 0 | 0 | 0 | yes |
+| 2024-03-01 | ids 31,30,17 | 0 | 3 | 3 | 0 | 0 | 0 | yes |
+| 2024-03-01 | ids 31,30,17 | 1 | 3 | 3 | 0 | 0 | 0 | yes |
+| 2026-01-15 | all active | 0 | 88 | 88 | 0 | 0 | 75 | yes |
+| 2026-01-15 | all active | 1 | 88 | 88 | 0 | 0 | 75 | yes |
+| 2026-01-15 | ids 31,30,17 | 0 | 3 | 3 | 0 | 0 | 3 | yes |
+| 2026-01-15 | ids 31,30,17 | 1 | 3 | 3 | 0 | 0 | 3 | yes |
+| 2026-04-10 | all active | 0 | 88 | 88 | 12 | 0 | 79 | yes |
+| 2026-04-10 | all active | 1 | 88 | 88 | 12 | 0 | 79 | yes |
+| 2026-04-10 | ids 31,30,17 | 0 | 3 | 3 | 0 | 0 | 3 | yes |
+| 2026-04-10 | ids 31,30,17 | 1 | 3 | 3 | 0 | 0 | 3 | yes |
+| 2026-09-28 | all active | 0 | 88 | 88 | 0 | 0 | 80 | yes |
+| 2026-09-28 | all active | 1 | 88 | 88 | 0 | 0 | 80 | yes |
+| 2026-09-28 | ids 31,30,17 | 0 | 3 | 3 | 0 | 0 | 3 | yes |
+| 2026-09-28 | ids 31,30,17 | 1 | 3 | 3 | 0 | 0 | 3 | yes |
+| 2026-09-29 | all active | 0 | 88 | 88 | 0 | 0 | 81 | yes |
+| 2026-09-29 | all active | 1 | 88 | 88 | 0 | 0 | 81 | yes |
+| 2026-09-29 | ids 31,30,17 | 0 | 3 | 3 | 0 | 0 | 3 | yes |
+| 2026-09-29 | ids 31,30,17 | 1 | 3 | 3 | 0 | 0 | 3 | yes |
+
+TOTAL MISMATCHES: 40
+SUBSET vs FULL (RiskAmount / Compensation / Vacations / Total): 66 rows checked, 0 differ
+Distinct RiskAmount values, 2026-10-15 full run: 53
+Sample 2026-10-15 all active emp 17: 13829.0000 / 179368.0000 / 225358.2300 / 418555.2300
+Sample 2026-10-15 ids 31,30,17 emp 17: 13829.0000 / 179368.0000 / 225358.2300 / 418555.2300
+Sample 2026-10-15 all active emp 31: 14050.0000 / 11750.0000 / 32124.9400 / 57924.9400
+Sample 2026-10-15 ids 31,30,17 emp 31: 14050.0000 / 11750.0000 / 32124.9400 / 57924.9400
+2026-10-15 14:37:21 all active ar=False (2, 1) Vacations: legacy=6864.37 tvf=6864.3800
+2026-10-15 14:37:21 all active ar=False (2, 1) Total: legacy=378839.37 tvf=378839.3800
+2026-10-15 14:37:21 all active ar=False (23, 1) Vacations: legacy=43659.25 tvf=43659.2400
+2026-10-15 14:37:21 all active ar=False (23, 1) Total: legacy=93659.25 tvf=93659.2400
+2026-10-15 14:37:21 all active ar=True (2, 1) Vacations: legacy=6864.37 tvf=6864.3800
+2026-10-15 14:37:21 all active ar=True (2, 1) Total: legacy=378839.37 tvf=378839.3800
+2026-10-15 14:37:21 all active ar=True (23, 1) Vacations: legacy=43659.25 tvf=43659.2400
+2026-10-15 14:37:21 all active ar=True (23, 1) Total: legacy=93659.25 tvf=93659.2400
+2026-10-15 all active ar=False (2, 1) Vacations: legacy=6864.37 tvf=6864.3800
+2026-10-15 all active ar=False (2, 1) Total: legacy=378839.37 tvf=378839.3800
+2026-10-15 all active ar=False (23, 1) Vacations: legacy=43659.25 tvf=43659.2400
+2026-10-15 all active ar=False (23, 1) Total: legacy=93659.25 tvf=93659.2400
+2026-10-15 all active ar=True (2, 1) Vacations: legacy=6864.37 tvf=6864.3800
+2026-10-15 all active ar=True (2, 1) Total: legacy=378839.37 tvf=378839.3800
+2026-10-15 all active ar=True (23, 1) Vacations: legacy=43659.25 tvf=43659.2400
+2026-10-15 all active ar=True (23, 1) Total: legacy=93659.25 tvf=93659.2400
+2026-04-10 all active ar=False (26, 1) Vacations: legacy=57279.11 tvf=57279.1000
+2026-04-10 all active ar=False (26, 1) Total: legacy=127279.11 tvf=127279.1000
+2026-04-10 all active ar=False (71, 1) Vacations: legacy=492510.79 tvf=492510.7800
+2026-04-10 all active ar=False (71, 1) Total: legacy=809510.79 tvf=809510.7800
+2026-04-10 all active ar=False (73, 1) Vacations: legacy=492510.79 tvf=492510.7800
+2026-04-10 all active ar=False (73, 1) Total: legacy=809510.79 tvf=809510.7800
+2026-04-10 all active ar=False (74, 1) Vacations: legacy=492510.79 tvf=492510.7800
+2026-04-10 all active ar=False (74, 1) Total: legacy=809510.79 tvf=809510.7800
+2026-04-10 all active ar=False (75, 1) Vacations: legacy=492510.79 tvf=492510.7800
+2026-04-10 all active ar=False (75, 1) Total: legacy=809510.79 tvf=809510.7800
+2026-04-10 all active ar=False (76, 1) Vacations: legacy=492510.79 tvf=492510.7800
+2026-04-10 all active ar=False (76, 1) Total: legacy=809510.79 tvf=809510.7800
+2026-04-10 all active ar=True (26, 1) Vacations: legacy=57279.11 tvf=57279.1000
+2026-04-10 all active ar=True (26, 1) Total: legacy=127279.11 tvf=127279.1000
+2026-04-10 all active ar=True (71, 1) Vacations: legacy=492510.79 tvf=492510.7800
+2026-04-10 all active ar=True (71, 1) Total: legacy=809510.79 tvf=809510.7800
+2026-04-10 all active ar=True (73, 1) Vacations: legacy=492510.79 tvf=492510.7800
+2026-04-10 all active ar=True (73, 1) Total: legacy=809510.79 tvf=809510.7800
+2026-04-10 all active ar=True (74, 1) Vacations: legacy=492510.79 tvf=492510.7800
+2026-04-10 all active ar=True (74, 1) Total: legacy=809510.79 tvf=809510.7800
+2026-04-10 all active ar=True (75, 1) Vacations: legacy=492510.79 tvf=492510.7800
+2026-04-10 all active ar=True (75, 1) Total: legacy=809510.79 tvf=809510.7800
+2026-04-10 all active ar=True (76, 1) Vacations: legacy=492510.79 tvf=492510.7800
+2026-04-10 all active ar=True (76, 1) Total: legacy=809510.79 tvf=809510.7800

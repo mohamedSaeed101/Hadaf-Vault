@@ -1,0 +1,13 @@
+cmp() { # $1 case $2 part $3 old $4 new $5 cols $6 extra
+cat <<X
+SELECT '$1' AS CaseId, '$2' AS Part,
+  (SELECT COUNT(*) FROM $3) AS OldRows, (SELECT COUNT(*) FROM $4) AS NewRows,
+  (SELECT COUNT(*) FROM (SELECT $5 FROM $3 EXCEPT SELECT $5 FROM $4) x) AS OldMinusNew,
+  (SELECT COUNT(*) FROM (SELECT $5 FROM $4 EXCEPT SELECT $5 FROM $3) x) AS NewMinusOld,
+  (SELECT COUNT(*) FROM (SELECT $5, COUNT(*) c FROM $3 GROUP BY $5 EXCEPT SELECT $5, COUNT(*) FROM $4 GROUP BY $5) x) AS GrpOldMinusNew,
+  (SELECT COUNT(*) FROM (SELECT $5, COUNT(*) c FROM $4 GROUP BY $5 EXCEPT SELECT $5, COUNT(*) FROM $3 GROUP BY $5) x) AS GrpNewMinusOld,
+  $6;
+SELECT TOP 10 'old-new' d, * FROM (SELECT $5 FROM $3 EXCEPT SELECT $5 FROM $4) x;
+SELECT TOP 10 'new-old' d, * FROM (SELECT $5 FROM $4 EXCEPT SELECT $5 FROM $3) x;
+X
+}

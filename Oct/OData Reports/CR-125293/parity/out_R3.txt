@@ -1,0 +1,16 @@
+busiestYear|busiestMonth|secondYear|secondMonth|hiLvl|loLvl|Ids3|salaryMains|deletedMains
+-----------|------------|----------|-----------|-----|-----|----|-----------|------------
+2026|8|2026|7|5|1|1,4,113|1|0
+kind|columns_new|columns_legacy
+----|-----------|--------------
+shared|[EmployeeId],[EmployeeName],[EmployeeNumber],[BranchName],[ProjectName],[JobName],[SalaryId],[SalaryDetailId],[EmployeeIncomeId],[IncomeAmount],[IncomeName],[Deduction],[EnglishLetter],[SalaryMainId],[Total],[Remarks],[InsuranceCompany],[TotalAdditions],[T|[EmployeeId],[EmployeeName],[EmployeeNumber],[BranchName],[ProjectName],[JobName],[SalaryId],[SalaryDetailId],[EmployeeIncomeId],[IncomeAmount],[IncomeName],[Deduction],[EnglishLetter],[SalaryMainId],[Total],[Remarks],[InsuranceCompany],[TotalAdditions],[T
+new only|RowNo|NULL
+legacy only|NULL|SalaryId_2
+money (new names)|IncomeAmount,Total,InsuranceCompany,TotalAdditions,TotalDeductions|NULL
+rpt|c|p|oldRows|newRows|oldMinusNew|newMinusOld|grpDiff|sumsEqual|sumsOld|sumsNew|extra|verdict
+---|-|-|-------|-------|-----------|-----------|-------|---------|-------|-------|-----|-------
+R3|a1 busiest month all, hi lvl|8/2026 ids=NULL lvl=5|1458|1458|0|0|0|yes|394014.610000|5554544.340000|0.000000|6449002.800000|894458.460000|394014.610000|5554544.340000|0.000000|6449002.800000|894458.460000|legacy SalaryId<>SalaryId_2 rows: 0|PASS
+R3|a2 busiest month all, lo lvl|8/2026 ids=NULL lvl=1|1416|1416|0|0|0|yes|378514.610000|5326794.340000|0.000000|6171002.800000|844208.460000|378514.610000|5326794.340000|0.000000|6171002.800000|844208.460000|legacy SalaryId<>SalaryId_2 rows: 0|PASS
+R3|b1 busiest month 3 ids, hi|8/2026 ids=1,4,113 lvl=5|58|58|0|0|0|yes|45500.000000|707750.000000|0.000000|758000.000000|50250.000000|45500.000000|707750.000000|0.000000|758000.000000|50250.000000|legacy SalaryId<>SalaryId_2 rows: 0|PASS
+R3|b2 busiest month 3 ids, lo|8/2026 ids=1,4,113 lvl=1|16|16|0|0|0|yes|30000.000000|480000.000000|0.000000|480000.000000|0.000000|30000.000000|480000.000000|0.000000|480000.000000|0.000000|legacy SalaryId<>SalaryId_2 rows: 0|PASS
+R3|c1 2nd month all, hi lvl|7/2026 ids=NULL lvl=5|1421|1421|0|0|0|yes|389451.900000|5811835.510000|0.000000|6539429.010000|727593.500000|389451.900000|5811835.510000|0.000000|6539429.010000|727593.500000|legacy SalaryId<>SalaryId_2 rows: 0|PASS

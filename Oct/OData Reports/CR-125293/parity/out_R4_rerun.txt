@@ -1,0 +1,196 @@
+== R4 wide 1900..2100 all ids sec5 (legacy ' / new NULL)
+Probe|TvfRows
+-----|-------
+R4 wide 1900..2100 all ids sec5 (legacy ' / new NULL) | TVF fraction columns|88
+FractionSelect
+--------------
+fraction columns selectable
+TestCase|OldRows|NewRows|OldMinusNew|NewMinusOld|Old_TotalIncomeLocal|New_TotalIncomeLocal|Old_TotalInsuranceLocal|New_TotalInsuranceLocal|Old_InsuranceSubscriptionFee|New_InsuranceSubscriptionFee|SumsEqual|Result
+--------|-------|-------|-----------|-----------|--------------------|--------------------|-----------------------|-----------------------|----------------------------|----------------------------|---------|------
+R4 wide 1900..2100 all ids sec5 (legacy ' / new NULL) | (a) fixed-legacy vs TVF|88|88|0|0|522814.5000000000000|522814.5000000000000|.0000000000000|.0000000000000|522814.5000000000000|522814.5000000000000|Y|PASS
+TestCase|UntouchedLegacyRows|FixedLegacyRows|AddedByFix|RemovedByFix
+--------|-------------------|---------------|----------|------------
+R4 wide 1900..2100 all ids sec5 (legacy ' / new NULL) | (b) Fix effect|88|88|0|0
+side|EmployeeName|EmployeeId|EndWork|EndWorkingDate
+----|------------|----------|-------|--------------
+TestCase|LegacyRows|IncomePos|InsurancePos|LegacyCrashCells|IntLegacyMinusNew|IntNewMinusLegacy|TvfFracErrorCells|TvfFracWrongCells|TvfFracRowsOk|CandidateFracRowsOk|LegacyTotalType
+--------|----------|---------|------------|----------------|-----------------|-----------------|-----------------|-----------------|-------------|-------------------|---------------
+R4 wide 1900..2100 all ids sec5 (legacy ' / new NULL) | Int/Fraction|88|88|0|0|0|0|15|0|73|88|decimal(38,13)
+EmployeeName|TotalIncomeLocal|LegacyInt|LegacyFrac|TvfFrac|CandIncFrac
+------------|----------------|---------|----------|-------|-----------
+Employee_17|6914.5000000000000|6914|50|ER|50
+Employee_20|8282.5000000000000|8282|50|ER|50
+Employee_21|2130.5000000000000|2130|50|ER|50
+Employee_37|3464.5000000000000|3464|50|ER|50
+Employee_40|3296.5000000000000|3296|50|ER|50
+Employee_43|2705.5000000000000|2705|50|ER|50
+Employee_44|2530.5000000000000|2530|50|ER|50
+Employee_45|2787.5000000000000|2787|50|ER|50
+Employee_46|2787.5000000000000|2787|50|ER|50
+Employee_54|2773.5000000000000|2773|50|ER|50
+Employee_55|3687.5000000000000|3687|50|ER|50
+Employee_57|2312.5000000000000|2312|50|ER|50
+Employee_59|8010.5000000000000|8010|50|ER|50
+Employee_66|3855.5000000000000|3855|50|ER|50
+Employee_68|5087.5000000000000|5087|50|ER|50
+== R4 wide 1900..2100 all ids sec1
+Probe|TvfRows
+-----|-------
+R4 wide 1900..2100 all ids sec1 | TVF fraction columns|86
+FractionSelect
+--------------
+fraction columns selectable
+TestCase|OldRows|NewRows|OldMinusNew|NewMinusOld|Old_TotalIncomeLocal|New_TotalIncomeLocal|Old_TotalInsuranceLocal|New_TotalInsuranceLocal|Old_InsuranceSubscriptionFee|New_InsuranceSubscriptionFee|SumsEqual|Result
+--------|-------|-------|-----------|-----------|--------------------|--------------------|-----------------------|-----------------------|----------------------------|----------------------------|---------|------
+R4 wide 1900..2100 all ids sec1 | (a) fixed-legacy vs TVF|86|86|0|0|497064.5000000000000|497064.5000000000000|.0000000000000|.0000000000000|497064.5000000000000|497064.5000000000000|Y|PASS
+TestCase|UntouchedLegacyRows|FixedLegacyRows|AddedByFix|RemovedByFix
+--------|-------------------|---------------|----------|------------
+R4 wide 1900..2100 all ids sec1 | (b) Fix effect|86|86|0|0
+side|EmployeeName|EmployeeId|EndWork|EndWorkingDate
+----|------------|----------|-------|--------------
+TestCase|LegacyRows|IncomePos|InsurancePos|LegacyCrashCells|IntLegacyMinusNew|IntNewMinusLegacy|TvfFracErrorCells|TvfFracWrongCells|TvfFracRowsOk|CandidateFracRowsOk|LegacyTotalType
+--------|----------|---------|------------|----------------|-----------------|-----------------|-----------------|-----------------|-------------|-------------------|---------------
+R4 wide 1900..2100 all ids sec1 | Int/Fraction|86|86|0|0|0|0|15|0|71|86|decimal(38,13)
+EmployeeName|TotalIncomeLocal|LegacyInt|LegacyFrac|TvfFrac|CandIncFrac
+------------|----------------|---------|----------|-------|-----------
+Employee_17|6914.5000000000000|6914|50|ER|50
+Employee_20|8282.5000000000000|8282|50|ER|50
+Employee_21|2130.5000000000000|2130|50|ER|50
+Employee_37|3464.5000000000000|3464|50|ER|50
+Employee_40|3296.5000000000000|3296|50|ER|50
+Employee_43|2705.5000000000000|2705|50|ER|50
+Employee_44|2530.5000000000000|2530|50|ER|50
+Employee_45|2787.5000000000000|2787|50|ER|50
+Employee_46|2787.5000000000000|2787|50|ER|50
+Employee_54|2773.5000000000000|2773|50|ER|50
+Employee_55|3687.5000000000000|3687|50|ER|50
+Employee_57|2312.5000000000000|2312|50|ER|50
+Employee_59|8010.5000000000000|8010|50|ER|50
+Employee_66|3855.5000000000000|3855|50|ER|50
+Employee_68|5087.5000000000000|5087|50|ER|50
+== R4 narrow 2026-01-01..2026-09-27 midnight sec5
+Probe|TvfRows
+-----|-------
+R4 narrow 2026-01-01..2026-09-27 midnight sec5 | TVF fraction columns|19
+FractionSelect
+--------------
+fraction columns selectable
+TestCase|OldRows|NewRows|OldMinusNew|NewMinusOld|Old_TotalIncomeLocal|New_TotalIncomeLocal|Old_TotalInsuranceLocal|New_TotalInsuranceLocal|Old_InsuranceSubscriptionFee|New_InsuranceSubscriptionFee|SumsEqual|Result
+--------|-------|-------|-----------|-----------|--------------------|--------------------|-----------------------|-----------------------|----------------------------|----------------------------|---------|------
+R4 narrow 2026-01-01..2026-09-27 midnight sec5 | (a) fixed-legacy vs TVF|19|19|0|0|86961.0000000000000|86961.0000000000000|.0000000000000|.0000000000000|86961.0000000000000|86961.0000000000000|Y|PASS
+TestCase|UntouchedLegacyRows|FixedLegacyRows|AddedByFix|RemovedByFix
+--------|-------------------|---------------|----------|------------
+R4 narrow 2026-01-01..2026-09-27 midnight sec5 | (b) Fix effect|19|19|0|0
+side|EmployeeName|EmployeeId|EndWork|EndWorkingDate
+----|------------|----------|-------|--------------
+TestCase|LegacyRows|IncomePos|InsurancePos|LegacyCrashCells|IntLegacyMinusNew|IntNewMinusLegacy|TvfFracErrorCells|TvfFracWrongCells|TvfFracRowsOk|CandidateFracRowsOk|LegacyTotalType
+--------|----------|---------|------------|----------------|-----------------|-----------------|-----------------|-----------------|-------------|-------------------|---------------
+R4 narrow 2026-01-01..2026-09-27 midnight sec5 | Int/Fraction|19|19|0|0|0|0|0|0|19|19|decimal(38,13)
+EmployeeName|TotalIncomeLocal|LegacyInt|LegacyFrac|TvfFrac|CandIncFrac
+------------|----------------|---------|----------|-------|-----------
+== R4 wide ids 4,9,113 sec5
+Probe|TvfRows
+-----|-------
+R4 wide ids 4,9,113 sec5 | TVF fraction columns|3
+FractionSelect
+--------------
+fraction columns selectable
+TestCase|OldRows|NewRows|OldMinusNew|NewMinusOld|Old_TotalIncomeLocal|New_TotalIncomeLocal|Old_TotalInsuranceLocal|New_TotalInsuranceLocal|Old_InsuranceSubscriptionFee|New_InsuranceSubscriptionFee|SumsEqual|Result
+--------|-------|-------|-----------|-----------|--------------------|--------------------|-----------------------|-----------------------|----------------------------|----------------------------|---------|------
+R4 wide ids 4,9,113 sec5 | (a) fixed-legacy vs TVF|3|3|0|0|47350.0000000000000|47350.0000000000000|.0000000000000|.0000000000000|47350.0000000000000|47350.0000000000000|Y|PASS
+TestCase|UntouchedLegacyRows|FixedLegacyRows|AddedByFix|RemovedByFix
+--------|-------------------|---------------|----------|------------
+R4 wide ids 4,9,113 sec5 | (b) Fix effect|3|3|0|0
+side|EmployeeName|EmployeeId|EndWork|EndWorkingDate
+----|------------|----------|-------|--------------
+TestCase|LegacyRows|IncomePos|InsurancePos|LegacyCrashCells|IntLegacyMinusNew|IntNewMinusLegacy|TvfFracErrorCells|TvfFracWrongCells|TvfFracRowsOk|CandidateFracRowsOk|LegacyTotalType
+--------|----------|---------|------------|----------------|-----------------|-----------------|-----------------|-----------------|-------------|-------------------|---------------
+R4 wide ids 4,9,113 sec5 | Int/Fraction|3|3|0|0|0|0|0|0|3|3|decimal(38,13)
+EmployeeName|TotalIncomeLocal|LegacyInt|LegacyFrac|TvfFrac|CandIncFrac
+------------|----------------|---------|----------|-------|-----------
+== R4 wide ids 4,9,113 sec1
+Probe|TvfRows
+-----|-------
+R4 wide ids 4,9,113 sec1 | TVF fraction columns|1
+FractionSelect
+--------------
+fraction columns selectable
+TestCase|OldRows|NewRows|OldMinusNew|NewMinusOld|Old_TotalIncomeLocal|New_TotalIncomeLocal|Old_TotalInsuranceLocal|New_TotalInsuranceLocal|Old_InsuranceSubscriptionFee|New_InsuranceSubscriptionFee|SumsEqual|Result
+--------|-------|-------|-----------|-----------|--------------------|--------------------|-----------------------|-----------------------|----------------------------|----------------------------|---------|------
+R4 wide ids 4,9,113 sec1 | (a) fixed-legacy vs TVF|1|1|0|0|21600.0000000000000|21600.0000000000000|.0000000000000|.0000000000000|21600.0000000000000|21600.0000000000000|Y|PASS
+TestCase|UntouchedLegacyRows|FixedLegacyRows|AddedByFix|RemovedByFix
+--------|-------------------|---------------|----------|------------
+R4 wide ids 4,9,113 sec1 | (b) Fix effect|1|1|0|0
+side|EmployeeName|EmployeeId|EndWork|EndWorkingDate
+----|------------|----------|-------|--------------
+TestCase|LegacyRows|IncomePos|InsurancePos|LegacyCrashCells|IntLegacyMinusNew|IntNewMinusLegacy|TvfFracErrorCells|TvfFracWrongCells|TvfFracRowsOk|CandidateFracRowsOk|LegacyTotalType
+--------|----------|---------|------------|----------------|-----------------|-----------------|-----------------|-----------------|-------------|-------------------|---------------
+R4 wide ids 4,9,113 sec1 | Int/Fraction|1|1|0|0|0|0|0|0|1|1|decimal(38,13)
+EmployeeName|TotalIncomeLocal|LegacyInt|LegacyFrac|TvfFrac|CandIncFrac
+------------|----------------|---------|----------|-------|-----------
+== R4 wide all ids sec5 new ' (empty string)
+Probe|TvfRows
+-----|-------
+R4 wide all ids sec5 new ' (empty string) | TVF fraction columns|88
+FractionSelect
+--------------
+fraction columns selectable
+TestCase|OldRows|NewRows|OldMinusNew|NewMinusOld|Old_TotalIncomeLocal|New_TotalIncomeLocal|Old_TotalInsuranceLocal|New_TotalInsuranceLocal|Old_InsuranceSubscriptionFee|New_InsuranceSubscriptionFee|SumsEqual|Result
+--------|-------|-------|-----------|-----------|--------------------|--------------------|-----------------------|-----------------------|----------------------------|----------------------------|---------|------
+R4 wide all ids sec5 new ' (empty string) | (a) fixed-legacy vs TVF|88|88|0|0|522814.5000000000000|522814.5000000000000|.0000000000000|.0000000000000|522814.5000000000000|522814.5000000000000|Y|PASS
+TestCase|UntouchedLegacyRows|FixedLegacyRows|AddedByFix|RemovedByFix
+--------|-------------------|---------------|----------|------------
+R4 wide all ids sec5 new ' (empty string) | (b) Fix effect|88|88|0|0
+side|EmployeeName|EmployeeId|EndWork|EndWorkingDate
+----|------------|----------|-------|--------------
+TestCase|LegacyRows|IncomePos|InsurancePos|LegacyCrashCells|IntLegacyMinusNew|IntNewMinusLegacy|TvfFracErrorCells|TvfFracWrongCells|TvfFracRowsOk|CandidateFracRowsOk|LegacyTotalType
+--------|----------|---------|------------|----------------|-----------------|-----------------|-----------------|-----------------|-------------|-------------------|---------------
+R4 wide all ids sec5 new ' (empty string) | Int/Fraction|88|88|0|0|0|0|15|0|73|88|decimal(38,13)
+EmployeeName|TotalIncomeLocal|LegacyInt|LegacyFrac|TvfFrac|CandIncFrac
+------------|----------------|---------|----------|-------|-----------
+Employee_17|6914.5000000000000|6914|50|ER|50
+Employee_20|8282.5000000000000|8282|50|ER|50
+Employee_21|2130.5000000000000|2130|50|ER|50
+Employee_37|3464.5000000000000|3464|50|ER|50
+Employee_40|3296.5000000000000|3296|50|ER|50
+Employee_43|2705.5000000000000|2705|50|ER|50
+Employee_44|2530.5000000000000|2530|50|ER|50
+Employee_45|2787.5000000000000|2787|50|ER|50
+Employee_46|2787.5000000000000|2787|50|ER|50
+Employee_54|2773.5000000000000|2773|50|ER|50
+Employee_55|3687.5000000000000|3687|50|ER|50
+Employee_57|2312.5000000000000|2312|50|ER|50
+Employee_59|8010.5000000000000|8010|50|ER|50
+Employee_66|3855.5000000000000|3855|50|ER|50
+Employee_68|5087.5000000000000|5087|50|ER|50
+== R4 BACKEND narrow new toDate GetDayEnd 2026-09-27 23:59:59.997 vs legacy midnight
+Probe|TvfRows
+-----|-------
+R4 BACKEND narrow new toDate GetDayEnd 2026-09-27 23:59:59.997 vs legacy midnight | TVF fraction columns|22
+FractionSelect
+--------------
+fraction columns selectable
+TestCase|OldRows|NewRows|OldMinusNew|NewMinusOld|Old_TotalIncomeLocal|New_TotalIncomeLocal|Old_TotalInsuranceLocal|New_TotalInsuranceLocal|Old_InsuranceSubscriptionFee|New_InsuranceSubscriptionFee|SumsEqual|Result
+--------|-------|-------|-----------|-----------|--------------------|--------------------|-----------------------|-----------------------|----------------------------|----------------------------|---------|------
+R4 BACKEND narrow new toDate GetDayEnd 2026-09-27 23:59:59.997 vs legacy midnight | (a) fixed-legacy vs TVF|19|22|0|3|86961.0000000000000|107228.0000000000000|.0000000000000|.0000000000000|86961.0000000000000|107228.0000000000000|N|FAIL
+side|InsuranceNum|EmployeeName|EmployeeArabicName|IDNumber|WorkDate|WorkDateDay|WorkDateMonth|WorkDateYear|DateOfWork|DateOfWorkDay|DateOfWorkMonth|DateOfWorkYear|TotalIncomeLocal|TotalInsuranceLocal|InsuranceSubscriptionFee|StringInsuranceNum|StringIDNumber|SocialInsuranceStartDate|SocialInsuranceStartDateDay|SocialInsuranceStartDateMonth|SocialInsuranceStartDateYear|Gender|dup
+----|------------|------------|------------------|--------|--------|-----------|-------------|------------|----------|-------------|---------------|--------------|----------------|-------------------|------------------------|------------------|--------------|------------------------|---------------------------|-----------------------------|----------------------------|------|---
+new-old|NULL|Employee_118|????_118|1125641488|2026-09-17 00:00:00.000|17|9|2026|2026-09-17 08:07:00.000|17|9|2026|7446.0000000000000|.0000000000000|7446.0000000000000|NULL|1  1  2  5  6  4  1  4  8  8|2026-09-27 08:27:15.000|27|9|2026|Male|1
+new-old|NULL|Employee_119|????_119|1123837674|2026-09-17 00:00:00.000|17|9|2026|2026-09-17 08:38:12.000|17|9|2026|7446.0000000000000|.0000000000000|7446.0000000000000|NULL|1  1  2  3  8  3  7  6  7  4|2026-09-27 08:38:12.000|27|9|2026|Male|1
+new-old|NULL|Employee_120|????_120|1059433522|2026-10-01 14:07:00.000|1|10|2026|2026-09-27 14:06:00.000|27|9|2026|5375.0000000000000|.0000000000000|5375.0000000000000|NULL|1  0  5  9  4  3  3  5  2  2|2026-09-27 14:31:56.000|27|9|2026|Female|1
+TestCase|UntouchedLegacyRows|FixedLegacyRows|AddedByFix|RemovedByFix
+--------|-------------------|---------------|----------|------------
+R4 BACKEND narrow new toDate GetDayEnd 2026-09-27 23:59:59.997 vs legacy midnight | (b) Fix effect|19|19|0|0
+side|EmployeeName|EmployeeId|EndWork|EndWorkingDate
+----|------------|----------|-------|--------------
+TestCase|LegacyRows|IncomePos|InsurancePos|LegacyCrashCells|IntLegacyMinusNew|IntNewMinusLegacy|TvfFracErrorCells|TvfFracWrongCells|TvfFracRowsOk|CandidateFracRowsOk|LegacyTotalType
+--------|----------|---------|------------|----------------|-----------------|-----------------|-----------------|-----------------|-------------|-------------------|---------------
+R4 BACKEND narrow new toDate GetDayEnd 2026-09-27 23:59:59.997 vs legacy midnight | Int/Fraction|19|19|0|0|0|3|0|0|19|19|decimal(38,13)
+EmployeeName|TotalIncomeLocal|LegacyInt|LegacyFrac|TvfFrac|CandIncFrac
+------------|----------------|---------|----------|-------|-----------
+== R4 Fix effect, all EndWork = 0 employees (no date/id/security filter)
+EmployeeId|EmployeeName|EndWork|EndWorkingDate|LegacyKeeps|FixKeeps
+----------|------------|-------|--------------|-----------|--------
+EmployeesWithEndWorkingDate
+---------------------------
+0

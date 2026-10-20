@@ -1,0 +1,37 @@
+tran_ms|trancount_after_rollback
+-------|------------------------
+335|0
+check_
+------
+R1 legacy vs TVF
+case|params|legacyRows|newRows|L_N|N_L|multisetDiff|sumsLegacy|sumsNew|sumsEqual|verdict
+----|------|----------|-------|---|---|------------|----------|-------|---------|-------
+a0 All ar0 (new filter NULL)|legacy 'All',0 -> new (NULL,NULL,0)|286|286|0|0|0|522814.500000|null|null|522814.500000|null|null|yes|PASS
+a1 All ar0|legacy 'All',0 -> new (NULL,'All',0)|286|286|0|0|0|522814.500000|null|null|522814.500000|null|null|yes|PASS
+a2 All ar1|legacy 'All',1 -> new (NULL,'All',1)|286|286|0|0|0|522814.500000|null|null|522814.500000|null|null|yes|PASS
+b1 AllInService ar0|legacy 'AllInService',0 -> new (NULL,'AllInService',0)|280|280|0|0|0|479739.500000|null|null|479739.500000|null|null|yes|PASS
+b2 AllInService ar1|legacy 'AllInService',1 -> new (NULL,'AllInService',1)|280|280|0|0|0|479739.500000|null|null|479739.500000|null|null|yes|PASS
+c1 AllTerminated ar0|legacy 'AllTerminated',0 -> new (NULL,'AllTerminated',0)|6|6|0|0|0|43075.000000|null|null|43075.000000|null|null|yes|PASS
+c2 AllTerminated ar1|legacy 'AllTerminated',1 -> new (NULL,'AllTerminated',1)|6|6|0|0|0|43075.000000|null|null|43075.000000|null|null|yes|PASS
+d1 ids 1,9 (one terminated)|legacy '1,9',0 -> new ('1,9',NULL,0)|7|7|0|0|0|51600.000000|null|null|51600.000000|null|null|yes|PASS
+check_
+------
+R1 AllTerminated returns only the 2 seeded employees, all their open income rows
+case|newEmployees|legacyEmployees|newRows|expectedRows|verdict
+----|------------|---------------|-------|------------|-------
+c1 AllTerminated ar0|1,2|1,2|6|6|PASS
+c2 AllTerminated ar1|1,2|1,2|6|6|PASS
+check_|allRows|inServiceRows|terminatedRows|terminatedInInService
+------|-------|-------------|--------------|---------------------
+R1 All = AllInService + AllTerminated (TVF, ar0)|286|280|6|0
+stage|EmployeeId|EndWork|openIncomeRows
+-----|----------|-------|--------------
+after rollback|1|0|1
+after rollback|2|0|5
+before|1|0|1
+before|2|0|5
+inside tran|1|1|1
+inside tran|2|1|5
+what|trancount|employeesEndWork1|seededEmployeesEndWork
+----|---------|-----------------|----------------------
+post-run|0|0|1:0,2:0

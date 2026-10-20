@@ -1,0 +1,33 @@
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+ActiveEmployees
+---------------
+88
+RangeId|Label|LegacyMaster|TvfMaster|MasterLegacyNotTvf|MasterTvfNotLegacy|LegacyDetail|TvfDetail|DetailLegacyNotTvf|DetailTvfNotLegacy|SplitTypeRows|TvfRowNoDistinct|SumVacationBalance|SumCounts
+-------|-----|------------|---------|------------------|------------------|------------|---------|------------------|------------------|-------------|----------------|------------------|---------
+1|wide 2000-01-01..2026-12-31|88|88|0|0|617|617|0|0|1|617|31221.121339000|30
+2|narrow 2026-05-01..2026-06-30|88|88|0|0|617|617|0|0|1|617|30395.238992000|19
+3|raw times 2026-06-30 15:00..09-21 08:00|88|88|0|0|617|617|0|0|1|617|30589.386673000|15
+4|narrow 2026-09-21..2026-09-28|88|88|0|0|617|617|0|0|1|617|30633.170350000|1
+5|before data 2024-01-01..2024-12-31|88|88|0|0|616|616|0|0|0|616|29884.446393000|0
+TvfMasterRows|DistinctRowNo|MinRowNo|MaxRowNo
+-------------|-------------|--------|--------
+88|88|1|88

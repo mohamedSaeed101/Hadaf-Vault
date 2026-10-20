@@ -1,0 +1,549 @@
+tag|Name|column_ordinal|name|system_type_name
+---|----|--------------|----|----------------
+META|R1_DIM|1|CostCenterNo|nvarchar(20)
+META|R1_DIM|2|CostCenterName|nvarchar(300)
+META|R1_DIM|3|AccountTypeName|nvarchar(50)
+META|R1_DIM|4|AccountTypeNameArabic|nvarchar(50)
+META|R1_DIM|5|PeriodBalance|money
+META|R1_DIM|6|PeriodBudget|money
+META|R1_DIM|7|BudgetDiff|money
+META|R1_DIM|8|LastBalance|money
+META|R1_DIM|9|LastBalanceDiff|money
+META|R1_DIM|10|YearToPeriodBalance|money
+META|R1_DIM|11|YearToPeriodBudget|money
+META|R1_DIM|12|YearToPeriodBudgetDiff|money
+META|R1_DIM|13|LastYearToPeriodBalance|money
+META|R1_DIM|14|LastYearToPeriodBalanceDiff|money
+META|R1_DIM|15|CostCenterId|int
+META|R1_DIM|16|AccountTypeId|int
+META|R1_DIM|17|CalculatedPeriodBalance|money
+META|R1_DIM|18|CalculatedPeriodBudget|money
+META|R1_DIM|19|CalBudgetDiff|money
+META|R1_DIM|20|CalLastBalance|money
+META|R1_DIM|21|CalLastBalanceDiff|money
+META|R1_DIM|22|CalYearToPeriodBalance|money
+META|R1_DIM|23|CalYearToPeriodBudget|money
+META|R1_DIM|24|CalYearToPeriodBudgetDiff|money
+META|R1_DIM|25|CalLastYearToPeriodBalance|money
+META|R1_DIM|26|CasLastYearToPeriodBalanceDiff|money
+META|R1_N|1|RowNo|bigint
+META|R1_N|2|SortOrder|int
+META|R1_N|3|RowType|nvarchar(30)
+META|R1_N|4|DimensionId|int
+META|R1_N|5|DimensionNo|nvarchar(50)
+META|R1_N|6|DimensionName|nvarchar(300)
+META|R1_N|7|AccountTypeId|int
+META|R1_N|8|AccountTypeName|nvarchar(50)
+META|R1_N|9|AccountTypeNameArabic|nvarchar(50)
+META|R1_N|10|PeriodBalance|decimal(19,4)
+META|R1_N|11|PeriodBudget|decimal(19,4)
+META|R1_N|12|BudgetDiff|decimal(19,4)
+META|R1_N|13|LastBalance|decimal(19,4)
+META|R1_N|14|LastBalanceDiff|decimal(19,4)
+META|R1_N|15|YearToPeriodBalance|decimal(19,4)
+META|R1_N|16|YearToPeriodBudget|decimal(19,4)
+META|R1_N|17|YearToPeriodBudgetDiff|decimal(19,4)
+META|R1_N|18|LastYearToPeriodBalance|decimal(19,4)
+META|R1_N|19|LastYearToPeriodBalanceDiff|decimal(19,4)
+META|R12_IS|1|AccountTypeId|int
+META|R12_IS|2|AccountTypeName|nvarchar(50)
+META|R12_IS|3|AccountTypeNameArabic|nvarchar(50)
+META|R12_IS|4|PeriodBalance|money
+META|R12_IS|5|CalPeriodBalance|money
+META|R12_IS|6|PeriodBudget|money
+META|R12_IS|7|CalPeriodBudget|money
+META|R12_IS|8|BudgetDiff|money
+META|R12_IS|9|CalBudgetDiff|money
+META|R12_IS|10|LastBalance|money
+META|R12_IS|11|CalLastBalance|money
+META|R12_IS|12|LastBalanceDiff|money
+META|R12_IS|13|CalLastBalanceDiff|money
+META|R12_IS|14|YearToPeriodBalance|money
+META|R12_IS|15|CalYearToPeriodBalance|money
+META|R12_IS|16|YearToPeriodBudget|money
+META|R12_IS|17|CalYearToPeriodBudget|money
+META|R12_IS|18|YearToPeriodBudgetDiff|money
+META|R12_IS|19|CalYearToPeriodBudgetDiff|money
+META|R12_IS|20|LastYearToPeriodBalance|money
+META|R12_IS|21|CalLastYearToPeriodBalance|money
+META|R12_IS|22|LastYearToPeriodBalanceDiff|money
+META|R12_IS|23|CalLastYearToPeriodBalanceDiff|money
+META|R2_DIM|1|BranchCode|nvarchar(50)
+META|R2_DIM|2|BranchName|nvarchar(500)
+META|R2_DIM|3|AccountTypeName|nvarchar(50)
+META|R2_DIM|4|AccountTypeNameArabic|nvarchar(50)
+META|R2_DIM|5|PeriodBalance|money
+META|R2_DIM|6|PeriodBudget|money
+META|R2_DIM|7|BudgetDiff|money
+META|R2_DIM|8|LastBalance|money
+META|R2_DIM|9|LastBalanceDiff|money
+META|R2_DIM|10|YearToPeriodBalance|money
+META|R2_DIM|11|YearToPeriodBudget|money
+META|R2_DIM|12|YearToPeriodBudgetDiff|money
+META|R2_DIM|13|LastYearToPeriodBalance|money
+META|R2_DIM|14|LastYearToPeriodBalanceDiff|money
+META|R2_DIM|15|BranchId|int
+META|R2_DIM|16|AccountTypeId|int
+META|R2_DIM|17|CalculatedPeriodBalance|money
+META|R2_DIM|18|CalculatedPeriodBudget|money
+META|R2_DIM|19|CalBudgetDiff|money
+META|R2_DIM|20|CalLastBalance|money
+META|R2_DIM|21|CalLastBalanceDiff|money
+META|R2_DIM|22|CalYearToPeriodBalance|money
+META|R2_DIM|23|CalYearToPeriodBudget|money
+META|R2_DIM|24|CalYearToPeriodBudgetDiff|money
+META|R2_DIM|25|CalLastYearToPeriodBalance|money
+META|R2_DIM|26|CasLastYearToPeriodBalanceDiff|money
+META|R2_N|1|RowNo|bigint
+META|R2_N|2|SortOrder|int
+META|R2_N|3|RowType|nvarchar(30)
+META|R2_N|4|DimensionId|int
+META|R2_N|5|DimensionNo|nvarchar(50)
+META|R2_N|6|DimensionName|nvarchar(500)
+META|R2_N|7|AccountTypeId|int
+META|R2_N|8|AccountTypeName|nvarchar(50)
+META|R2_N|9|AccountTypeNameArabic|nvarchar(50)
+META|R2_N|10|PeriodBalance|decimal(19,4)
+META|R2_N|11|PeriodBudget|decimal(19,4)
+META|R2_N|12|BudgetDiff|decimal(19,4)
+META|R2_N|13|LastBalance|decimal(19,4)
+META|R2_N|14|LastBalanceDiff|decimal(19,4)
+META|R2_N|15|YearToPeriodBalance|decimal(19,4)
+META|R2_N|16|YearToPeriodBudget|decimal(19,4)
+META|R2_N|17|YearToPeriodBudgetDiff|decimal(19,4)
+META|R2_N|18|LastYearToPeriodBalance|decimal(19,4)
+META|R2_N|19|LastYearToPeriodBalanceDiff|decimal(19,4)
+META|R3_DIM|1|CostCenterNo|nvarchar(20)
+META|R3_DIM|2|CostCenterName|nvarchar(300)
+META|R3_DIM|3|CostCenterId|int
+META|R3_DIM|4|PeriodCredit|money
+META|R3_DIM|5|PeriodDebit|money
+META|R3_DIM|6|AccountTypeName|nvarchar(50)
+META|R3_DIM|7|AccountTypeNameArabic|nvarchar(50)
+META|R3_DIM|8|AccountTypeId|int
+META|R3_DIM|9|SubItemActualBalance|money
+META|R3_DIM|10|SubItemBudgetValueBalance|money
+META|R3_DIM|11|number|int
+META|R3_DIM|12|monthname|nvarchar(30)
+META|R3_N|1|RowNo|bigint
+META|R3_N|2|Section|nvarchar(20)
+META|R3_N|3|DimensionId|int
+META|R3_N|4|DimensionName|nvarchar(300)
+META|R3_N|5|AccountTypeId|int
+META|R3_N|6|AccountTypeName|nvarchar(50)
+META|R3_N|7|AccountTypeNameArabic|nvarchar(50)
+META|R3_N|8|MonthNo|int
+META|R3_N|9|MonthName|nvarchar(9)
+META|R3_N|10|MonthNameArabic|nvarchar(6)
+META|R3_N|11|Budget|decimal(19,4)
+META|R3_N|12|Actual|decimal(19,4)
+META|R3_SUM|1|AccountTypeId|int
+META|R3_SUM|2|AccountTypeName|nvarchar(50)
+META|R3_SUM|3|AccountTypeNameArabic|nvarchar(50)
+META|R3_SUM|4|PeriodCredit|money
+META|R3_SUM|5|PeriodDebit|money
+META|R3_SUM|6|BudgetValue|money
+META|R3_SUM|7|number|int
+META|R3_SUM|8|monthname|nvarchar(30)
+META|R3_SUM|9|AcutalValue|money
+META|R4_DIM|1|BranchCode|nvarchar(50)
+META|R4_DIM|2|BranchName|nvarchar(500)
+META|R4_DIM|3|BranchId|int
+META|R4_DIM|4|PeriodCredit|money
+META|R4_DIM|5|PeriodDebit|money
+META|R4_DIM|6|AccountTypeName|nvarchar(50)
+META|R4_DIM|7|AccountTypeNameArabic|nvarchar(50)
+META|R4_DIM|8|AccountTypeId|int
+META|R4_DIM|9|SubItemActualBalance|money
+META|R4_DIM|10|SubItemBudgetValueBalance|money
+META|R4_DIM|11|number|int
+META|R4_DIM|12|monthname|nvarchar(30)
+META|R4_N|1|RowNo|bigint
+META|R4_N|2|Section|nvarchar(20)
+META|R4_N|3|DimensionId|int
+META|R4_N|4|DimensionName|nvarchar(500)
+META|R4_N|5|AccountTypeId|int
+META|R4_N|6|AccountTypeName|nvarchar(50)
+META|R4_N|7|AccountTypeNameArabic|nvarchar(50)
+META|R4_N|8|MonthNo|int
+META|R4_N|9|MonthName|nvarchar(9)
+META|R4_N|10|MonthNameArabic|nvarchar(6)
+META|R4_N|11|Budget|decimal(19,4)
+META|R4_N|12|Actual|decimal(19,4)
+META|R4_SUM|1|AccountTypeId|int
+META|R4_SUM|2|AccountTypeName|nvarchar(50)
+META|R4_SUM|3|AccountTypeNameArabic|nvarchar(50)
+META|R4_SUM|4|PeriodCredit|money
+META|R4_SUM|5|PeriodDebit|money
+META|R4_SUM|6|BudgetValue|money
+META|R4_SUM|7|number|int
+META|R4_SUM|8|monthname|nvarchar(30)
+META|R4_SUM|9|AcutalValue|money
+META|R5_1|1|PeriodCredit|money
+META|R5_1|2|PeriodDebit|money
+META|R5_1|3|SubItemName|nvarchar(500)
+META|R5_1|4|SubItemBalance|money
+META|R5_1|5|MainItemName|nvarchar(100)
+META|R5_1|6|number|int
+META|R5_1|7|monthname|nvarchar(30)
+META|R5_2|1|PeriodCredit|money
+META|R5_2|2|PeriodDebit|money
+META|R5_2|3|SubItemName|nvarchar(500)
+META|R5_2|4|SubItemBalance|money
+META|R5_2|5|MainItemName|nvarchar(100)
+META|R5_2|6|number|int
+META|R5_2|7|monthname|nvarchar(30)
+META|R5_3|1|PeriodCredit|money
+META|R5_3|2|PeriodDebit|money
+META|R5_3|3|SubItemName|nvarchar(500)
+META|R5_3|4|SubItemBalance|money
+META|R5_3|5|MainItemName|nvarchar(100)
+META|R5_3|6|monthname|nvarchar(30)
+META|R5_3|7|number|int
+META|R5_4|1|PeriodCredit|money
+META|R5_4|2|PeriodDebit|money
+META|R5_4|3|SubItemName|nvarchar(500)
+META|R5_4|4|SubItemBalance|money
+META|R5_4|5|MainItemName|nvarchar(100)
+META|R5_4|6|monthname|nvarchar(30)
+META|R5_4|7|number|int
+META|R5_5|1|PeriodCredit|money
+META|R5_5|2|PeriodDebit|money
+META|R5_5|3|SubItemName|nvarchar(500)
+META|R5_5|4|SubItemBalance|money
+META|R5_5|5|MainItemName|nvarchar(100)
+META|R5_5|6|number|int
+META|R5_5|7|monthname|nvarchar(30)
+META|R5_6|1|PeriodCredit|money
+META|R5_6|2|PeriodDebit|money
+META|R5_6|3|SubItemName|nvarchar(500)
+META|R5_6|4|SubItemBalance|money
+META|R5_6|5|MainItemName|nvarchar(100)
+META|R5_6|6|monthname|nvarchar(30)
+META|R5_6|7|number|int
+META|R5_N|1|RowNo|bigint
+META|R5_N|2|RowType|nvarchar(30)
+META|R5_N|3|MainItemId|int
+META|R5_N|4|MainItemName|nvarchar(100)
+META|R5_N|5|MainItemNameArabic|nvarchar(100)
+META|R5_N|6|IncomeStatmentSubItemId|int
+META|R5_N|7|SubItemName|nvarchar(500)
+META|R5_N|8|OrderInReport|int
+META|R5_N|9|MonthNo|int
+META|R5_N|10|MonthName|nvarchar(9)
+META|R5_N|11|MonthNameArabic|nvarchar(6)
+META|R5_N|12|Balance|decimal(19,4)
+tag|CaseId|Report|CaseName|SP|FM|TM|FromD|ToD|Rev|JT|CC|BR|IsNegative|Syn
+---|------|------|--------|--|--|--|-----|---|---|--|--|--|----------|---
+CASES|1|R1|SP 18 (2025), all|18|NULL|NULL|NULL|NULL|NUL|NULL|NULL|NULL|0|0
+CASES|2|R1|SP 18 (2025), cc 49,45,43, revised=true|18|NULL|NULL|NULL|NULL|1|NULL|49,45,43|NULL|0|0
+CASES|3|R1|SP 18 (2025), revised=false, jt 51,14|18|NULL|NULL|NULL|NULL|0|51,14|NULL|NULL|0|0
+CASES|4|R1|SP 1 (2023 Q1), all (type-4 budget 400)|1|NULL|NULL|NULL|NULL|NUL|NULL|NULL|NULL|0|0
+CASES|5|R1|SP 14 (2023 Q2), all (YTD budget = SP 1)|14|NULL|NULL|NULL|NULL|NUL|NULL|NULL|NULL|0|0
+CASES|6|R2|SP 18 (2025), all|18|NULL|NULL|NULL|NULL|NUL|NULL|NULL|NULL|0|0
+CASES|7|R2|SP 14 (2023 Q2), br 2, revised=false|14|NULL|NULL|NULL|NULL|0|NULL|NULL|2|0|0
+CASES|8|R1|NEGATIVE: SP 18 all, new side cc 49|18|NULL|NULL|NULL|NULL|NUL|NULL|NULL|NULL|1|0
+CASES|9|R3|2025 month=null (1..12), all|NULL|1|12|2025-01-01 00:00:00.000|2025-12-31 23:59:59.997|NUL|NULL|NULL|NULL|0|0
+CASES|10|R3|2025 month=true (1..6), cc 49|NULL|1|6|2025-01-01 00:00:00.000|2025-06-30 23:59:59.997|NUL|NULL|49|NULL|0|0
+CASES|11|R3|2025 month=false (6..12), revised=true|NULL|6|12|2025-06-01 00:00:00.000|2025-12-31 23:59:59.997|1|NULL|NULL|NULL|0|0
+CASES|12|R4|2025 month=null (1..12), all|NULL|1|12|2025-01-01 00:00:00.000|2025-12-31 23:59:59.997|NUL|NULL|NULL|NULL|0|0
+CASES|13|R4|2026 month=true (1..6), br 2, jt 51,14|NULL|1|6|2026-01-01 00:00:00.000|2026-06-30 23:59:59.997|NUL|51,14|NULL|2|0|0
+CASES|14|R5|2025 month=true (1..6), all|NULL|0|6|2025-01-01 00:00:00.000|2025-06-30 23:59:59.997|NUL|NULL|NULL|NULL|0|0
+CASES|15|R5|2025 month=false (6..12), cc 49,45, jt 51,14|NULL|0|12|2025-06-01 00:00:00.000|2025-12-31 23:59:59.997|NUL|51,14|49,45|NULL|0|0
+CASES|16|R5|2025 month=null (1..12), br 1, revised=true|NULL|0|12|2025-01-01 00:00:00.000|2025-12-31 23:59:59.997|1|NULL|NULL|1|0|0
+CASES|17|R5|2024 month=null (1..12), revised=false|NULL|0|12|2024-01-01 00:00:00.000|2024-12-31 23:59:59.997|0|NULL|NULL|NULL|0|0
+CASES|18|R5|NEGATIVE: 2025 month=true all, new side jt 51|NULL|0|6|2025-01-01 00:00:00.000|2025-06-30 23:59:59.997|NUL|NULL|NULL|NULL|1|0
+CASES|19|R3|NEGATIVE: 2025 month=null all, new side cc 49|NULL|1|12|2025-01-01 00:00:00.000|2025-12-31 23:59:59.997|NUL|NULL|NULL|NULL|1|0
+CASES|20|R1|SYN: SP 18 (2025), all|18|NULL|NULL|NULL|NULL|NUL|NULL|NULL|NULL|0|1
+CASES|21|R1|SYN: SP 18 (2025), cc 49,43, jt 51,14|18|NULL|NULL|NULL|NULL|NUL|51,14|49,43|NULL|0|1
+CASES|22|R1|SYN: SP 15 (2023 Q3), all (YTD budget = SP 1 + SP 14)|15|NULL|NULL|NULL|NULL|NUL|NULL|NULL|NULL|0|1
+CASES|23|R2|SYN: SP 18 (2025), all|18|NULL|NULL|NULL|NULL|NUL|NULL|NULL|NULL|0|1
+CASES|24|R2|SYN: SP 15 (2023 Q3), br 3, revised=false|15|NULL|NULL|NULL|NULL|0|NULL|NULL|3|0|1
+CASES|25|R3|SYN: 2025 month=null (1..12), all|NULL|1|12|2025-01-01 00:00:00.000|2025-12-31 23:59:59.997|NUL|NULL|NULL|NULL|0|1
+CASES|26|R3|SYN: 2025 month=true (1..6), cc 49,45|NULL|1|6|2025-01-01 00:00:00.000|2025-06-30 23:59:59.997|NUL|NULL|49,45|NULL|0|1
+CASES|27|R3|SYN: 2025 month=false (6..12), jt 51,14|NULL|6|12|2025-06-01 00:00:00.000|2025-12-31 23:59:59.997|NUL|51,14|NULL|NULL|0|1
+CASES|28|R3|SYN: 2025 month=null, revised=true|NULL|1|12|2025-01-01 00:00:00.000|2025-12-31 23:59:59.997|1|NULL|NULL|NULL|0|1
+CASES|29|R4|SYN: 2025 month=null (1..12), all|NULL|1|12|2025-01-01 00:00:00.000|2025-12-31 23:59:59.997|NUL|NULL|NULL|NULL|0|1
+CASES|30|R4|SYN: 2025 month=true (1..6), br 2|NULL|1|6|2025-01-01 00:00:00.000|2025-06-30 23:59:59.997|NUL|NULL|NULL|2|0|1
+CASES|31|R4|SYN: 2024 month=false (6..12), br 3, jt 51|NULL|6|12|2024-06-01 00:00:00.000|2024-12-31 23:59:59.997|NUL|51|NULL|3|0|1
+CASES|32|R3|SYN NEGATIVE: 2025 month=null all, new side cc 43|NULL|1|12|2025-01-01 00:00:00.000|2025-12-31 23:59:59.997|NUL|NULL|NULL|NULL|1|1
+CASES|33|R1|SYN NEGATIVE: SP 15 all, new side SP 14|15|NULL|NULL|NULL|NULL|NUL|NULL|NULL|NULL|1|1
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+tag|db|CaseId|Part|CaseName|RowsL|RowsN|LExceptN|NExceptL|DupLN|DupNL|Sums|RowNoViol|Result|Ms|SumsL|SumsN
+---|--|------|----|--------|-----|-----|--------|--------|-----|-----|----|---------|------|--|-----|-----
+SUMMARY|dbriyadh_Primary|1|R1.AccountType|SP 18 (2025), all|85|85|0|0|0|0|eq|0|PASS|10524|428498542.2959;0.0000;428498542.2959;339822196.7659;333476082.5576;428498542.2959;0.0000;428498542.2959;339822196.7659;333476082.5576|428498542.2959;0.0000;428498542.2959;339822196.7659;333476082.5576;428498542.2959;0.0000;428498542.2959;339822196.7659;333476082.5576
+SUMMARY|dbriyadh_Primary|1|R1.GOP|SP 18 (2025), all|102|102|0|0|0|0|eq|0|PASS|10524|56098830.9515;0.0000;56098830.9515;66078332.9069;39186651.4202;56098830.9515;0.0000;56098830.9515;66078332.9069;39186651.4202|56098830.9515;0.0000;56098830.9515;66078332.9069;39186651.4202;56098830.9515;0.0000;56098830.9515;66078332.9069;39186651.4202
+SUMMARY|dbriyadh_Primary|1|R1.OtherAccountType|SP 18 (2025), all|5|5|0|0|0|0|eq|0|PASS|10524|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|1|R1.Totals|SP 18 (2025), all|2|2|0|0|0|0|eq|0|PASS|10524|56098830.9515;0.0000;56098830.9515;66078332.9069;39186651.4202;56098830.9515;0.0000;56098830.9515;66078332.9069;39186651.4202|56098830.9515;0.0000;56098830.9515;66078332.9069;39186651.4202;56098830.9515;0.0000;56098830.9515;66078332.9069;39186651.4202
+SUMMARY|dbriyadh_Primary|2|R1.AccountType|SP 18 (2025), cc 49,45,43, revised=true|0|0|0|0|0|0|eq|0|PASS|5770|;;;;;;;;;|;;;;;;;;;
+SUMMARY|dbriyadh_Primary|2|R1.GOP|SP 18 (2025), cc 49,45,43, revised=true|0|0|0|0|0|0|eq|0|PASS|5770|;;;;;;;;;|;;;;;;;;;
+SUMMARY|dbriyadh_Primary|2|R1.OtherAccountType|SP 18 (2025), cc 49,45,43, revised=true|5|5|0|0|0|0|eq|0|PASS|5770|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|2|R1.Totals|SP 18 (2025), cc 49,45,43, revised=true|2|2|0|0|0|0|eq|0|PASS|5770|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|3|R1.AccountType|SP 18 (2025), revised=false, jt 51,14|43|43|0|0|0|0|eq|0|PASS|11515|82469837.4466;0.0000;82469837.4466;56565159.4885;72574526.8197;82469837.4466;0.0000;82469837.4466;56565159.4885;72574526.8197|82469837.4466;0.0000;82469837.4466;56565159.4885;72574526.8197;82469837.4466;0.0000;82469837.4466;56565159.4885;72574526.8197
+SUMMARY|dbriyadh_Primary|3|R1.GOP|SP 18 (2025), revised=false, jt 51,14|86|86|0|0|0|0|eq|0|PASS|11515|-82469837.4466;0.0000;-82469837.4466;-56565159.4885;-72574526.8197;-82469837.4466;0.0000;-82469837.4466;-56565159.4885;-72574526.8197|-82469837.4466;0.0000;-82469837.4466;-56565159.4885;-72574526.8197;-82469837.4466;0.0000;-82469837.4466;-56565159.4885;-72574526.8197
+SUMMARY|dbriyadh_Primary|3|R1.OtherAccountType|SP 18 (2025), revised=false, jt 51,14|5|5|0|0|0|0|eq|0|PASS|11515|6888.9600;0.0000;6888.9600;4375.0000;2513.9600;6888.9600;0.0000;6888.9600;4375.0000;2513.9600|6888.9600;0.0000;6888.9600;4375.0000;2513.9600;6888.9600;0.0000;6888.9600;4375.0000;2513.9600
+SUMMARY|dbriyadh_Primary|3|R1.Totals|SP 18 (2025), revised=false, jt 51,14|2|2|0|0|0|0|eq|0|PASS|11515|-164946563.8532;0.0000;-164946563.8532;-113134693.9770;-98481718.7378;-164946563.8532;0.0000;-164946563.8532;-113134693.9770;-98481718.7378|-164946563.8532;0.0000;-164946563.8532;-113134693.9770;-98481718.7378;-164946563.8532;0.0000;-164946563.8532;-113134693.9770;-98481718.7378
+SUMMARY|dbriyadh_Primary|4|R1.AccountType|SP 1 (2023 Q1), all (type-4 budget 400)|30|30|0|0|0|0|eq|0|PASS|3192|55991195.9650;0.0000;55991195.9650;0.0000;55991195.9650;55991195.9650;0.0000;55991195.9650;0.0000;55991195.9650|55991195.9650;0.0000;55991195.9650;0.0000;55991195.9650;55991195.9650;0.0000;55991195.9650;0.0000;55991195.9650
+SUMMARY|dbriyadh_Primary|4|R1.GOP|SP 1 (2023 Q1), all (type-4 budget 400)|44|44|0|0|0|0|eq|0|PASS|3192|-2649086.8690;0.0000;-2649086.8690;0.0000;-2649086.8690;-2649086.8690;0.0000;-2649086.8690;0.0000;-2649086.8690|-2649086.8690;0.0000;-2649086.8690;0.0000;-2649086.8690;-2649086.8690;0.0000;-2649086.8690;0.0000;-2649086.8690
+SUMMARY|dbriyadh_Primary|4|R1.OtherAccountType|SP 1 (2023 Q1), all (type-4 budget 400)|5|5|0|0|0|0|eq|0|PASS|3192|0.0000;400.0000;400.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|0.0000;400.0000;400.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|4|R1.Totals|SP 1 (2023 Q1), all (type-4 budget 400)|2|2|0|0|0|0|eq|0|PASS|3192|-2649086.8690;-400.0000;-2649486.8690;0.0000;-2649086.8690;-2649086.8690;0.0000;-2649086.8690;0.0000;-2649086.8690|-2649086.8690;-400.0000;-2649486.8690;0.0000;-2649086.8690;-2649086.8690;0.0000;-2649086.8690;0.0000;-2649086.8690
+SUMMARY|dbriyadh_Primary|5|R1.AccountType|SP 14 (2023 Q2), all (YTD budget = SP 1)|32|32|0|0|0|0|eq|0|PASS|2899|55308537.0286;0.0000;55308537.0286;0.0000;55308537.0286;111299732.9936;0.0000;111299732.9936;0.0000;111299732.9936|55308537.0286;0.0000;55308537.0286;0.0000;55308537.0286;111299732.9936;0.0000;111299732.9936;0.0000;111299732.9936
+SUMMARY|dbriyadh_Primary|5|R1.GOP|SP 14 (2023 Q2), all (YTD budget = SP 1)|44|44|0|0|0|0|eq|0|PASS|2899|1470945.4072;0.0000;1470945.4072;0.0000;1470945.4072;-1178141.4618;0.0000;-1178141.4618;0.0000;-1178141.4618|1470945.4072;0.0000;1470945.4072;0.0000;1470945.4072;-1178141.4618;0.0000;-1178141.4618;0.0000;-1178141.4618
+SUMMARY|dbriyadh_Primary|5|R1.OtherAccountType|SP 14 (2023 Q2), all (YTD budget = SP 1)|5|5|0|0|0|0|eq|0|PASS|2899|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;400.0000;400.0000;0.0000;0.0000|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;400.0000;400.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|5|R1.Totals|SP 14 (2023 Q2), all (YTD budget = SP 1)|2|2|0|0|0|0|eq|0|PASS|2899|1470945.4072;0.0000;1470945.4072;0.0000;1470945.4072;-1178141.4618;-400.0000;-1178541.4618;0.0000;-1178141.4618|1470945.4072;0.0000;1470945.4072;0.0000;1470945.4072;-1178141.4618;-400.0000;-1178541.4618;0.0000;-1178141.4618
+SUMMARY|dbriyadh_Primary|6|R2.AccountType|SP 18 (2025), all|2|2|0|0|0|0|eq|0|PASS|9878|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|6|R2.GOP|SP 18 (2025), all|2|2|0|0|0|0|eq|0|PASS|9878|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|6|R2.OtherAccountType|SP 18 (2025), all|5|5|0|0|0|0|eq|0|PASS|9878|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|6|R2.Totals|SP 18 (2025), all|2|2|0|0|0|0|eq|0|PASS|9878|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|7|R2.AccountType|SP 14 (2023 Q2), br 2, revised=false|2|2|0|0|0|0|eq|0|PASS|5611|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|7|R2.GOP|SP 14 (2023 Q2), br 2, revised=false|2|2|0|0|0|0|eq|0|PASS|5611|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|7|R2.OtherAccountType|SP 14 (2023 Q2), br 2, revised=false|5|5|0|0|0|0|eq|0|PASS|5611|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;400.0000;400.0000;0.0000;0.0000|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;400.0000;400.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|7|R2.Totals|SP 14 (2023 Q2), br 2, revised=false|2|2|0|0|0|0|eq|0|PASS|5611|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;-400.0000;-400.0000;0.0000;0.0000|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;-400.0000;-400.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|8|R1.AccountType|NEGATIVE: SP 18 all, new side cc 49|85|2|83|0|83|0|DIFF|0|DETECTED|10411|428498542.2959;0.0000;428498542.2959;339822196.7659;333476082.5576;428498542.2959;0.0000;428498542.2959;339822196.7659;333476082.5576|118086369.9205;0.0000;118086369.9205;40777274.6220;77309095.2985;118086369.9205;0.0000;118086369.9205;40777274.6220;77309095.2985
+SUMMARY|dbriyadh_Primary|8|R1.GOP|NEGATIVE: SP 18 all, new side cc 49|102|2|100|0|100|0|DIFF|0|DETECTED|10411|56098830.9515;0.0000;56098830.9515;66078332.9069;39186651.4202;56098830.9515;0.0000;56098830.9515;66078332.9069;39186651.4202|4922046.6395;0.0000;4922046.6395;14572725.3780;-9650678.7385;4922046.6395;0.0000;4922046.6395;14572725.3780;-9650678.7385
+SUMMARY|dbriyadh_Primary|8|R1.OtherAccountType|NEGATIVE: SP 18 all, new side cc 49|5|5|1|1|1|1|DIFF|0|DETECTED|10411|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|595992.6600;0.0000;595992.6600;733457.2500;137464.5900;595992.6600;0.0000;595992.6600;733457.2500;137464.5900
+SUMMARY|dbriyadh_Primary|8|R1.Totals|NEGATIVE: SP 18 all, new side cc 49|2|2|2|2|2|2|DIFF|0|DETECTED|10411|56098830.9515;0.0000;56098830.9515;66078332.9069;39186651.4202;56098830.9515;0.0000;56098830.9515;66078332.9069;39186651.4202|9248100.6190;0.0000;9248100.6190;28411993.5060;-19438822.0670;9248100.6190;0.0000;9248100.6190;28411993.5060;-19438822.0670
+SUMMARY|dbriyadh_Primary|9|R3.Dimension|2025 month=null (1..12), all|0|0|0|0|0|0|eq|0|PASS|176|;;;;;;;;;|;;;;;;;;;
+SUMMARY|dbriyadh_Primary|9|R3.Summary|2025 month=null (1..12), all|12|12|0|0|0|0|eq|0|PASS|176|-14900.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|-14900.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|10|R3.Dimension|2025 month=true (1..6), cc 49|0|0|0|0|0|0|eq|0|PASS|57|;;;;;;;;;|;;;;;;;;;
+SUMMARY|dbriyadh_Primary|10|R3.Summary|2025 month=true (1..6), cc 49|0|0|0|0|0|0|eq|0|PASS|57|;;;;;;;;;|;;;;;;;;;
+SUMMARY|dbriyadh_Primary|11|R3.Dimension|2025 month=false (6..12), revised=true|0|0|0|0|0|0|eq|0|PASS|126|;;;;;;;;;|;;;;;;;;;
+SUMMARY|dbriyadh_Primary|11|R3.Summary|2025 month=false (6..12), revised=true|7|7|0|0|0|0|eq|0|PASS|126|-11900.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|-11900.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|12|R4.Dimension|2025 month=null (1..12), all|0|0|0|0|0|0|eq|0|PASS|160|;;;;;;;;;|;;;;;;;;;
+SUMMARY|dbriyadh_Primary|12|R4.Summary|2025 month=null (1..12), all|12|12|0|0|0|0|eq|0|PASS|160|-14900.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|-14900.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|13|R4.Dimension|2026 month=true (1..6), br 2, jt 51,14|0|0|0|0|0|0|eq|0|PASS|124|;;;;;;;;;|;;;;;;;;;
+SUMMARY|dbriyadh_Primary|13|R4.Summary|2026 month=true (1..6), br 2, jt 51,14|6|6|0|0|0|0|eq|0|PASS|124|-4600.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|-4600.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|14|R5.SubItem|2025 month=true (1..6), all|26|26|0|0|0|0|eq|0|PASS|1192|197955900.5459;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|197955900.5459;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|14|R5.Totals|2025 month=true (1..6), all|3|3|0|0|0|0|eq|0|PASS|1192|51104899.8897;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|51104899.8897;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|15|R5.SubItem|2025 month=false (6..12), cc 49,45, jt 51,14|12|12|0|0|0|0|eq|0|PASS|800|32952717.2076;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|32952717.2076;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|15|R5.Totals|2025 month=false (6..12), cc 49,45, jt 51,14|3|3|0|0|0|0|eq|0|PASS|800|-98853586.6228;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|-98853586.6228;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|16|R5.SubItem|2025 month=null (1..12), br 1, revised=true|1|1|0|0|0|0|eq|0|PASS|541|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|16|R5.Totals|2025 month=null (1..12), br 1, revised=true|3|3|0|0|0|0|eq|0|PASS|541|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|17|R5.SubItem|2024 month=null (1..12), revised=false|46|46|0|0|0|0|eq|0|PASS|1885|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|17|R5.Totals|2024 month=null (1..12), revised=false|3|3|0|0|0|0|eq|0|PASS|1885|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|18|R5.SubItem|NEGATIVE: 2025 month=true all, new side jt 51|26|9|25|8|25|8|DIFF|0|DETECTED|1107|197955900.5459;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|7686054.4800;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|18|R5.Totals|NEGATIVE: 2025 month=true all, new side jt 51|3|3|3|3|3|3|DIFF|0|DETECTED|1107|51104899.8897;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|-23056760.4800;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|19|R3.Dimension|NEGATIVE: 2025 month=null all, new side cc 49|0|0|0|0|0|0|eq|0|NOT DETECTED|114|;;;;;;;;;|;;;;;;;;;
+SUMMARY|dbriyadh_Primary|19|R3.Summary|NEGATIVE: 2025 month=null all, new side cc 49|12|0|12|0|12|0|DIFF|0|DETECTED|114|-14900.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|;;;;;;;;;
+SUMMARY|dbriyadh_Primary|20|R1.AccountType|SYN: SP 18 (2025), all|85|85|0|0|0|0|eq|0|PASS|10807|428498542.2959;51985.0000;428473277.2959;339822196.7659;333476082.5576;428498542.2959;0.0000;428498542.2959;339822196.7659;333476082.5576|428498542.2959;51985.0000;428473277.2959;339822196.7659;333476082.5576;428498542.2959;0.0000;428498542.2959;339822196.7659;333476082.5576
+SUMMARY|dbriyadh_Primary|20|R1.GOP|SYN: SP 18 (2025), all|102|102|0|0|0|0|eq|0|PASS|10807|56098830.9515;-8905.0000;56134455.9515;66078332.9069;39186651.4202;56098830.9515;0.0000;56098830.9515;66078332.9069;39186651.4202|56098830.9515;-8905.0000;56134455.9515;66078332.9069;39186651.4202;56098830.9515;0.0000;56098830.9515;66078332.9069;39186651.4202
+SUMMARY|dbriyadh_Primary|20|R1.OtherAccountType|SYN: SP 18 (2025), all|5|5|0|0|0|0|eq|0|PASS|10807|0.0000;9180.0000;9180.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|0.0000;9180.0000;9180.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|20|R1.Totals|SYN: SP 18 (2025), all|2|2|0|0|0|0|eq|0|PASS|10807|56098830.9515;-32170.0000;56111190.9515;66078332.9069;39186651.4202;56098830.9515;0.0000;56098830.9515;66078332.9069;39186651.4202|56098830.9515;-32170.0000;56111190.9515;66078332.9069;39186651.4202;56098830.9515;0.0000;56098830.9515;66078332.9069;39186651.4202
+SUMMARY|dbriyadh_Primary|21|R1.AccountType|SYN: SP 18 (2025), cc 49,43, jt 51,14|4|4|0|0|0|0|eq|0|PASS|12003|42418764.7323;34445.0000;42411039.7323;10861656.0331;31557108.6992;42418764.7323;0.0000;42418764.7323;10861656.0331;31557108.6992|42418764.7323;34445.0000;42411039.7323;10861656.0331;31557108.6992;42418764.7323;0.0000;42418764.7323;10861656.0331;31557108.6992
+SUMMARY|dbriyadh_Primary|21|R1.GOP|SYN: SP 18 (2025), cc 49,43, jt 51,14|4|4|0|0|0|0|eq|0|PASS|12003|-42418764.7323;-7725.0000;-42384319.7323;-10861656.0331;-31557108.6992;-42418764.7323;0.0000;-42418764.7323;-10861656.0331;-31557108.6992|-42418764.7323;-7725.0000;-42384319.7323;-10861656.0331;-31557108.6992;-42418764.7323;0.0000;-42418764.7323;-10861656.0331;-31557108.6992
+SUMMARY|dbriyadh_Primary|21|R1.OtherAccountType|SYN: SP 18 (2025), cc 49,43, jt 51,14|5|5|0|0|0|0|eq|0|PASS|12003|5010.0000;9180.0000;4170.0000;115.0000;4895.0000;5010.0000;0.0000;5010.0000;115.0000;4895.0000|5010.0000;9180.0000;4170.0000;115.0000;4895.0000;5010.0000;0.0000;5010.0000;115.0000;4895.0000
+SUMMARY|dbriyadh_Primary|21|R1.Totals|SYN: SP 18 (2025), cc 49,43, jt 51,14|2|2|0|0|0|0|eq|0|PASS|12003|-84842539.4646;-24630.0000;-84772809.4646;-21723427.0662;-63119112.3984;-84842539.4646;0.0000;-84842539.4646;-21723427.0662;-63119112.3984|-84842539.4646;-24630.0000;-84772809.4646;-21723427.0662;-63119112.3984;-84842539.4646;0.0000;-84842539.4646;-21723427.0662;-63119112.3984
+SUMMARY|dbriyadh_Primary|22|R1.AccountType|SYN: SP 15 (2023 Q3), all (YTD budget = SP 1 + SP 14)|43|43|0|0|0|0|eq|0|PASS|3552|60675569.6982;51655.0000;60727224.6982;0.0000;60675569.6982;171975302.6918;101660.0000;172076962.6918;0.0000;171975302.6918|60675569.6982;51655.0000;60727224.6982;0.0000;60675569.6982;171975302.6918;101660.0000;172076962.6918;0.0000;171975302.6918
+SUMMARY|dbriyadh_Primary|22|R1.GOP|SYN: SP 15 (2023 Q3), all (YTD budget = SP 1 + SP 14)|54|54|0|0|0|0|eq|0|PASS|3552|767441.3564;-8755.0000;758686.3564;0.0000;767441.3564;-410700.1054;-16760.0000;-427460.1054;0.0000;-410700.1054|767441.3564;-8755.0000;758686.3564;0.0000;767441.3564;-410700.1054;-16760.0000;-427460.1054;0.0000;-410700.1054
+SUMMARY|dbriyadh_Primary|22|R1.OtherAccountType|SYN: SP 15 (2023 Q3), all (YTD budget = SP 1 + SP 14)|5|5|0|0|0|0|eq|0|PASS|3552|0.0000;9150.0000;9150.0000;0.0000;0.0000;0.0000;18550.0000;18550.0000;0.0000;0.0000|0.0000;9150.0000;9150.0000;0.0000;0.0000;0.0000;18550.0000;18550.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|22|R1.Totals|SYN: SP 15 (2023 Q3), all (YTD budget = SP 1 + SP 14)|2|2|0|0|0|0|eq|0|PASS|3552|767441.3564;-31810.0000;735631.3564;0.0000;767441.3564;-410700.1054;-62220.0000;-472920.1054;0.0000;-410700.1054|767441.3564;-31810.0000;735631.3564;0.0000;767441.3564;-410700.1054;-62220.0000;-472920.1054;0.0000;-410700.1054
+SUMMARY|dbriyadh_Primary|23|R2.AccountType|SYN: SP 18 (2025), all|3|3|0|0|0|0|eq|0|PASS|10350|0.0000;46805.0000;46805.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|0.0000;46805.0000;46805.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|23|R2.GOP|SYN: SP 18 (2025), all|4|4|0|0|0|0|eq|0|PASS|10350|0.0000;-14085.0000;-14085.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|0.0000;-14085.0000;-14085.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|23|R2.OtherAccountType|SYN: SP 18 (2025), all|5|5|0|0|0|0|eq|0|PASS|10350|0.0000;9180.0000;9180.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|0.0000;9180.0000;9180.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|23|R2.Totals|SYN: SP 18 (2025), all|2|2|0|0|0|0|eq|0|PASS|10350|0.0000;-37350.0000;-37350.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|0.0000;-37350.0000;-37350.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|24|R2.AccountType|SYN: SP 15 (2023 Q3), br 3, revised=false|1|1|0|0|0|0|eq|0|PASS|6029|0.0000;4305.0000;4305.0000;0.0000;0.0000;0.0000;8310.0000;8310.0000;0.0000;0.0000|0.0000;4305.0000;4305.0000;0.0000;0.0000;0.0000;8310.0000;8310.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|24|R2.GOP|SYN: SP 15 (2023 Q3), br 3, revised=false|2|2|0|0|0|0|eq|0|PASS|6029|0.0000;-4305.0000;-4305.0000;0.0000;0.0000;0.0000;-8310.0000;-8310.0000;0.0000;0.0000|0.0000;-4305.0000;-4305.0000;0.0000;0.0000;0.0000;-8310.0000;-8310.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|24|R2.OtherAccountType|SYN: SP 15 (2023 Q3), br 3, revised=false|5|5|0|0|0|0|eq|0|PASS|6029|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|24|R2.Totals|SYN: SP 15 (2023 Q3), br 3, revised=false|2|2|0|0|0|0|eq|0|PASS|6029|0.0000;-8610.0000;-8610.0000;0.0000;0.0000;0.0000;-16620.0000;-16620.0000;0.0000;0.0000|0.0000;-8610.0000;-8610.0000;0.0000;0.0000;0.0000;-16620.0000;-16620.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|25|R3.Dimension|SYN: 2025 month=null (1..12), all|84|84|0|0|0|0|eq|0|PASS|946|-280740.0000;-89382013.5988;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|-280740.0000;-89382013.5988;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|25|R3.Summary|SYN: 2025 month=null (1..12), all|36|36|0|0|0|0|eq|0|PASS|946|-284420.0000;100552877.7387;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|-284420.0000;100552877.7387;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|26|R3.Dimension|SYN: 2025 month=true (1..6), cc 49,45|18|18|0|0|0|0|eq|0|PASS|257|-84660.0000;-10627519.2800;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|-84660.0000;-10627519.2800;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|26|R3.Summary|SYN: 2025 month=true (1..6), cc 49,45|18|18|0|0|0|0|eq|0|PASS|257|-138870.0000;15373440.6600;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|-138870.0000;15373440.6600;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|27|R3.Dimension|SYN: 2025 month=false (6..12), jt 51,14|49|49|0|0|0|0|eq|0|PASS|349|-164815.0000;666109.5998;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|-164815.0000;666109.5998;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|27|R3.Summary|SYN: 2025 month=false (6..12), jt 51,14|21|21|0|0|0|0|eq|0|PASS|349|-170345.0000;-570486.1099;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|-170345.0000;-570486.1099;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|28|R3.Dimension|SYN: 2025 month=null, revised=true|84|84|0|0|0|0|eq|0|PASS|437|-280740.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|-280740.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|28|R3.Summary|SYN: 2025 month=null, revised=true|36|36|0|0|0|0|eq|0|PASS|437|-284420.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|-284420.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|29|R4.Dimension|SYN: 2025 month=null (1..12), all|36|36|0|0|0|0|eq|0|PASS|954|-160740.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|-160740.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|29|R4.Summary|SYN: 2025 month=null (1..12), all|36|36|0|0|0|0|eq|0|PASS|954|-284420.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|-284420.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|30|R4.Dimension|SYN: 2025 month=true (1..6), br 2|12|12|0|0|0|0|eq|0|PASS|296|-54840.0000;406349152.1040;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|-54840.0000;406349152.1040;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|30|R4.Summary|SYN: 2025 month=true (1..6), br 2|18|18|0|0|0|0|eq|0|PASS|296|-113650.0000;406340509.6940;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|-113650.0000;406340509.6940;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|31|R4.Dimension|SYN: 2024 month=false (6..12), br 3, jt 51|7|7|0|0|0|0|eq|0|PASS|243|-29295.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|-29295.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|31|R4.Summary|SYN: 2024 month=false (6..12), br 3, jt 51|7|7|0|0|0|0|eq|0|PASS|243|-29295.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|-29295.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|32|R3.Dimension|SYN NEGATIVE: 2025 month=null all, new side cc 43|84|24|60|0|60|0|DIFF|0|DETECTED|399|-280740.0000;-89382013.5988;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|47220.0000;-34040354.9389;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|32|R3.Summary|SYN NEGATIVE: 2025 month=null all, new side cc 43|36|24|36|24|36|24|DIFF|0|DETECTED|399|-284420.0000;100552877.7387;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000|34440.0000;34040354.9389;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|33|R1.AccountType|SYN NEGATIVE: SP 15 all, new side SP 14|43|39|42|38|42|38|DIFF|0|DETECTED|2944|60675569.6982;51655.0000;60727224.6982;0.0000;60675569.6982;171975302.6918;101660.0000;172076962.6918;0.0000;171975302.6918|55308537.0286;51545.0000;55360082.0286;0.0000;55308537.0286;111299732.9936;50115.0000;111349847.9936;0.0000;111299732.9936
+SUMMARY|dbriyadh_Primary|33|R1.GOP|SYN NEGATIVE: SP 15 all, new side SP 14|54|52|27|25|27|25|DIFF|0|DETECTED|2944|767441.3564;-8755.0000;758686.3564;0.0000;767441.3564;-410700.1054;-16760.0000;-427460.1054;0.0000;-410700.1054|1470945.4072;-8705.0000;1462240.4072;0.0000;1470945.4072;-1178141.4618;-8055.0000;-1186196.4618;0.0000;-1178141.4618
+SUMMARY|dbriyadh_Primary|33|R1.OtherAccountType|SYN NEGATIVE: SP 15 all, new side SP 14|5|5|1|1|1|1|DIFF|0|DETECTED|2944|0.0000;9150.0000;9150.0000;0.0000;0.0000;0.0000;18550.0000;18550.0000;0.0000;0.0000|0.0000;9140.0000;9140.0000;0.0000;0.0000;0.0000;9410.0000;9410.0000;0.0000;0.0000
+SUMMARY|dbriyadh_Primary|33|R1.Totals|SYN NEGATIVE: SP 15 all, new side SP 14|2|2|2|2|2|2|DIFF|0|DETECTED|2944|767441.3564;-31810.0000;735631.3564;0.0000;767441.3564;-410700.1054;-62220.0000;-472920.1054;0.0000;-410700.1054|1470945.4072;-31690.0000;1439255.4072;0.0000;1470945.4072;-1178141.4618;-30530.0000;-1208671.4618;0.0000;-1178141.4618
+tag|CaseId|Txt
+---|------|---
+INFO|1|NetProfit PeriodBalance incl. types 1/2 = 0.0000000000; excl. types 1/2 = 0.0000000000; YTD incl = 0.0000000000; YTD excl = 0.0000000000
+INFO|2|NetProfit PeriodBalance incl. types 1/2 = 0.0000000000; excl. types 1/2 = 0.0000000000; YTD incl = 0.0000000000; YTD excl = 0.0000000000
+INFO|3|NetProfit PeriodBalance incl. types 1/2 = -82476726.4066000000; excl. types 1/2 = -6888.9600000000; YTD incl = -82476726.4066000000; YTD excl = -6888.9600000000
+INFO|4|NetProfit PeriodBalance incl. types 1/2 = 0.0000000000; excl. types 1/2 = 0.0000000000; YTD incl = 0.0000000000; YTD excl = 0.0000000000
+INFO|5|NetProfit PeriodBalance incl. types 1/2 = 0.0000000000; excl. types 1/2 = 0.0000000000; YTD incl = 0.0000000000; YTD excl = 0.0000000000
+INFO|6|NetProfit PeriodBalance incl. types 1/2 = 0.0000000000; excl. types 1/2 = 0.0000000000; YTD incl = 0.0000000000; YTD excl = 0.0000000000
+INFO|7|NetProfit PeriodBalance incl. types 1/2 = 0.0000000000; excl. types 1/2 = 0.0000000000; YTD incl = 0.0000000000; YTD excl = 0.0000000000
+INFO|8|NetProfit PeriodBalance incl. types 1/2 = 0.0000000000; excl. types 1/2 = 0.0000000000; YTD incl = 0.0000000000; YTD excl = 0.0000000000
+INFO|20|NetProfit PeriodBalance incl. types 1/2 = 0.0000000000; excl. types 1/2 = 0.0000000000; YTD incl = 0.0000000000; YTD excl = 0.0000000000
+INFO|21|NetProfit PeriodBalance incl. types 1/2 = -42423774.7323000000; excl. types 1/2 = -5010.0000000000; YTD incl = -42423774.7323000000; YTD excl = -5010.0000000000
+INFO|22|NetProfit PeriodBalance incl. types 1/2 = 0.0000000000; excl. types 1/2 = 0.0000000000; YTD incl = 0.0000000000; YTD excl = 0.0000000000
+INFO|23|NetProfit PeriodBalance incl. types 1/2 = 0.0000000000; excl. types 1/2 = 0.0000000000; YTD incl = 0.0000000000; YTD excl = 0.0000000000
+INFO|24|NetProfit PeriodBalance incl. types 1/2 = 0.0000000000; excl. types 1/2 = 0.0000000000; YTD incl = 0.0000000000; YTD excl = 0.0000000000
+INFO|33|NetProfit PeriodBalance incl. types 1/2 = 0.0000000000; excl. types 1/2 = 0.0000000000; YTD incl = 0.0000000000; YTD excl = 0.0000000000
+tag|CaseId|Part|Side|RowTxt
+---|------|----|----|------
+DIFF|8|R1.AccountType|L-N|{"Part":"R1.AccountType","RowType":"AccountType","DimId":3,"DimNo":"1001","DimName":"مشروع تطوير مخطط الموسي فيو بالرياض ","TypeId":2,"TypeName":"Operating expenses","TypeNameAr":"مصروفات التشغيل","V1":0.0000000000,"V2":0.0000000000,"V3":0.0000000000,"V4":
+DIFF|8|R1.AccountType|L-N|{"Part":"R1.AccountType","RowType":"AccountType","DimId":7,"DimNo":"1005","DimName":"فيلا العليا","TypeId":2,"TypeName":"Operating expenses","TypeNameAr":"مصروفات التشغيل","V1":0.0000000000,"V2":0.0000000000,"V3":0.0000000000,"V4":2139.0000000000,"V5":2139
+DIFF|8|R1.AccountType|L-N|{"Part":"R1.AccountType","RowType":"AccountType","DimId":9,"DimNo":"1007","DimName":"مشروع العبداللطيف 2962","TypeId":2,"TypeName":"Operating expenses","TypeNameAr":"مصروفات التشغيل","V1":0.0000000000,"V2":0.0000000000,"V3":0.0000000000,"V4":2668.000000000
+DIFF|8|R1.AccountType|L-N|{"Part":"R1.AccountType","RowType":"AccountType","DimId":10,"DimNo":"1008","DimName":"مشروع رسن طيبة رقم 3533","TypeId":1,"TypeName":"Operating income","TypeNameAr":"ايرادات التشغيل","V1":0.0000000000,"V2":0.0000000000,"V3":0.0000000000,"V4":6929816.223400
+DIFF|8|R1.AccountType|L-N|{"Part":"R1.AccountType","RowType":"AccountType","DimId":10,"DimNo":"1008","DimName":"مشروع رسن طيبة رقم 3533","TypeId":2,"TypeName":"Operating expenses","TypeNameAr":"مصروفات التشغيل","V1":3309637.7255000000,"V2":0.0000000000,"V3":3309637.7255000000,"V4":
+DIFF|8|R1.AccountType|L-N|{"Part":"R1.AccountType","RowType":"AccountType","DimId":11,"DimNo":"1009","DimName":"مشروع المونسية رقم 3259","TypeId":2,"TypeName":"Operating expenses","TypeNameAr":"مصروفات التشغيل","V1":0.0000000000,"V2":0.0000000000,"V3":0.0000000000,"V4":800.00000000
+DIFF|8|R1.AccountType|L-N|{"Part":"R1.AccountType","RowType":"AccountType","DimId":12,"DimNo":"1010","DimName":"مشروع ارض القرية ال سعيدان","TypeId":2,"TypeName":"Operating expenses","TypeNameAr":"مصروفات التشغيل","V1":0.0000000000,"V2":0.0000000000,"V3":0.0000000000,"V4":28200.000
+DIFF|8|R1.AccountType|L-N|{"Part":"R1.AccountType","RowType":"AccountType","DimId":13,"DimNo":"1011","DimName":"مشروع شمس الرياض دار الاركان","TypeId":2,"TypeName":"Operating expenses","TypeNameAr":"مصروفات التشغيل","V1":75398.5000000000,"V2":0.0000000000,"V3":75398.5000000000,"V4"
+DIFF|8|R1.AccountType|L-N|{"Part":"R1.AccountType","RowType":"AccountType","DimId":14,"DimNo":"1012","DimName":"مخطط الرمال 3393 ","TypeId":2,"TypeName":"Operating expenses","TypeNameAr":"مصروفات التشغيل","V1":0.0000000000,"V2":0.0000000000,"V3":0.0000000000,"V4":937.4400000000,"V5
+DIFF|8|R1.AccountType|L-N|{"Part":"R1.AccountType","RowType":"AccountType","DimId":15,"DimNo":"1013","DimName":"مشروع مخطط3722 الكريديس","TypeId":1,"TypeName":"Operating income","TypeNameAr":"ايرادات التشغيل","V1":0.0000000000,"V2":0.0000000000,"V3":0.0000000000,"V4":164656.5430000
+DIFF|8|R1.OtherAccountType|N-L|{"Part":"R1.OtherAccountType","RowType":"OtherAccountType","TypeId":4,"TypeName":"Administrative\/General Expenses","TypeNameAr":"مصروفات عموميه واداريه","V1":595992.6600000000,"V2":0.0000000000,"V3":595992.6600000000,"V4":733457.2500000000,"V5":137464.590
+DIFF|8|R1.Totals|N-L|{"Part":"R1.Totals","RowType":"NetProfit","V1":4326053.9795000000,"V2":0.0000000000,"V3":4326053.9795000000,"V4":13839268.1280000000,"V5":-9788143.3285000000,"V6":4326053.9795000000,"V7":0.0000000000,"V8":4326053.9795000000,"V9":13839268.1280000000,"V10":-
+DIFF|8|R1.Totals|N-L|{"Part":"R1.Totals","RowType":"TotalGrossProfit","V1":4922046.6395000000,"V2":0.0000000000,"V3":4922046.6395000000,"V4":14572725.3780000000,"V5":-9650678.7385000000,"V6":4922046.6395000000,"V7":0.0000000000,"V8":4922046.6395000000,"V9":14572725.3780000000,
+DIFF|18|R5.SubItem|L-N|{"Part":"R5.SubItem","RowType":"SubItem","TypeId":1,"TypeName":"Operating income","SubItem":"الايرادات - الصافي","MonthNo":1,"MonthName":"January","V1":6160537.3844000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000000000,"V6":0.000000
+DIFF|18|R5.SubItem|L-N|{"Part":"R5.SubItem","RowType":"SubItem","TypeId":1,"TypeName":"Operating income","SubItem":"الايرادات - الصافي","MonthNo":2,"MonthName":"February","V1":27897041.4185000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000000000,"V6":0.0000
+DIFF|18|R5.SubItem|L-N|{"Part":"R5.SubItem","RowType":"SubItem","TypeId":1,"TypeName":"Operating income","SubItem":"الايرادات - الصافي","MonthNo":3,"MonthName":"March","V1":4466298.1305000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000000000,"V6":0.00000000
+DIFF|18|R5.SubItem|L-N|{"Part":"R5.SubItem","RowType":"SubItem","TypeId":1,"TypeName":"Operating income","SubItem":"الايرادات - الصافي","MonthNo":4,"MonthName":"April","V1":31275310.3415000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000000000,"V6":0.0000000
+DIFF|18|R5.SubItem|L-N|{"Part":"R5.SubItem","RowType":"SubItem","TypeId":1,"TypeName":"Operating income","SubItem":"الايرادات - الصافي","MonthNo":5,"MonthName":"May","V1":23275027.4678000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000000000,"V6":0.000000000
+DIFF|18|R5.SubItem|L-N|{"Part":"R5.SubItem","RowType":"SubItem","TypeId":1,"TypeName":"Operating income","SubItem":"الايرادات - الصافي","MonthNo":6,"MonthName":"June","V1":12697833.4407000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000000000,"V6":0.00000000
+DIFF|18|R5.SubItem|L-N|{"Part":"R5.SubItem","RowType":"SubItem","TypeId":2,"TypeName":"Operating expenses","SubItem":"تكلفة الايرادات","MonthNo":1,"MonthName":"January","V1":10354151.4206000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000000000,"V6":0.000000
+DIFF|18|R5.SubItem|L-N|{"Part":"R5.SubItem","RowType":"SubItem","TypeId":2,"TypeName":"Operating expenses","SubItem":"تكلفة الايرادات","MonthNo":2,"MonthName":"February","V1":10017570.1644000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000000000,"V6":0.00000
+DIFF|18|R5.SubItem|L-N|{"Part":"R5.SubItem","RowType":"SubItem","TypeId":2,"TypeName":"Operating expenses","SubItem":"تكلفة الايرادات","MonthNo":3,"MonthName":"March","V1":15758130.4307000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000000000,"V6":0.00000000
+DIFF|18|R5.SubItem|L-N|{"Part":"R5.SubItem","RowType":"SubItem","TypeId":2,"TypeName":"Operating expenses","SubItem":"تكلفة الايرادات","MonthNo":4,"MonthName":"April","V1":16921246.3072000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000000000,"V6":0.00000000
+DIFF|18|R5.SubItem|N-L|{"Part":"R5.SubItem","RowType":"SubItem","TypeId":2,"TypeName":"Operating expenses","SubItem":"تكلفة الايرادات","MonthNo":1,"MonthName":"January","V1":949042.2000000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000000000,"V6":0.00000000
+DIFF|18|R5.SubItem|N-L|{"Part":"R5.SubItem","RowType":"SubItem","TypeId":2,"TypeName":"Operating expenses","SubItem":"تكلفة الايرادات","MonthNo":2,"MonthName":"February","V1":778943.8600000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000000000,"V6":0.0000000
+DIFF|18|R5.SubItem|N-L|{"Part":"R5.SubItem","RowType":"SubItem","TypeId":2,"TypeName":"Operating expenses","SubItem":"تكلفة الايرادات","MonthNo":3,"MonthName":"March","V1":1742277.5000000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000000000,"V6":0.000000000
+DIFF|18|R5.SubItem|N-L|{"Part":"R5.SubItem","RowType":"SubItem","TypeId":2,"TypeName":"Operating expenses","SubItem":"تكلفة الايرادات","MonthNo":4,"MonthName":"April","V1":1658562.7900000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000000000,"V6":0.000000000
+DIFF|18|R5.SubItem|N-L|{"Part":"R5.SubItem","RowType":"SubItem","TypeId":2,"TypeName":"Operating expenses","SubItem":"تكلفة الايرادات","MonthNo":5,"MonthName":"May","V1":1202704.3400000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000000000,"V6":0.0000000000,
+DIFF|18|R5.SubItem|N-L|{"Part":"R5.SubItem","RowType":"SubItem","TypeId":2,"TypeName":"Operating expenses","SubItem":"تكلفة الايرادات","MonthNo":6,"MonthName":"June","V1":1353120.8300000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000000000,"V6":0.0000000000
+DIFF|18|R5.SubItem|N-L|{"Part":"R5.SubItem","RowType":"SubItem","TypeId":4,"TypeName":"Administrative\/General Expenses","SubItem":"مصاريف ادارية و عمومية","MonthNo":2,"MonthName":"February","V1":445.0000000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000000
+DIFF|18|R5.SubItem|N-L|{"Part":"R5.SubItem","RowType":"SubItem","TypeId":4,"TypeName":"Administrative\/General Expenses","SubItem":"مصاريف ادارية و عمومية","MonthNo":3,"MonthName":"March","V1":957.9600000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000000000
+DIFF|18|R5.Totals|N-L|{"Part":"R5.Totals","RowType":"GrossProfit","V1":-7684651.5200000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000000000,"V6":0.0000000000,"V7":0.0000000000,"V8":0.0000000000,"V9":0.0000000000,"V10":0.0000000000}
+DIFF|18|R5.Totals|N-L|{"Part":"R5.Totals","RowType":"NetProfit","V1":-7686054.4800000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000000000,"V6":0.0000000000,"V7":0.0000000000,"V8":0.0000000000,"V9":0.0000000000,"V10":0.0000000000}
+DIFF|19|R3.Summary|L-N|{"Part":"R3.Summary","RowType":"Summary","TypeId":4,"TypeName":"Administrative\/General Expenses","TypeNameAr":"مصروفات عموميه واداريه","MonthNo":1,"MonthName":"January","V1":-400.0000000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000
+DIFF|19|R3.Summary|L-N|{"Part":"R3.Summary","RowType":"Summary","TypeId":4,"TypeName":"Administrative\/General Expenses","TypeNameAr":"مصروفات عموميه واداريه","MonthNo":2,"MonthName":"February","V1":-400.0000000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.000
+DIFF|19|R3.Summary|L-N|{"Part":"R3.Summary","RowType":"Summary","TypeId":4,"TypeName":"Administrative\/General Expenses","TypeNameAr":"مصروفات عموميه واداريه","MonthNo":3,"MonthName":"March","V1":-500.0000000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.000000
+DIFF|19|R3.Summary|L-N|{"Part":"R3.Summary","RowType":"Summary","TypeId":4,"TypeName":"Administrative\/General Expenses","TypeNameAr":"مصروفات عموميه واداريه","MonthNo":4,"MonthName":"April","V1":-500.0000000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.000000
+DIFF|19|R3.Summary|L-N|{"Part":"R3.Summary","RowType":"Summary","TypeId":4,"TypeName":"Administrative\/General Expenses","TypeNameAr":"مصروفات عموميه واداريه","MonthNo":5,"MonthName":"May","V1":-1200.0000000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000000
+DIFF|19|R3.Summary|L-N|{"Part":"R3.Summary","RowType":"Summary","TypeId":4,"TypeName":"Administrative\/General Expenses","TypeNameAr":"مصروفات عموميه واداريه","MonthNo":6,"MonthName":"June","V1":-1600.0000000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.000000
+DIFF|19|R3.Summary|L-N|{"Part":"R3.Summary","RowType":"Summary","TypeId":4,"TypeName":"Administrative\/General Expenses","TypeNameAr":"مصروفات عموميه واداريه","MonthNo":7,"MonthName":"July","V1":-2200.0000000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.000000
+DIFF|19|R3.Summary|L-N|{"Part":"R3.Summary","RowType":"Summary","TypeId":4,"TypeName":"Administrative\/General Expenses","TypeNameAr":"مصروفات عموميه واداريه","MonthNo":8,"MonthName":"August","V1":-2200.0000000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000
+DIFF|19|R3.Summary|L-N|{"Part":"R3.Summary","RowType":"Summary","TypeId":4,"TypeName":"Administrative\/General Expenses","TypeNameAr":"مصروفات عموميه واداريه","MonthNo":9,"MonthName":"September","V1":-2200.0000000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0
+DIFF|19|R3.Summary|L-N|{"Part":"R3.Summary","RowType":"Summary","TypeId":4,"TypeName":"Administrative\/General Expenses","TypeNameAr":"مصروفات عموميه واداريه","MonthNo":10,"MonthName":"October","V1":-1700.0000000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.00
+DIFF|32|R3.Dimension|L-N|{"Part":"R3.Dimension","RowType":"Dimension","DimId":34,"DimName":"مشروع تنفيذ اعمال البنية التحتية للمخطط رقم 3994 - حي الخير ","TypeId":1,"TypeName":"Operating income","TypeNameAr":"ايرادات التشغيل","MonthNo":1,"MonthName":"January","V1":-8010.0000000000
+DIFF|32|R3.Dimension|L-N|{"Part":"R3.Dimension","RowType":"Dimension","DimId":34,"DimName":"مشروع تنفيذ اعمال البنية التحتية للمخطط رقم 3994 - حي الخير ","TypeId":1,"TypeName":"Operating income","TypeNameAr":"ايرادات التشغيل","MonthNo":2,"MonthName":"February","V1":-8020.000000000
+DIFF|32|R3.Dimension|L-N|{"Part":"R3.Dimension","RowType":"Dimension","DimId":34,"DimName":"مشروع تنفيذ اعمال البنية التحتية للمخطط رقم 3994 - حي الخير ","TypeId":1,"TypeName":"Operating income","TypeNameAr":"ايرادات التشغيل","MonthNo":3,"MonthName":"March","V1":-8030.0000000000,"
+DIFF|32|R3.Dimension|L-N|{"Part":"R3.Dimension","RowType":"Dimension","DimId":34,"DimName":"مشروع تنفيذ اعمال البنية التحتية للمخطط رقم 3994 - حي الخير ","TypeId":1,"TypeName":"Operating income","TypeNameAr":"ايرادات التشغيل","MonthNo":4,"MonthName":"April","V1":-8040.0000000000,"
+DIFF|32|R3.Dimension|L-N|{"Part":"R3.Dimension","RowType":"Dimension","DimId":34,"DimName":"مشروع تنفيذ اعمال البنية التحتية للمخطط رقم 3994 - حي الخير ","TypeId":1,"TypeName":"Operating income","TypeNameAr":"ايرادات التشغيل","MonthNo":5,"MonthName":"May","V1":-8050.0000000000,"V2
+DIFF|32|R3.Dimension|L-N|{"Part":"R3.Dimension","RowType":"Dimension","DimId":34,"DimName":"مشروع تنفيذ اعمال البنية التحتية للمخطط رقم 3994 - حي الخير ","TypeId":1,"TypeName":"Operating income","TypeNameAr":"ايرادات التشغيل","MonthNo":6,"MonthName":"June","V1":-8060.0000000000,"V
+DIFF|32|R3.Dimension|L-N|{"Part":"R3.Dimension","RowType":"Dimension","DimId":34,"DimName":"مشروع تنفيذ اعمال البنية التحتية للمخطط رقم 3994 - حي الخير ","TypeId":1,"TypeName":"Operating income","TypeNameAr":"ايرادات التشغيل","MonthNo":7,"MonthName":"July","V1":-8070.0000000000,"V
+DIFF|32|R3.Dimension|L-N|{"Part":"R3.Dimension","RowType":"Dimension","DimId":34,"DimName":"مشروع تنفيذ اعمال البنية التحتية للمخطط رقم 3994 - حي الخير ","TypeId":1,"TypeName":"Operating income","TypeNameAr":"ايرادات التشغيل","MonthNo":8,"MonthName":"August","V1":-8080.0000000000,
+DIFF|32|R3.Dimension|L-N|{"Part":"R3.Dimension","RowType":"Dimension","DimId":34,"DimName":"مشروع تنفيذ اعمال البنية التحتية للمخطط رقم 3994 - حي الخير ","TypeId":1,"TypeName":"Operating income","TypeNameAr":"ايرادات التشغيل","MonthNo":9,"MonthName":"September","V1":-8090.00000000
+DIFF|32|R3.Dimension|L-N|{"Part":"R3.Dimension","RowType":"Dimension","DimId":34,"DimName":"مشروع تنفيذ اعمال البنية التحتية للمخطط رقم 3994 - حي الخير ","TypeId":1,"TypeName":"Operating income","TypeNameAr":"ايرادات التشغيل","MonthNo":10,"MonthName":"October","V1":-8100.000000000
+DIFF|32|R3.Summary|N-L|{"Part":"R3.Summary","RowType":"Summary","TypeId":1,"TypeName":"Total Operating Income","TypeNameAr":"ايرادات التشغيل","MonthNo":1,"MonthName":"January","V1":7010.0000000000,"V2":3901903.9215000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000000000,"V6"
+DIFF|32|R3.Summary|N-L|{"Part":"R3.Summary","RowType":"Summary","TypeId":1,"TypeName":"Total Operating Income","TypeNameAr":"ايرادات التشغيل","MonthNo":2,"MonthName":"February","V1":7020.0000000000,"V2":7446360.0719000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000000000,"V6
+DIFF|32|R3.Summary|N-L|{"Part":"R3.Summary","RowType":"Summary","TypeId":1,"TypeName":"Total Operating Income","TypeNameAr":"ايرادات التشغيل","MonthNo":3,"MonthName":"March","V1":7030.0000000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000000000,"V6":0.00000
+DIFF|32|R3.Summary|N-L|{"Part":"R3.Summary","RowType":"Summary","TypeId":1,"TypeName":"Total Operating Income","TypeNameAr":"ايرادات التشغيل","MonthNo":4,"MonthName":"April","V1":7040.0000000000,"V2":6791919.8129000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000000000,"V6":0
+DIFF|32|R3.Summary|N-L|{"Part":"R3.Summary","RowType":"Summary","TypeId":1,"TypeName":"Total Operating Income","TypeNameAr":"ايرادات التشغيل","MonthNo":5,"MonthName":"May","V1":7050.0000000000,"V2":4209805.0242000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000000000,"V6":0.0
+DIFF|32|R3.Summary|N-L|{"Part":"R3.Summary","RowType":"Summary","TypeId":1,"TypeName":"Total Operating Income","TypeNameAr":"ايرادات التشغيل","MonthNo":6,"MonthName":"June","V1":7060.0000000000,"V2":5872502.2336000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000000000,"V6":0.
+DIFF|32|R3.Summary|N-L|{"Part":"R3.Summary","RowType":"Summary","TypeId":1,"TypeName":"Total Operating Income","TypeNameAr":"ايرادات التشغيل","MonthNo":7,"MonthName":"July","V1":7070.0000000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000000000,"V6":0.000000
+DIFF|32|R3.Summary|N-L|{"Part":"R3.Summary","RowType":"Summary","TypeId":1,"TypeName":"Total Operating Income","TypeNameAr":"ايرادات التشغيل","MonthNo":8,"MonthName":"August","V1":7080.0000000000,"V2":4906759.6648000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000000000,"V6":
+DIFF|32|R3.Summary|N-L|{"Part":"R3.Summary","RowType":"Summary","TypeId":1,"TypeName":"Total Operating Income","TypeNameAr":"ايرادات التشغيل","MonthNo":9,"MonthName":"September","V1":7090.0000000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000000000,"V6":0.0
+DIFF|32|R3.Summary|N-L|{"Part":"R3.Summary","RowType":"Summary","TypeId":1,"TypeName":"Total Operating Income","TypeNameAr":"ايرادات التشغيل","MonthNo":10,"MonthName":"October","V1":7100.0000000000,"V2":1767000.0000000000,"V3":0.0000000000,"V4":0.0000000000,"V5":0.0000000000,"V6
+DIFF|33|R1.AccountType|L-N|{"Part":"R1.AccountType","RowType":"AccountType","DimId":3,"DimNo":"1001","DimName":"مشروع تطوير مخطط الموسي فيو بالرياض ","TypeId":1,"TypeName":"Operating income","TypeNameAr":"ايرادات التشغيل","V1":0.0000000000,"V2":0.0000000000,"V3":0.0000000000,"V4":0.
+DIFF|33|R1.AccountType|L-N|{"Part":"R1.AccountType","RowType":"AccountType","DimId":3,"DimNo":"1001","DimName":"مشروع تطوير مخطط الموسي فيو بالرياض ","TypeId":2,"TypeName":"Operating expenses","TypeNameAr":"مصروفات التشغيل","V1":20000.0000000000,"V2":0.0000000000,"V3":20000.00000000
+DIFF|33|R1.AccountType|L-N|{"Part":"R1.AccountType","RowType":"AccountType","DimId":10,"DimNo":"1008","DimName":"مشروع رسن طيبة رقم 3533","TypeId":1,"TypeName":"Operating income","TypeNameAr":"ايرادات التشغيل","V1":4787181.3816000000,"V2":0.0000000000,"V3":4787181.3816000000,"V4":0.
+DIFF|33|R1.AccountType|L-N|{"Part":"R1.AccountType","RowType":"AccountType","DimId":10,"DimNo":"1008","DimName":"مشروع رسن طيبة رقم 3533","TypeId":2,"TypeName":"Operating expenses","TypeNameAr":"مصروفات التشغيل","V1":14950276.6578000000,"V2":0.0000000000,"V3":14950276.6578000000,"V4
+DIFF|33|R1.AccountType|L-N|{"Part":"R1.AccountType","RowType":"AccountType","DimId":13,"DimNo":"1011","DimName":"مشروع شمس الرياض دار الاركان","TypeId":1,"TypeName":"Operating income","TypeNameAr":"ايرادات التشغيل","V1":1044966.3400000000,"V2":0.0000000000,"V3":1044966.3400000000,"V
+DIFF|33|R1.AccountType|L-N|{"Part":"R1.AccountType","RowType":"AccountType","DimId":13,"DimNo":"1011","DimName":"مشروع شمس الرياض دار الاركان","TypeId":2,"TypeName":"Operating expenses","TypeNameAr":"مصروفات التشغيل","V1":40239.0000000000,"V2":0.0000000000,"V3":40239.0000000000,"V4"
+DIFF|33|R1.AccountType|L-N|{"Part":"R1.AccountType","RowType":"AccountType","DimId":14,"DimNo":"1012","DimName":"مخطط الرمال 3393 ","TypeId":2,"TypeName":"Operating expenses","TypeNameAr":"مصروفات التشغيل","V1":1043.7200000000,"V2":0.0000000000,"V3":1043.7200000000,"V4":0.0000000000
+DIFF|33|R1.AccountType|L-N|{"Part":"R1.AccountType","RowType":"AccountType","DimId":15,"DimNo":"1013","DimName":"مشروع مخطط3722 الكريديس","TypeId":1,"TypeName":"Operating income","TypeNameAr":"ايرادات التشغيل","V1":926353.9887000000,"V2":0.0000000000,"V3":926353.9887000000,"V4":0.00
+DIFF|33|R1.AccountType|L-N|{"Part":"R1.AccountType","RowType":"AccountType","DimId":15,"DimNo":"1013","DimName":"مشروع مخطط3722 الكريديس","TypeId":2,"TypeName":"Operating expenses","TypeNameAr":"مصروفات التشغيل","V1":591308.4100000000,"V2":0.0000000000,"V3":591308.4100000000,"V4":0.
+DIFF|33|R1.AccountType|L-N|{"Part":"R1.AccountType","RowType":"AccountType","DimId":16,"DimNo":"1014","DimName":"مشروع مخطط 3951 حي الصفا","TypeId":1,"TypeName":"Operating income","TypeNameAr":"ايرادات التشغيل","V1":1582456.7921000000,"V2":0.0000000000,"V3":1582456.7921000000,"V4":0
+DIFF|33|R1.AccountType|N-L|{"Part":"R1.AccountType","RowType":"AccountType","DimId":3,"DimNo":"1001","DimName":"مشروع تطوير مخطط الموسي فيو بالرياض ","TypeId":1,"TypeName":"Operating income","TypeNameAr":"ايرادات التشغيل","V1":3784460.3496000000,"V2":0.0000000000,"V3":3784460.349600
+DIFF|33|R1.AccountType|N-L|{"Part":"R1.AccountType","RowType":"AccountType","DimId":3,"DimNo":"1001","DimName":"مشروع تطوير مخطط الموسي فيو بالرياض ","TypeId":2,"TypeName":"Operating expenses","TypeNameAr":"مصروفات التشغيل","V1":715016.8000000000,"V2":0.0000000000,"V3":715016.800000
+DIFF|33|R1.AccountType|N-L|{"Part":"R1.AccountType","RowType":"AccountType","DimId":10,"DimNo":"1008","DimName":"مشروع رسن طيبة رقم 3533","TypeId":1,"TypeName":"Operating income","TypeNameAr":"ايرادات التشغيل","V1":2687232.8871000000,"V2":0.0000000000,"V3":2687232.8871000000,"V4":0.
+DIFF|33|R1.AccountType|N-L|{"Part":"R1.AccountType","RowType":"AccountType","DimId":10,"DimNo":"1008","DimName":"مشروع رسن طيبة رقم 3533","TypeId":2,"TypeName":"Operating expenses","TypeNameAr":"مصروفات التشغيل","V1":9845956.5805000000,"V2":0.0000000000,"V3":9845956.5805000000,"V4":
+DIFF|33|R1.AccountType|N-L|{"Part":"R1.AccountType","RowType":"AccountType","DimId":13,"DimNo":"1011","DimName":"مشروع شمس الرياض دار الاركان","TypeId":2,"TypeName":"Operating expenses","TypeNameAr":"مصروفات التشغيل","V1":2434.0000000000,"V2":0.0000000000,"V3":2434.0000000000,"V4":0
+DIFF|33|R1.AccountType|N-L|{"Part":"R1.AccountType","RowType":"AccountType","DimId":14,"DimNo":"1012","DimName":"مخطط الرمال 3393 ","TypeId":2,"TypeName":"Operating expenses","TypeNameAr":"مصروفات التشغيل","V1":2886.8000000000,"V2":0.0000000000,"V3":2886.8000000000,"V4":0.0000000000
+DIFF|33|R1.AccountType|N-L|{"Part":"R1.AccountType","RowType":"AccountType","DimId":15,"DimNo":"1013","DimName":"مشروع مخطط3722 الكريديس","TypeId":1,"TypeName":"Operating income","TypeNameAr":"ايرادات التشغيل","V1":780142.3862000000,"V2":0.0000000000,"V3":780142.3862000000,"V4":0.00
+DIFF|33|R1.AccountType|N-L|{"Part":"R1.AccountType","RowType":"AccountType","DimId":15,"DimNo":"1013","DimName":"مشروع مخطط3722 الكريديس","TypeId":2,"TypeName":"Operating expenses","TypeNameAr":"مصروفات التشغيل","V1":1831567.1900000000,"V2":0.0000000000,"V3":1831567.1900000000,"V4":
+DIFF|33|R1.AccountType|N-L|{"Part":"R1.AccountType","RowType":"AccountType","DimId":16,"DimNo":"1014","DimName":"مشروع مخطط 3951 حي الصفا","TypeId":1,"TypeName":"Operating income","TypeNameAr":"ايرادات التشغيل","V1":1959229.3830000000,"V2":0.0000000000,"V3":1959229.3830000000,"V4":0
+DIFF|33|R1.AccountType|N-L|{"Part":"R1.AccountType","RowType":"AccountType","DimId":16,"DimNo":"1014","DimName":"مشروع مخطط 3951 حي الصفا","TypeId":2,"TypeName":"Operating expenses","TypeNameAr":"مصروفات التشغيل","V1":871917.5998000000,"V2":0.0000000000,"V3":871917.5998000000,"V4":0

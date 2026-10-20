@@ -1,0 +1,28 @@
+yr|mo|hiLvl|loLvl|Ids3|bankWithRows|bankWithoutRows|headers|unpaidHeaders|unpaidHeadersAnyMonth
+--|--|-----|-----|----|------------|---------------|-------|-------------|---------------------
+2026|7|5|1|1,2,4|1|2|1|0|0
+kind|columns_new|columns_legacy
+----|-----------|--------------
+shared|[EmployeeNumber],[EmployeeName],[EmployeeArabicName],[BranchName],[DepartmentName],[ProjectName],[JobName],[BankName],[CurrencyName],[CurrencyNameArabic],[EmployeeSalary]|[EmployeeNumber],[EmployeeName],[EmployeeArabicName],[BranchName],[DepartmentName],[ProjectName],[JobName],[BankName],[CurrencyName],[CurrencyNameArabic],[EmployeeSalary]
+new only|RowNo,EmployeeId,IsPaid|NULL
+legacy only|NULL|NULL
+money (new names)|EmployeeSalary|NULL
+rpt|c|p|oldRows|newRows|oldMinusNew|newMinusOld|grpDiff|sumsEqual|sumsOld|sumsNew|extra|verdict
+---|-|-|-------|-------|-----------|-----------|-------|---------|-------|-------|-----|-------
+R2|a1 all, hi lvl|7/2026 ids=NULL banks=NULL lvl=5 new IsPaid=NULL|75|75|0|0|0|yes|300718.930000|300718.930000|NULL|PASS
+R2|a2 all, lo lvl|7/2026 ids=NULL banks=NULL lvl=1 new IsPaid=NULL|74|74|0|0|0|yes|294343.930000|294343.930000|NULL|PASS
+R2|b1 3 ids + bank, hi lvl|7/2026 ids=1,2,4 banks=1 lvl=5 new IsPaid=NULL|3|3|0|0|0|yes|41050.000000|41050.000000|NULL|PASS
+R2|b2 3 ids + bank, lo lvl|7/2026 ids=1,2,4 banks=1 lvl=1 new IsPaid=NULL|2|2|0|0|0|yes|34675.000000|34675.000000|NULL|PASS
+R2|c1 all + 2-bank list, hi lvl|7/2026 ids=NULL banks=1,2 lvl=5 new IsPaid=NULL|75|75|0|0|0|yes|300718.930000|300718.930000|NULL|PASS
+R2|c2 bank without rows, hi lvl|7/2026 ids=NULL banks=2 lvl=5 new IsPaid=NULL|0|0|0|0|0|yes|null|null|NULL|PASS
+c|nullRows|paidRows|unpaidRows|paidPlusUnpaidMinusNull|nullMinusPaidPlusUnpaid|paidSubsetWrongFlag|unpaidSubsetWrongFlag|paidRowsInNull|unpaidRowsInNull|sumNull|sumPaidPlusUnpaid|fixVerdict
+-|--------|--------|----------|-----------------------|-----------------------|-------------------|---------------------|--------------|----------------|-------|-----------------|----------
+a1 all, hi lvl|75|75|0|0|0|0|0|75|0|300718.930000|300718.930000|PASS
+a2 all, lo lvl|74|74|0|0|0|0|0|74|0|294343.930000|294343.930000|PASS
+b1 3 ids + bank, hi lvl|3|3|0|0|0|0|0|3|0|41050.000000|41050.000000|PASS
+b2 3 ids + bank, lo lvl|2|2|0|0|0|0|0|2|0|34675.000000|34675.000000|PASS
+c1 all + 2-bank list, hi lvl|75|75|0|0|0|0|0|75|0|300718.930000|300718.930000|PASS
+c2 bank without rows, hi lvl|0|0|0|0|0|0|0|0|0|NULL|NULL|PASS
+PayingSalariesId|BankId|IsPaid|detailRows
+----------------|------|------|----------
+2|1|1|75

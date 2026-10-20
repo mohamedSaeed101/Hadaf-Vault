@@ -1,0 +1,51 @@
+tran_ms|trancount_after_rollback|today
+-------|------------------------|-----
+621|0|2026-10-14
+check_
+------
+R4 (a) legacy_r4_fixed.sql vs TVF (22 legacy columns)
+case|params|legacyRows|newRows|L_N|N_L|multisetDiff|sumsLegacy|sumsNew|sumsEqual|verdict
+----|------|----------|-------|---|---|------------|----------|-------|---------|-------
+narrow 2014, sec 5|2014-01-01..2014-12-31 (midnight), legacy '' / new NULL, sec 5|4|4|0|0|0|37425.000000|0.000000|37425.000000|37425.000000|0.000000|37425.000000|yes|PASS
+wide all, sec 1|1900-01-01..2100-01-01, legacy '' / new NULL, sec 1|85|85|0|0|0|483189.500000|0.000000|483189.500000|483189.500000|0.000000|483189.500000|yes|PASS
+wide all, sec 5|1900-01-01..2100-01-01, legacy '' / new NULL, sec 5|87|87|0|0|0|508939.500000|0.000000|508939.500000|508939.500000|0.000000|508939.500000|yes|PASS
+wide ids 5,6,9, sec 5|1900-01-01..2100-01-01, '5,6,9', sec 5|2|2|0|0|0|36950.000000|0.000000|36950.000000|36950.000000|0.000000|36950.000000|yes|PASS
+check_
+------
+R4 (b) untouched legacy (as "legacy") vs fixed legacy (as "new"): the Fix effect
+case|params|legacyRows|newRows|L_N|N_L|multisetDiff|sumsLegacy|sumsNew|sumsEqual|verdict
+----|------|----------|-------|---|---|------------|----------|-------|---------|-------
+narrow 2014, sec 5|2014-01-01..2014-12-31 (midnight), legacy '' / new NULL, sec 5|4|4|1|1|2|35950.000000|0.000000|35950.000000|37425.000000|0.000000|37425.000000|NO|FAIL
+wide all, sec 1|1900-01-01..2100-01-01, legacy '' / new NULL, sec 1|85|85|1|1|2|481714.500000|0.000000|481714.500000|483189.500000|0.000000|483189.500000|NO|FAIL
+wide all, sec 5|1900-01-01..2100-01-01, legacy '' / new NULL, sec 5|87|87|1|1|2|507464.500000|0.000000|507464.500000|508939.500000|0.000000|508939.500000|NO|FAIL
+wide ids 5,6,9, sec 5|1900-01-01..2100-01-01, '5,6,9', sec 5|2|2|1|1|2|35475.000000|0.000000|35475.000000|36950.000000|0.000000|36950.000000|NO|FAIL
+check_
+------
+R4 (b) employees added / removed by the Fix (fixed vs untouched legacy), with the seeded EndWorkingDate
+case|change|EmployeeName|EmployeeId|EndWorkingDate|why
+----|------|------------|----------|--------------|---
+narrow 2014, sec 5|added by Fix|Employee_6|6|2027-12-31 00:00:00.000|end date not reached
+narrow 2014, sec 5|removed by Fix|Employee_5|5|2026-01-31 00:00:00.000|end date passed
+wide all, sec 1|added by Fix|Employee_6|6|2027-12-31 00:00:00.000|end date not reached
+wide all, sec 1|removed by Fix|Employee_5|5|2026-01-31 00:00:00.000|end date passed
+wide all, sec 5|added by Fix|Employee_6|6|2027-12-31 00:00:00.000|end date not reached
+wide all, sec 5|removed by Fix|Employee_5|5|2026-01-31 00:00:00.000|end date passed
+wide ids 5,6,9, sec 5|added by Fix|Employee_6|6|2027-12-31 00:00:00.000|end date not reached
+wide ids 5,6,9, sec 5|removed by Fix|Employee_5|5|2026-01-31 00:00:00.000|end date passed
+check_|case|past_inUntouched|past_inFixed|past_inTVF|future_inUntouched|future_inFixed|future_inTVF
+------|----|----------------|------------|----------|------------------|--------------|------------
+R4 seeded employees per case (1 = present)|narrow 2014, sec 5|1|0|0|0|1|1
+R4 seeded employees per case (1 = present)|wide all, sec 1|1|0|0|0|1|1
+R4 seeded employees per case (1 = present)|wide all, sec 5|1|0|0|0|1|1
+R4 seeded employees per case (1 = present)|wide ids 5,6,9, sec 5|1|0|0|0|1|1
+stage|EmployeeId|EmployeeName|EndWork|EndWorkingDate|SocialInsuranceStartDate|EmployeeSecurityLevel
+-----|----------|------------|-------|--------------|------------------------|---------------------
+after rollback|5|Employee_5|0|NULL|2014-02-01 00:00:00.000|1
+after rollback|6|Employee_6|0|NULL|2014-04-05 00:00:00.000|1
+before|5|Employee_5|0|NULL|2014-02-01 00:00:00.000|1
+before|6|Employee_6|0|NULL|2014-04-05 00:00:00.000|1
+inside tran|5|Employee_5|0|2026-01-31 00:00:00.000|2014-02-01 00:00:00.000|1
+inside tran|6|Employee_6|0|2027-12-31 00:00:00.000|2014-04-05 00:00:00.000|1
+what|trancount|employeesWithEndWorkingDate|seededEmployeesEndWorkingDate
+----|---------|---------------------------|-----------------------------
+post-run|0|0|5:NULL,6:NULL

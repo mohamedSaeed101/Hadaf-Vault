@@ -1,0 +1,13 @@
+CaseName|CardReceive|LegacyRows|TvfRows|LegacyNotInTvf|TvfNotInLegacy|BadSerial
+--------|-----------|----------|-------|--------------|--------------|---------
+all NULL ids, card 0|0|2|2|0|0|0
+all NULL ids, card 1|1|2|2|0|0|0
+all NULL ids, card 2|2|0|0|0|0|0
+all empty ids, card 0|0|2|2|0|0|0
+all, card 3 (default)|3|2|2|0|0|0
+ids 31,30,17, card 0|0|0|0|0|0|0
+ids 31,30,17, card 1|1|0|0|0|0|0
+ids 31,30,17, card 2|2|0|0|0|0|0
+MedicalRowsTotal|MedicalRowsActive
+----------------|-----------------
+2|2

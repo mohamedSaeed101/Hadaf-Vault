@@ -1,0 +1,32 @@
+== R5 2026-01-01..2026-10-14 all ids sec5 ar0
+TestCase|OldRows|NewRows|OldMinusNew|NewMinusOld|Old_BonusAmount|New_BonusAmount|Old_BounsTotalValue|New_BounsTotalValue|SumsEqual|Result
+--------|-------|-------|-----------|-----------|---------------|---------------|-------------------|-------------------|---------|------
+R5 2026-01-01..2026-10-14 all ids sec5 ar0|3|3|0|0|1006.0000|1006.0000|1452.5000|1452.5000|Y|PASS
+== R5 2026-01-01..2026-10-14 all ids sec1 ar0
+TestCase|OldRows|NewRows|OldMinusNew|NewMinusOld|Old_BonusAmount|New_BonusAmount|Old_BounsTotalValue|New_BounsTotalValue|SumsEqual|Result
+--------|-------|-------|-----------|-----------|---------------|---------------|-------------------|-------------------|---------|------
+R5 2026-01-01..2026-10-14 all ids sec1 ar0|3|3|0|0|1006.0000|1006.0000|1452.5000|1452.5000|Y|PASS
+== R5 2026-01-01..2026-10-14 ids 4,14,113 sec5 ar0
+TestCase|OldRows|NewRows|OldMinusNew|NewMinusOld|Old_BonusAmount|New_BonusAmount|Old_BounsTotalValue|New_BounsTotalValue|SumsEqual|Result
+--------|-------|-------|-----------|-----------|---------------|---------------|-------------------|-------------------|---------|------
+R5 2026-01-01..2026-10-14 ids 4,14,113 sec5 ar0|3|3|0|0|1006.0000|1006.0000|1452.5000|1452.5000|Y|PASS
+== R5 2026-01-01..2026-10-14 all ids sec5 ar1
+TestCase|OldRows|NewRows|OldMinusNew|NewMinusOld|Old_BonusAmount|New_BonusAmount|Old_BounsTotalValue|New_BounsTotalValue|SumsEqual|Result
+--------|-------|-------|-----------|-----------|---------------|---------------|-------------------|-------------------|---------|------
+R5 2026-01-01..2026-10-14 all ids sec5 ar1|3|3|0|0|1006.0000|1006.0000|1452.5000|1452.5000|Y|PASS
+== R5 2026-01-01..2026-10-14 all ids sec1 ar1
+TestCase|OldRows|NewRows|OldMinusNew|NewMinusOld|Old_BonusAmount|New_BonusAmount|Old_BounsTotalValue|New_BounsTotalValue|SumsEqual|Result
+--------|-------|-------|-----------|-----------|---------------|---------------|-------------------|-------------------|---------|------
+R5 2026-01-01..2026-10-14 all ids sec1 ar1|3|3|0|0|1006.0000|1006.0000|1452.5000|1452.5000|Y|PASS
+== R5 2026-01-01..2026-10-14 ids 4,14,113 sec5 ar1
+TestCase|OldRows|NewRows|OldMinusNew|NewMinusOld|Old_BonusAmount|New_BonusAmount|Old_BounsTotalValue|New_BounsTotalValue|SumsEqual|Result
+--------|-------|-------|-----------|-----------|---------------|---------------|-------------------|-------------------|---------|------
+R5 2026-01-01..2026-10-14 ids 4,14,113 sec5 ar1|3|3|0|0|1006.0000|1006.0000|1452.5000|1452.5000|Y|PASS
+== R5 2026-01-01..2026-10-13 (before the bonus day) sec5 ar0
+TestCase|OldRows|NewRows|OldMinusNew|NewMinusOld|Old_BonusAmount|New_BonusAmount|Old_BounsTotalValue|New_BounsTotalValue|SumsEqual|Result
+--------|-------|-------|-----------|-----------|---------------|---------------|-------------------|-------------------|---------|------
+R5 2026-01-01..2026-10-13 (before the bonus day) sec5 ar0|0|0|0|0|NULL|NULL|NULL|NULL|Y|PASS
+== R5 2026-01-01..2026-10-14 ids 4,9,113 (no bonus) sec5 ar1
+TestCase|OldRows|NewRows|OldMinusNew|NewMinusOld|Old_BonusAmount|New_BonusAmount|Old_BounsTotalValue|New_BounsTotalValue|SumsEqual|Result
+--------|-------|-------|-----------|-----------|---------------|---------------|-------------------|-------------------|---------|------
+R5 2026-01-01..2026-10-14 ids 4,9,113 (no bonus) sec5 ar1|0|0|0|0|NULL|NULL|NULL|NULL|Y|PASS

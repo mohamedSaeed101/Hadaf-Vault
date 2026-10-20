@@ -1,0 +1,27 @@
+Ids3|terminatedEmployees|openIncomeLines
+----|-------------------|---------------
+4,9,10|0|286
+kind|columns_new|columns_legacy
+----|-----------|--------------
+shared|[EmployeeIncomeId],[EmployeeId],[IncomeId],[IncomeCurrency],[IncomeAmount],[IncomeStartDate],[IncomeTaxRoleId],[SocialInsuranceRoleId],[EmployeeInsuranceAmount],[CompanyInsuranceAmount],[CurrencyName],[IncomeName],[Deduction],[EmployeeName],[SocialInsuranc|[EmployeeIncomeId],[EmployeeId],[IncomeId],[IncomeCurrency],[IncomeAmount],[IncomeStartDate],[IncomeTaxRoleId],[SocialInsuranceRoleId],[EmployeeInsuranceAmount],[CompanyInsuranceAmount],[CurrencyName],[IncomeName],[Deduction],[EmployeeName],[SocialInsuranc
+new only|RowNo|NULL
+legacy only|NULL|NULL
+money (new names)|IncomeAmount,EmployeeInsuranceAmount,CompanyInsuranceAmount|NULL
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+Warning: Null value is eliminated by an aggregate or other SET operation.
+rpt|c|p|oldRows|newRows|oldMinusNew|newMinusOld|grpDiff|sumsEqual|sumsOld|sumsNew|extra|verdict
+---|-|-|-------|-------|-----------|-----------|-------|---------|-------|-------|-----|-------
+R1|a1 All, en|legacy(@empIds=All, @IsArabic=0) new(NULL, NULL, 0)|286|286|0|0|0|yes|522814.500000|null|null|522814.500000|null|null|NULL|PASS
+R1|a2 All, ar|legacy(@empIds=All, @IsArabic=1) new(NULL, NULL, 1)|286|286|0|0|0|yes|522814.500000|null|null|522814.500000|null|null|NULL|PASS
+R1|a3 All via filter All|legacy(@empIds=All, @IsArabic=0) new(NULL, All, 0)|286|286|0|0|0|yes|522814.500000|null|null|522814.500000|null|null|NULL|PASS
+R1|b1 AllInService, en|legacy(@empIds=AllInService, @IsArabic=0) new(NULL, AllInService, 0)|286|286|0|0|0|yes|522814.500000|null|null|522814.500000|null|null|NULL|PASS
+R1|b2 AllInService, ar|legacy(@empIds=AllInService, @IsArabic=1) new(NULL, AllInService, 1)|286|286|0|0|0|yes|522814.500000|null|null|522814.500000|null|null|NULL|PASS
+R1|c1 AllTerminated, en|legacy(@empIds=AllTerminated, @IsArabic=0) new(NULL, AllTerminated, 0)|0|0|0|0|0|yes|null|null|null|null|null|null|NULL|PASS
+R1|c2 AllTerminated, ar|legacy(@empIds=AllTerminated, @IsArabic=1) new(NULL, AllTerminated, 1)|0|0|0|0|0|yes|null|null|null|null|null|null|NULL|PASS
+R1|d1 3 ids, en|legacy(@empIds=4,9,10, @IsArabic=0) new(4,9,10, NULL, 0)|18|18|0|0|0|yes|53075.000000|null|null|53075.000000|null|null|NULL|PASS
+R1|d2 3 ids, ar|legacy(@empIds=4,9,10, @IsArabic=1) new(4,9,10, NULL, 1)|18|18|0|0|0|yes|53075.000000|null|null|53075.000000|null|null|NULL|PASS

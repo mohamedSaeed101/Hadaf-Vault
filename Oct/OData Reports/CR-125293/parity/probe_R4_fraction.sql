@@ -1,0 +1,6 @@
+SET NOCOUNT ON;
+-- TVF fraction expression (PR_InsuranceRegistrationReport.sql:221/227) on literal decimal(38,13) values, the type of TotalIncomeLocal
+SELECT v, CONVERT(VARCHAR(60), v) AS LegacyString, SUBSTRING(CONVERT(VARCHAR(60), v), CHARINDEX('.', CONVERT(VARCHAR(60), v)) + 1, 2) AS LegacyFrac,
+  ISNULL(RIGHT('0' + TRY_CAST(FLOOR((v - FLOOR(v)) * 100) AS VARCHAR(2)), 2), 'ERROR 8115') AS TvfFrac,
+  RIGHT('0' + CAST(CAST(FLOOR(v * 100) - FLOOR(v) * 100 AS INT) AS VARCHAR(2)), 2) AS CandidateFrac
+FROM (VALUES (CAST(1234.25 AS DECIMAL(38,13))), (CAST(1234.4999 AS DECIMAL(38,13))), (CAST(1234.5 AS DECIMAL(38,13))), (CAST(1234.07 AS DECIMAL(38,13))), (CAST(1234.999 AS DECIMAL(38,13))), (CAST(1234 AS DECIMAL(38,13)))) t(v);

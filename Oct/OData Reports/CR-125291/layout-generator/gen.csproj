@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>AnalyticsReader.Api</AssemblyName>
+    <RootNamespace>Gen</RootNamespace>
+    <AssemblyVersion>7.80.0.1</AssemblyVersion>
+    <Version>7.80.0.1</Version>
+    <NoWarn>$(NoWarn);CS8618;CA1416</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="DevExpress.Reporting.Core" Version="24.2.12" />
+    <!-- Roslyn runs the Equity Changing pivot script, as in AnalyticsReader.Api. -->
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.5.0" />
+  </ItemGroup>
+</Project>

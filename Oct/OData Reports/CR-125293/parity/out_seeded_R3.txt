@@ -1,0 +1,30 @@
+tran_ms|trancount_after_rollback|seededSalaryId|seededSalaryDetailId
+-------|------------------------|--------------|--------------------
+369|0|733|13377
+check_
+------
+R3 legacy vs TVF (legacy Suspend -> Suspend, legacy Suspend1 -> SalaryDetailSuspend)
+case|params|legacyRows|newRows|L_N|N_L|multisetDiff|sumsLegacy|sumsNew|sumsEqual|verdict
+----|------|----------|-------|---|---|------------|----------|-------|---------|-------
+a1 8/2026 all, lvl 5|8/2026 ids NULL lvl 5|1458|1458|0|0|0|394014.610000|5554544.340000|0.000000|6449002.800000|894458.460000|394014.610000|5554544.340000|0.000000|6449002.800000|894458.460000|yes|PASS
+a2 8/2026 all, lvl 1|8/2026 ids NULL lvl 1|1416|1416|0|0|0|378514.610000|5326794.340000|0.000000|6171002.800000|844208.460000|378514.610000|5326794.340000|0.000000|6171002.800000|844208.460000|yes|PASS
+b1 8/2026 ids 3, lvl 5|8/2026 ids 3 lvl 5|20|20|0|0|0|3158.000000|63160.000000|0.000000|63160.000000|0.000000|3158.000000|63160.000000|0.000000|63160.000000|0.000000|yes|PASS
+check_
+------
+R3 Suspend mapping: flagged rows per column, legacy vs TVF, and the swapped mapping
+case|linesOfSalary|legSuspend1|newSuspend1|legDetail1|newDetail1|legDetailId|newDetailId|salaryIdMismatch|swappedL_N|verdict
+----|-------------|-----------|-----------|----------|----------|-----------|-----------|----------------|----------|-------
+a1 8/2026 all, lvl 5|20|20|20|1|1|13377|13377|0|19|PASS
+a2 8/2026 all, lvl 1|20|20|20|1|1|13377|13377|0|19|PASS
+b1 8/2026 ids 3, lvl 5|20|20|20|1|1|13377|13377|0|19|PASS
+stage|tbl|id|Suspend
+-----|---|--|-------
+after rollback|PR_Salaries|733|0
+before|PR_Salaries|733|0
+inside tran|PR_Salaries|733|1
+after rollback|PR_SalaryDetail|13377|0
+before|PR_SalaryDetail|13377|0
+inside tran|PR_SalaryDetail|13377|1
+what|trancount|salariesSuspend1|salaryDetailSuspend1|emp3SalaryUnsuspended
+----|---------|----------------|--------------------|---------------------
+post-run|0|0|0|1
