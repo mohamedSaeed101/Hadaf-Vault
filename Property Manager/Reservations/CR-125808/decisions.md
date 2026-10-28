@@ -1,0 +1,13 @@
+# CR-125808 — Decisions (engineer, 2026-10-25)
+
+- **Q1 Base deps:** copy by hand onto `cr125808` (off Master_Stable) only the pieces the reservation needs from their source branches: `PropertyStatus` lookup + `Property.PropertyStatusId`, `PropertyLog` / `PropertyLogEventType` (+ a reservation event type), and `ReservationValidityDays` / `ReservationDownPaymentPercent` on `Pm_RealEstateSettings`. Same approach as ContractClause in 125562. Expect add/add conflicts on the Stage_Beta PRs.
+- **Q2 Lease contract:** deferred. Keep the `Converted` status and the contract column in the model; hide the «تحويل لعقد إيجار» button. → `deffer.md`.
+- **Q3 Invoice / receipt:** deferred. Confirm reserves the unit and writes the property log; deposit and collected amount live on the reservation only; the «الفاتورة والتحصيل» tab and «تحصيل العربون» are hidden. → `deffer.md`.
+- **Q5 Quick customer (agent, business-check-1 row 4):** reuse the sale-quotations quick-create popup as it is; classification «مستأجر» does not exist, so it is not set; the group comes from the settings row. Flag to the PO in the PR.
+- **Q6 Business check 1 accepted:** rows 1 (property update/delete guard, spec A11), 2 (release only if still Reserved), 3 (`null OR Available`), 5 (log event types 2/3, SourceTypeId = module 959, SourceId = reservation id), 6 (÷ 100), 7 (`RR-yyyy-0000`); row 8: "deposit ≤ rent" dropped as undocumented.
+- **Q4 Expiry:** no auto-expiry; BR-7 warning colour + message only; no refund handling. Refund / auto-expiry → `deffer.md`.
+- **Q7 Log event ids (agent, 2026-10-25):** 4 RentReservation / 5 RentReservationCancelled inside 0464's MERGE (2 and 3 are taken on Master_Stable / Stage_Beta). Money columns DECIMAL(19,4) per db-rules.
+- **Q8 Review-1 rows 3, 4 (agent, 2026-10-25):** spec amended — Confirm/Cancel gated by Edit on 959 (no house Confirm policy); a Draft cancel writes no property-log row.
+- **Q9 Review-1 row 14 (agent):** the copied remap post-script stays byte-identical to origin/cr125720 (same hash already run on Sabreen); its missing re-run guard is cr125720's to fix. Raise it there.
+- **Q10 Review-1 row 15 / Stage_Beta merge (agent):** when the cr125808 Stage_Beta PR is resolved, 0464's event-type list must be 1, 2, 3, 4, 5 and add the comma Stage_Beta is missing after row 2; menu root '7' exists there as 'Rental' with 7_1 / 7_2 — put 7_3 under it, do not add a second root '7'.
+- **Q11 Remap post-script removed (engineer, 2026-10-25):** 'there is no data in cloud' - 20261022151259_Pm_Properties_RemapPropertyStatus.sql and its sqlproj entry dropped from cr125808; supersedes Q9. cr125720 / Stage_Beta still carry their own copy.

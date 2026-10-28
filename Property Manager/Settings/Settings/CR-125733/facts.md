@@ -1,0 +1,38 @@
+---
+type: facts
+cr: 125733
+updated: 2026-10-22
+source: "[[Settings]]"
+---
+
+# CR-125733 — Facts: Real Estate General Settings (الضبط العام `set.settings`)
+
+- **ADO:** Change Request 125733, created by the agent at the engineer's explicit request (2026-10-22) from the source note [[Settings]]. Fields copied from sibling CR 125716 (area `3- Customer Issues`, Program Property Manager, customer نواصى العقارية, country السعودية, version 7.0.82.x, Environment Beta, Category Paid, due 2026-11-01). Assigned to Mohamed Saeed, state **In Development**. Supersedes the empty CR 101120 (Confirmed, Muhammed Tariq, "Settings / الإعدادات", no description) under Feature 101056 / US 101132.
+  https://hadafsolutions.visualstudio.com/AccFlex_ERP/_workitems/edit/125733
+- **Merge Desk:** ticket #12602, Beta, Acknowledge, owner mohamed.saed, repos API / WebContainer / Database, contract change on, components Database / Property Manager / Web Container (added on the engineer's "add deploy in ticket"). `cr125733` on origin in all three repos.
+- **Kind:** cr → first PR to `Stage_Beta`, second to `Master_Stable`. Base `Master_Stable`. Set `worktrees\cr125733` (db, erp, front).
+- **Surface:** Property Manager cloud only (DB `Pm_*`, `AccFlex_Cloud_ERP\PropertyManager\`, front project `property-manager`). Desktop not touched.
+- **Attachments:** none; the source note is the only source. Requirements S8, M58.
+
+> **Module id: 937 (engineer, 2026-10-22) then back to 953 with cr125638's English name (engineer, 2026-10-25, "make it 953", decisions Q11); Arabic «الضبط العام», menu 5_3_1.**
+
+## Scope (source: [[Settings]])
+
+1. One screen, one «حفظ», tabs: عام، الحسابات، القيم الافتراضية، إثبات الإيراد، الضرائب، غرامات التأخير والتعثر، التكاملات الحكومية. One settings row per company (BR-7). *(§ترتيب الشاشة)*
+2. Fields 1–30 of §الحقول: company names, country (SA / AE / EG, default SA), hijri flag, REGA licences + expiry; 4 mandatory accounts (+ a 5th in BR-6); reservation validity 14, down payment 5 %, grace days 5, rent frequency quarterly, instalment change limit 10 %; penalty treatment / annual legal cap / start / capped-at-principal / contract cap / dunning stages; first-home tax cap 1,000,000, broker withholding 5 (EG) / 0; revenue journals manual / automatic (radio), sale revenue recognition, accrued + unearned rent revenue accounts, journal preview table.
+3. BR-1..BR-24. The screen itself implements BR-2 (country defaults), BR-5 (integration fields), BR-6, BR-7, BR-9 (the VAT rate is read for the hint only), BR-13, BR-14, BR-19, BR-20 (the policy is stored here). BR-3, BR-4, BR-8, BR-10, BR-11, BR-16, BR-17, BR-21..BR-24 describe consumers (contracts, invoices, journals, printing) that do not exist in the cloud.
+4. Buttons: حفظ (validates the mandatory accounts, opens the accounts tab on failure, «تم حفظ الإعدادات»), (i) hints on the defaults, D-code badges (informational). *(§الأزرار)*
+5. AC-1..AC-14. Deliverable by this CR: AC-6, AC-7, AC-9, AC-10, AC-13 and the screen half of AC-2 and AC-11. The rest need reservations, contracts, invoices, penalties or print previews.
+6. Open questions in the note: journal accounts not on the tab (5110, 4140, 4130, 4150, 4190, 2340, 2350, 5410); REGA expiry alert; source of the completion percentage.
+
+## Code facts (explorer + git scans, 2026-10-22)
+
+- **A settings table already exists on `Stage_Beta`** from cr125638 (sale quotations; Merge Desk PRs 68117 / 68118 / 68119 merged into Stage_Beta on all three repos, **no Master_Stable PR yet**): `Pm_RealEstateSettings` (`Id INT` PK with `CHECK (Id = 1)`, `CustomerGroupId INT NULL` FK `Lgx_CustomerGroup`), the row seeded by `0464_Pm_SaleQuotationLookups.sql` (`IF NOT EXISTS ... INSERT (1, NULL)`); aggregate `PropertyManager.Logic\RealEstateSettingsAggregate\RealEstateSettings.cs` (`SettingsId = 1`, `Create` / `Update`); `UpdateRealEstateSettingsCommand` (create-if-missing else update, `SaveChangesWithValidation`); `GetRealEstateSettingsQuery`; `RealEstateSettingsController` (`GET/PUT api/RealEstateSettings`, View / Edit policies, **module 953** `Module.PropertyManagerRealEstateSettings`, «إعدادات التسويق العقاري»); front module `property-manager\src\app\modules\real-estate-settings\` (shell with `accflex-floating-icons` + one `dx-select-box`, data service on `RealEstateSettingsClient`), route `real-estate-settings` with `ModuleId: 953`, i18n `REALESTATESETTINGS`, menu item **5_1_6** (duplicate id with ContractTemplates on Stage_Beta).
+- **Logistics template** («الضبط العام 5_1», module 630): `Lgx_SystemConfigurations` (identity key, row seeded by a post script, no create-on-first-save), aggregate `Logistics.Common.Logic\SystemConfigurationAggregate\SystemConfiguration.cs` (`Update(...)` takes `Maybe<Country>` and `Maybe<Account>` per field and validates inside), `UpdateSystemConfigurationCommand` (loads all accounts in one query, country via `IgnoreQueryFilters`), controller `GET api/SystemConfiguration` (no policy) / `PUT` (Edit policy). Front `projects\logistics\src\app\modules\logistics-settings\`: shell with `dx-tab-panel` + one component per tab, form built in the data service, `dx-lookup` for accounts, country list from `countryClient.getActiveCountry()` bound by `CountryId`.
+- **Menus** (`PropertyManager.Application\MenuList\WebMenuGroup.cs` / `WebMenuItem.cs`): Stage_Beta has root "5" «إعدادات العقارات» with 5_1 «البيانات الأساسية للعقارات» (5_1_1..5_1_6) and 5_2 «أدوات المشاريع والعقارات» (5_2_1..5_2_3), root "6" twice (defect), no «الإعدادات والصلاحيات» group anywhere. Local cr125716 adds root "7" (uncommitted). Next free group under 5: **5_3**.
+- **Module ids:** Master_Stable ≤ 950, Stage_Beta 951–953 (953 = RealEstateSettings), cr125716 takes 954 (uncommitted). This CR reuses **953** (same declaration as cr125638) and needs no new id.
+- **Lookups house pattern:** lookup tables (`Id`, `Name`, `NameSecondLanguage`) + one reference-data MERGE script per CR (`0431_Pm_InstallmentPlanLookups.sql`), a static-list entity in Logic, a query that projects the static list by culture (`GetAllInstallmentPlanTypeQuery`), one GET action per lookup on the controller.
+- **`Pm_ProofOfIncomeAndExpenses`:** table (`ProofOfIncomeAndExpensesId`, `Name`, `NameSecondLanguage`), seed `0328_Pm_ProofOfIncomeAndExpenses.sql` (1 «التعاقد على الوحدة» / Property Contraction, 2 «تسليم الوحدة» / Property Delivery), static entity `PropertyAggregate\ProofOfIncomeAndExpenses.cs` (`List`, `PropertyContraction`, `PropertyDelivery`), EF config. **No query or endpoint exposes it** on Stage_Beta; `Pm_Properties.ProofOfIncomeAndExpensesId INT NULL` (FK dropped by CR 125487) and `Pm_Project.ProofOfIncomeAndExpenses INT NOT NULL DF 1` still exist on Master_Stable but nothing in Logic maps them (CR 125486 / 125487 follow-ups).
+- **Accounts:** `IGeneralLedgerContext` is already injected in PM (`CreateProjectCommand.cs:69`; `GetProjectExpenseTypeAccountsQuery` on Stage_Beta: `IsLastNode && IsActive && AccountTypeId in set`, ordered by `AccountNumber`). Asset types 6 / 7 / 16 / 18; expense 2 / 4 / 5; liabilities: `CurrentLiabilities = 8` (D33); the full liability set is read from `GeneralLedger.Logic\AccountAggregate\AccountType.cs` in phase 3.
+- **Country:** `ACFX_Country` (`CountryId`, `Code`, `Description`, `DescriptionSecondLanguage`, `CurrencyId`, `IsActive`): SA = 193, AE = 2, EG = 65 (`0032_ACFX_Country.sql`). SharedKernel aggregate `CountryAggregate\Country.cs` with `CountryTaxList` (`ACFX_CountryTax.TaxPercentage`). GL settings 1_8 = `Acc_SystemConfiguration` (`Tax MONEY`, `FixedTaxValue FLOAT`); memory note "Sales VAT rate resolution" lists the three rate sources.
+- Test tenant: Sabreen (db-all / Sabreen_Primary), memory `pm-test-tenant-sabreen`.

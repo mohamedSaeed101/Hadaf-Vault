@@ -10,6 +10,9 @@ The legacy prints used the tenant ApproximateNo (e.g. 3 on dbselena_Primary). Th
 - **A (recommended):** pass `approximateNo` as a report parameter from the 5 `*Ang.cs` and bind the format to it. This is a small change in P2 + P4.
 - B: keep N2 (sibling precedent).
 
+## Iterate 1 (QA return 2026-10-20)
+- [ ] Q3: The screenshot `125291-equity-no-total.png` on Sabreen's comment 10010793 can't be read (ADO VS402330, no read access to the attachment's area). Change note 1 works from the comment text. Blocked on: the engineer opening it in the browser if the text turns out to be ambiguous.
+
 ## Visible text choices (no numeric effect) for the PO
 - Brief row 9 Arabic caption is now "تمويل رأس المال المستثمر" (legacy duplicated row 6's caption).
 - Cash Flow English captions have their typos fixed.
