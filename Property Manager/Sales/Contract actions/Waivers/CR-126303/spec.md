@@ -10,21 +10,21 @@ A new Property Manager screen, Real-estate marketing › Contract actions › Wa
 
 ## Requirements
 - **R1** Eligible contracts: sale contracts with status Active 2 or Delivered 3 (Q7). Any other status is refused by the aggregate.
-- **R2** Paid = collected reservation deposit of the contract's reservation (`ReservationInvoice.InvoicePaidAmount`, 0 when none or the invoice is void) (Q1).
+- **R2** Paid = what was collected **on the contract itself**, not the reservation (Q10: «التنازلات على العقد مش الحجز»). The cloud has no collection on sale-contract installments yet (D1), so paid = 0 in this CR; the document and popup still carry the Paid field, filled when D1 lands.
 - **R3** Remaining = sum (Amount + Tax) of the contract's Active installment lines, excluding the RETT series 5 (Q1, D12).
 - **R4** Fee: optional, ≥ 0; popup default = `RealEstateSettings.WaiverFeePercent` (new, default 1) × contract net, rounded to 2 dp; editable (Q5). Refund = paid − fee (may be ≤ 0, shown as is).
 - **R5** Execute and post: one transaction — create the document (code `DOC-YYYY-####`, shared sequence with other contract-action documents), every Active installment except the RETT line (series 5, left untouched like Transfer; D12) → Cancelled 3 with `CancelledByContractActionDocumentId` = the document, contract → Assigned 5, unit Sold → Available **and `SaleContractId` cleared** (new `Property.ReleaseSold(saleContractId)`, refused if the unit is not Sold or is linked to another contract) (BC-1 row 1), and a `PropertyLog` event «تنازل» (new event type) carrying the document id (BC-1 row 4).
 - **R6** Document: type «تنازل» (new type id), status Posted 1, date, contract, unit, customer = `SaleContract.CustomerId` (the representative buyer; co-buyer split rides with D10) (BC-1 row 6), `PreviousContractStatusId`, amount = fee, refund, paid, remaining, description «تنازل للشركة، رد <refund>» (Q8 snapshot minimum). The reservation stays ConvertedToContract and its deposit invoice is untouched (BC-1 row 5).
 - **R7** «تنفيذ وترحيل» is disabled until a contract is picked; date defaults to today and is required.
 - **R8** List columns: document, type, date, contract, property, description, amount (fee), status; search and Excel export; opening a row shows a read-only details popup (no cancel button, Q8).
-- **R9** Permissions: new module id (next free), View for list / preview / eligible, Add for execute (Q9). Eligible list and execute are scoped to the user's sales organizations, as Transfer does (`CheckUserSalesOrganizationAsync`) (BC-1 row 3).
+- **R9** Permissions: new module id (next free), View for list / preview / eligible, Add for execute (Q9). Eligible list, execute and the waiver documents list are scoped to the user's sales organizations, as Transfer does (`CheckUserSalesOrganizationAsync`) (BC-1 row 3) (documents list added in review-1 row 2, same as `GetSaleContractTransfersQuery`).
 - **R10** Settings: `WaiverFeePercent` (decimal(5,2), 0–100) readable and editable in Real Estate Settings like `DefaultTransferFee`.
 
 ## Acceptance (A1..An)
-- **A1** Active contract, net 1,000,000, deposit paid 200,000, fee 10,000 → contract «متنازل عنه», unit «متاح», all Active installments except the RETT line «ملغي», document `DOC-2026-xxxx` «تنازل» Posted with amount 10,000 and refund 190,000.
+- **A1** Active contract, net 1,000,000, fee 10,000 (aggregate level: paid 200,000 passed in) → contract «متنازل عنه», unit «متاح», all Active installments except the RETT line «ملغي», document `DOC-2026-xxxx` «تنازل» Posted with amount 10,000 and refund 190,000.
 - **A2** Default fee with WaiverFeePercent 1 and net 1,000,000 = 10,000; with the setting changed to 2 → 20,000.
 - **A3** Contract Draft / FullyPaid / Assigned / Transferred / Replaced / Rescinded is not in the eligible list and is refused by the command.
-- **A4** Fee > paid (paid 0, fee 10,000) posts with refund −10,000 shown.
+- **A4** Fee > paid (paid 0, fee 10,000) posts with refund −10,000 shown. End to end through the handler in this CR paid is always 0 (R2).
 - **A5** After a waiver the unit is Available with no sale contract, can be reserved again, and a new sale contract on it can be approved; it shows in the stock report again.
 - **A7** A user outside the contract's sales organization does not see it in the eligible list and is refused by the command.
 - **A6** Document codes are sequential per year across reschedule and waiver documents.

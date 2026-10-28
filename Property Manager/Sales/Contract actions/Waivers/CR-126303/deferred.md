@@ -4,7 +4,7 @@ Items from `..\Waivers.md` that wait for infrastructure the cloud does not have 
 
 | # | Source rule | What is deferred | Waits for |
 |---|---|---|---|
-| D1 | BR-1 | Paid on revenue-installment invoices (today paid = deposit only) | installment invoicing with a paid amount per line |
+| D1 | BR-1, Q10 | Paid on the contract (revenue-installment invoices); today paid = 0, the reservation deposit never counts | installment invoicing with a paid amount per line |
 | D2 | BR-1, BR-3 | «Remaining = uninvoiced installments» distinction (today all Active lines are uninvoiced) | installment invoicing |
 | D3 | BR-3, BR-9 | Combined reversal entry (قيد العكس الموحد): Dr recognised revenue / output VAT, Cr contract receivable 1215 or customer advances, Cr customer account by unpaid invoices | revenue recognition («المثبت») posting; shared with rescission and replacement |
 | D4 | BR-3 | Recognised amount on the contract back to 0, and restored on cancel (BR-6) | revenue recognition |

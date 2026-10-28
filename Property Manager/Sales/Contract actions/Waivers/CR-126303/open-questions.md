@@ -13,3 +13,8 @@ Each has the agent's recommended answer. Blocked on: the engineer (or the PO thr
 - [x] Q7 Eligible contracts. Rec: Active and Delivered (Delivered is never set today, harmless); unit Sold → Available via a new `Property.ReleaseSold()`.
 - [x] Q8 Cancel waiver. Rec: allowed only while the unit is still Available and the payment request is not paid; cancels the payment request, reverses the journal, restores from snapshot.
 - [x] Q9 Permissions. Rec: new module id, View / Add for the waiver, Delete policy for cancel.
+
+## Phase 4 (2026-10-28)
+
+- [x] Q10 (phase 4, answered: paid = 0, see decisions.md Q10): R2 says paid = the collected deposit of "the contract's reservation", but nothing links a sale contract to a reservation: `Pm_SaleContract` has no ReservationId, `Pm_Reservation` has no SaleContractId, no code ever sets ReservationStatus.ConvertedToContract 3, and SaleQuotation has no reservation link either (checked this set and origin/Stage_Beta). Which reservation's `ReservationInvoice.InvoicePaidAmount` counts as paid? Options: (a) the latest reservation on the same PropertyId **and** CustomerId with status Confirmed 2 or ConvertedToContract 3 (agent's recommendation; a transferred contract's new customer then gets paid 0); (b) same PropertyId only, any non-cancelled status, latest (the deposit follows the unit, also through a transfer); (c) add a ReservationId to the sale contract (new column + set it on create from reservation; bigger scope, belongs to another CR). Also: when several match, sum or latest? ; blocked on: the engineer
+  - [x] Answered 2026-10-28: «التنازلات على العقد مش الحجز» — the reservation deposit does not count; paid = collected on the contract = 0 today (D1). `decisions.md` Q10.
