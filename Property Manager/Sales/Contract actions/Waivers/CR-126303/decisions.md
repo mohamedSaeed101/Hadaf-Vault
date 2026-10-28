@@ -1,0 +1,13 @@
+# CR 126303 – decisions
+
+- **Q1 (2026-10-28, engineer):** build the waiver on what exists. Paid = collected reservation deposit (`ReservationInvoice.InvoicePaidAmount`); remaining = all Active installments; no revenue reversal, since nothing is recognised in the cloud. The missing accounting is deferred (`deferred.md`).
+- **Q2 (2026-10-28, engineer):** "defer for now قيد عكس الإيراد and all questions about it". The waiver posts **no journal** in this CR (no fee / refund entry, no new account settings); cancel reverses no journal. → `deferred.md` D9.
+- **Q3 (2026-10-28, follows Q2):** credit note D09 is part of the deferred accounting → `deferred.md` D5; not built here.
+- **Q4 (2026-10-28, engineer):** no payment request in this CR; the popup and the document show the refund amount (paid − fee) only. → `deferred.md` D10.
+- **Q5 (2026-10-28, engineer):** new `RealEstateSettings.WaiverFeePercent` (default 1), set like `DefaultTransferFee`; the popup fills % × contract net, editable.
+- **Q6 (2026-10-28, engineer):** byte-identical copy of CR 126223's shared pieces (Pm_ContractActionDocument + Type/Status tables, installment status Cancelled 3 + `Cancel(docId)`, ContractActionDocument aggregate, `GetNextContractActionDocumentCode`, ContractActions 6_3 menu group) into this set, so either order of merge is clean. Source: the cr126223 set (`D:\Hadaf-worktrees\cr126223`, uncommitted) — not readable from this session on 2026-10-28; the plan's phase 1 needs it pushed or reachable.
+- **Q7 (2026-10-28, engineer):** eligible = sale contracts Active 2 or Delivered 3. Waiver: contract → Assigned 5 «متنازل عنه»; unit Sold → Available (new `Property` method); every Active installment → Cancelled 3 linked to the waiver document.
+- **Q8 (2026-10-28, engineer):** cancel waiver deferred → `deferred.md` D11. Agent consequence: no full snapshot table (BR-4 exists only for cancel); the document keeps `PreviousContractStatusId` and `CustomerId`, and cancelled lines carry `CancelledByContractActionDocumentId` — enough for a later cancel. Document status is Posted only in this CR.
+- **Q9 (2026-10-28, engineer):** new module id (next free across remote branches and the test tenant; 964–967 are taken), View for the list, Add for «تنفيذ وترحيل». No approval workflow.
+- **BC-1 row 2 RETT (2026-10-28, engineer: "defer it"):** the waiver does not touch the RETT line (series 5) or its journal, as Transfer does; RETT handling on waiver → `deferred.md` D12. (Agent reading of "defer it": leave it as is, not cancel it.)
+- **BC-1 rows 1, 3–6 (agent, applied to spec):** unit `SaleContractId` cleared with Available; sales-organization scoping as Transfer; PropertyLog «تنازل» event; reservation untouched; customer = `SaleContract.CustomerId`.

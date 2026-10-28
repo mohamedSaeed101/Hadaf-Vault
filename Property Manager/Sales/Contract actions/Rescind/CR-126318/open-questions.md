@@ -1,0 +1,14 @@
+# CR 126318 – Rescind – open questions (grill round 1, 2026-10-28)
+
+Agent self-grill against `facts.md`, the waiver's decisions (126303 Q1–Q9, BC-1) and the code. KG has no cloud rescission note (126303 business-check row 10). Each has the agent's recommended answer. Blocked on: the engineer.
+
+- [ ] Q1 Paid / remaining. Rec: as the waiver — paid = collected reservation deposit (`ReservationInvoice.InvoicePaidAmount`, 0 when void); remaining = Active installment lines that rescission cancels (Q5). Installment-invoice paid → `deferred.md` P1.
+- [ ] Q2 Credit note (D09) and payment request (D27). Rec: defer both (P2, P3), as waiver Q3/Q4; popup and document show paid, penalty taken, remainder and refund only.
+- [ ] Q3 Penalty default. Rec: new `RealEstateSettings.RescissionPenaltyPercent` decimal(5,2), default 10, editable in Real Estate Settings like `WaiverFeePercent` / `DefaultTransferFee`; basis default «نسبة من المسدد» fixed in the popup. Contract value = the contract net (after discount, before VAT).
+- [ ] Q4 «تحميل باقي الغرامة على العميل». Rec: build it — new `InstallmentSeries` 7 «غرامة فسخ», one Active line on the rescinded contract, amount = penalty − paid, tax 0 (category `O`), due = rescission date, linked to the document (`ContractActionDocumentId`). Its invoicing waits for installment invoicing (P5). It must stay visible on a Rescinded contract in «متابعة أقساط البيع».
+- [ ] Q5 Which lines are cancelled. Rec: Active lines of DownPayment 1, Installment 2, Amenity 4. Kept: MaintenanceDeposit 3 («التأمين»), Rett 5 (as waiver D12), TransferFee 6 («الرسوم»), penalty 7. Confirm that «التأمين» = وديعة صيانة.
+- [ ] Q6 Permissions / approval. Rec: new module id (next free at phase 1; 964–967 taken), View for list / eligible / preview, Add for «تنفيذ وترحيل»; sales-organization scoping as Transfer/waiver; approval D39 deferred (P4).
+- [ ] Q7 Shared pieces with 126303 (document type, `PreviousContractStatusId` / `PaidAmount` / `RemainingAmount` / `RefundAmount` columns, `Property.ReleaseSold`, PropertyLog event). Rec: same column names and definitions as the waiver spec, written byte-identical in both sets so either merge order is clean; this CR adds only `PenaltyBasisId`, `PenaltyPercent`, `PenaltyRemainder`, `Reason`; document type 3 «فسخ عقد» (waiver = 2); PropertyLog event 11 «فسخ» (waiver = 10). Base on Master_Stable and copy 126223's shared pieces byte-identical from origin/cr126223 (now pushed), as waiver Q6.
+- [ ] Q8 Cancel a rescission. The source has none. Rec: none in this CR; the document keeps `PreviousContractStatusId` and cancelled lines carry `CancelledByContractActionDocumentId`, enough for a later cancel.
+
+Source OQ-a and OQ-b are revenue-reversal questions → `deferred.md` D6, D7. OQ-c (suspended installments) is moot: the cloud has no suspended status.
